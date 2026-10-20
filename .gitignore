@@ -1,6 +1,8 @@
 # 各台電腦自己的設定（公司路徑、mapkey 名稱等），不上傳
 local_config.toml
 check_report.txt
+macropad.log
+screenshots/
 
 __pycache__/
 *.pyc

@@ -24,7 +24,12 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="不真的執行動作")
     args = ap.parse_args()
-    sys.stdout.reconfigure(errors="replace")
+    if sys.stdout is None:
+        # 用 pythonw 背景執行時沒有主控台，把訊息和錯誤寫進 log 檔
+        log = open(config_mod.ROOT / "macropad.log", "a", encoding="utf-8", buffering=1)
+        sys.stdout = sys.stderr = log
+    else:
+        sys.stdout.reconfigure(errors="replace")
 
     cfg = config_mod.load()
     bindings = dict(cfg.hotkeys)
