@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>桌面小螢幕設計</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+<style>
+:root{--bg:#F5F4F0;--fg:#1B1B1A;--fg2:#5B5952;--card:#FFFFFF;--line:#E2DFD7;--acc:#1F63B8;--z:2}
+@media (prefers-color-scheme:dark){:root{--bg:#141516;--fg:#ECEBE7;--fg2:#A3A19A;--card:#1D1F21;--line:#2E3033;--acc:#6FA8F0}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Microsoft JhengHei UI","Noto Sans TC","PingFang TC",sans-serif;line-height:1.65;font-size:15px}
+main{max-width:1460px;margin:0 auto;padding:40px 28px 96px}
+h1{font-size:30px;margin:0 0 8px;letter-spacing:.02em}
+h2{font-size:24px;margin:72px 0 6px;padding-top:24px;border-top:1px solid var(--line)}
+h2 .tag{display:inline-block;font-size:13px;font-weight:700;padding:2px 10px;border-radius:99px;background:var(--fg);color:var(--bg);vertical-align:middle;margin-right:10px}
+h3{font-size:17px;margin:32px 0 12px}
+p{margin:0 0 12px;max-width:78ch}
+.lead{color:var(--fg2);font-size:16px}
+.rationale{font-size:16px;max-width:82ch}
+.gallery{display:flex;flex-wrap:wrap;gap:28px 24px}
+figure{margin:0;width:calc(320px*var(--z) + 24px)}
+figcaption{font-size:14px;color:var(--fg2);margin-top:8px;line-height:1.55}
+figcaption b{color:var(--fg);display:block;font-size:15px}
+.bezel{background:#090909;padding:12px;border-radius:14px;box-shadow:inset 0 0 0 1px #262626}
+.shot{width:calc(320px*var(--z));height:calc(240px*var(--z));overflow:hidden}
+.scr{width:320px;height:240px;transform:scale(var(--z));transform-origin:0 0;position:relative;overflow:hidden;line-height:1.2;font-family:"Microsoft JhengHei UI","Noto Sans TC",sans-serif}
+.z1 figure{width:344px}
+.z1 .shot{width:320px;height:240px}
+.z1 .scr{transform:none}
+.o{position:absolute;box-sizing:border-box}
+.o i.ti{display:inline-block}
+.spec{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:8px}
+.spec section{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.spec h4{margin:0 0 10px;font-size:14px;color:var(--fg2);font-weight:700;letter-spacing:.05em}
+.sw{display:flex;align-items:center;gap:10px;font-size:13.5px;margin:4px 0}
+.sw span.c{width:22px;height:22px;border-radius:5px;flex:none;box-shadow:inset 0 0 0 1px rgba(128,128,128,.35)}
+.sw code{font-family:Consolas,"Cascadia Mono",monospace;color:var(--fg2);margin-left:auto}
+.spec ul{margin:0;padding-left:18px;font-size:14px}
+.spec li{margin:3px 0}
+code{font-family:Consolas,"Cascadia Mono",monospace;font-size:.92em}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:16px 0 0}
+.rules div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:14.5px}
+.rules b{display:block;margin-bottom:4px}
+.rec{background:var(--card);border:2px solid var(--acc);border-radius:12px;padding:22px 24px;margin-top:16px}
+.rec h3{margin-top:0}
+.out li{margin:6px 0;max-width:80ch}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0}
+nav a{color:var(--fg);text-decoration:none;font-size:14px;padding:6px 12px;border:1px solid var(--line);border-radius:99px;background:var(--card)}
+@media (max-width:760px){
+  :root{--z:1}
+  main{padding:24px 16px 64px}
+  h1{font-size:24px}
+  .bezel{padding:8px;border-radius:10px}
+  figure,.z1 figure{width:336px}
+}
+</style>
+</head>
+<body>
+<main>
+<h1>桌面小螢幕：三個設計方向</h1>
+<p class="lead">ESP32-2432S028（2.8 吋 320×240，RGB565）放在 6 鍵＋1 旋鈕巨集鍵盤旁。螢幕只做兩件事：告訴你<b>每顆實體鍵現在做什麼</b>，以及<b>上一個動作的結果</b>。下方每個畫面都是 320×240 CSS px，以 2 倍放大顯示（手機上為 1 倍），所以字級和間距跟實機像素一一對應。</p>
+<nav><a href="#rules">共用規則</a><a href="#A">A 側軌</a><a href="#B">B 色塊</a><a href="#C">C 圖紙</a><a href="#rec">建議與取捨</a></nav>
+
+<h2 id="rules">三個方向共用的規則</h2>
+<p>上一版的問題不是顏色，而是<b>每樣東西一樣重</b>：時間列、模式列、按鍵、旋鈕、結果都在搶注意力。以下規則三個方向都遵守，差別只在視覺語言。</p>
+<div class="rules">
+<div><b>鍵位固定，永不重排</b>螢幕左邊永遠是旋鈕，右邊永遠是 2×3 鍵格，跟實體鍵盤同一個相對位置。切模式只換字，不換格子。</div>
+<div><b>模式靠顏色辨識，不靠讀字</b>每個模式一個主色。眼角餘光看到顏色就知道現在在哪個模式，不必讀「Creo 模式」四個字。</div>
+<div><b>四字標籤 2+2 換行</b>標籤上限 4 個字。格子寬度不夠單行 18–22 px 時，固定拆成兩行各兩字，例如「檔案／總管」，不縮字。</div>
+<div><b>結果有生命週期</b>新結果亮色顯示 10 秒，之後轉灰但保留，直到下一個動作。長結果蓋住鍵區，此時旋鈕自動變成「捲動」、按下「關閉」，任一鍵也會關閉。</div>
+<div><b>按下回饋 150 ms</b>對應格子反色 150 ms，讓你確認「螢幕上那一格就是我剛按的鍵」。不做彈跳、縮放動畫。</div>
+<div><b>AI 一次只跑一件</b>等待時只有發起的那一格在轉，其他需要 AI 的鍵變暗表示暫不可用；不需要 AI 的鍵照常可用。旋鈕按下＝取消。</div>
+<div><b>不放時鐘、天氣、待辦</b>電腦工作列已經有時鐘；天氣與工作無關且要另接 API；待辦數屬於「看信」模式的結果。這些都會搶走鍵位對照的注意力，而且多一種字級就多佔快閃記憶體。詳見文末。</div>
+<div><b>LVGL 可做</b>只用矩形、圓角、文字、弧（lv_arc / lv_spinner）、線與 Tabler 圖示字型。無漸層、無陰影、無模糊、無圖片；透明度只用整個物件的 opa。</div>
+</div>
+
+<div id="dirs"></div>
+
+<h2 id="rec">建議：方向 A「側軌」</h2>
+<div class="rec">
+<h3>為什麼選 A</h3>
+<ul class="out">
+<li><b>結果區位置固定。</b>短結果永遠出現在右下同一條帶狀區，不會蓋住任何一顆鍵，眼睛只要學一個「看結果」的位置。B 的結果會暫時蓋住下排三鍵，C 的結果字級較小。</li>
+<li><b>模式色貼在旋鈕旁。</b>整條左軌就是模式色，剛好在實體旋鈕的正上方。alt-tab 之後，眼角餘光掃到顏色就知道模式換了，同一條軌也說明旋鈕現在的功能。</li>
+<li><b>深色底適合 CYD 面板與長時間工作。</b>這塊 TN 面板黑位偏灰，但深色底可以把背光調低、不刺眼；彩色只佔左軌和小圖示，RGB565 下也不會有色帶。</li>
+<li><b>最好實作。</b>整個畫面約 12 個 lv_obj：一條軌、六格、一個結果區、一個長結果覆蓋層。每個狀態只是換 style，不必換版面。</li>
+</ul>
+<h3>要帶進 A 的東西</h3>
+<ul class="out">
+<li>從 B 借：按下時整格反白（A 的反色已是同一概念，實機上若不夠明顯就改成白底黑字）。</li>
+<li>從 C 借：公差疊加的長結果改用有格線的表格，數字欄右對齊，工程師讀起來最快。</li>
+<li>要在實機驗證：4 字標籤 18 px 在 80 px 寬的格子裡左右只剩 4 px。如果在 60 cm 看起來太擠，就改用 2+2 換行規則（格高 74 px 放得下）。</li>
+</ul>
+</div>
+
+<h3>刻意不做的東西</h3>
+<ul class="out">
+<li><b>時鐘與日期：</b>工作列已有，放上去會變成畫面上最大、最常變動的元素，搶走鍵位對照的注意力。離線畫面只用 ESP32 開機計時顯示「已離線 N 分鐘」，不需要 RTC 或 NTP。</li>
+<li><b>天氣：</b>要 Wi-Fi、API 金鑰與更新排程，跟按鍵功能無關。</li>
+<li><b>待辦數量：</b>有用，但它是「看信」模式「抽待辦」的結果，放在結果區即可，不需要常駐。</li>
+<li><b>鍵號（K1–K6）：</b>空間對應已經足夠，多一組編號只是多一層要讀的東西。</li>
+<li><b>Wi-Fi／USB／電量圖示：</b>裝置走 USB 供電與序列埠，只有斷線才需要告知，所以只在離線狀態整頁顯示。</li>
+<li><b>觸控操作：</b>CYD 雖有電阻式觸控，但輸入就是實體鍵；在螢幕上加觸控按鈕會模糊「螢幕＝鍵位說明」的角色。</li>
+<li><b>超過 600 ms 的動畫、漸層、陰影、照片：</b>ESP32 畫不順，RGB565 會出色帶，而且看一眼的裝置不需要。</li>
+<li><b>第四種字級：</b>每個 CJK 字級都要子集化嵌入。三種字級、約 300 個常用字、4 bpp，大約 150–250 KB，4 MB 快閃放得下；再加一級就開始擠。最大字級只收數字、單位與少量字，成本很低。</li>
+</ul>
+</main>
+
+<script>
+/* ---------- 共用資料 ---------- */
+const M={
+ general:{n:'一般',full:'一般',ic:'layout-grid',keys:[['截圖','screenshot'],['檔案總管','folder'],['顯示桌面','app-window'],['播放暫停','player-play'],['剪貼簿','clipboard'],['鎖定','lock']],knob:'音量',press:'靜音',last:'已截圖到剪貼簿'},
+ ppt:{n:'PPT',full:'PowerPoint',ic:'presentation',keys:[['複製格式','brush'],['貼上格式','paint'],['群組','box-multiple'],['取消群組','layers-subtract'],['從這頁播','player-play'],['複製物件','copy']],knob:'換頁',press:'水平置中',last:'已群組 3 個物件'},
+ creo:{n:'Creo',full:'Creo Parametric',ic:'cube',keys:[['視角','cube'],['量測','ruler-measure'],['再生','refresh'],['基準','focus-centered'],['匯出','file-export'],['存檔','device-floppy']],knob:'縮放',press:'預設視角',last:'已匯出 part_A_rev03.step'},
+ math:{n:'數學',full:'數學',ic:'calculator',keys:[['單位換算','arrows-exchange'],['公差疊加','stack-2'],['加總','sum'],['強度速算','barbell'],['算式','math-function'],['複製結果','copy']],knob:'調整數值',press:'確認',last:'150 psi = 1.034 MPa'},
+ mail:{n:'看信',full:'看信',ic:'mail',keys:[['摘要','list-details'],['擬回覆','arrow-back-up'],['抽待辦','checklist'],['翻譯','language'],['標重要','star'],['複製結果','copy']],knob:'捲動',press:'取消',last:'摘要完成 · 4 點'},
+ patent:{n:'專利',full:'專利',ic:'file-certificate',keys:[['摘要','list-details'],['請求項','list-numbers'],['比對','git-compare'],['翻譯','language'],['引用','quote'],['複製結果','copy']],knob:'捲動',press:'取消',last:'比對完成 · 3 項重疊'}
+};
+const AIKEYS=[0,1,2,3];
+const STATES=[
+ {k:'idle',t:'1 待機：鍵位對照',mode:'creo'},
+ {k:'press',t:'2 按下回饋',mode:'creo',key:1},
+ {k:'short',t:'3 短結果',mode:'math',key:0},
+ {k:'long',t:'4 長結果：公差疊加',mode:'math',key:1},
+ {k:'longai',t:'4b 長結果：AI 摘要',mode:'mail',key:0},
+ {k:'ai',t:'5 AI 處理中',mode:'mail',key:0},
+ {k:'err',t:'6 錯誤',mode:'creo',key:2},
+ {k:'off',t:'7 電腦未連線'},
+ {k:'switch',t:'8 切換模式',mode:'ppt',from:'creo'}
+];
+const TOL=[['A','+12.00','±0.10'],['B','+8.50','±0.05'],['C','+25.00','±0.15'],['D','−45.00','±0.05']];
+const SUM=['樣品延到 11/8 出貨','要求確認 rev03 公差','週五前回覆報價','附件：rev03 圖面'];
+
+/* ---------- 繪圖小工具（對應 LVGL 基本物件） ---------- */
+const W2=s=>s.length>=4?s.slice(0,2)+'<br>'+s.slice(2):s;
+const box=(x,y,w,h,css='',inner='')=>`<div class="o" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;${css}">${inner}</div>`;
+const txt=(x,y,w,size,color,s,ex='')=>`<div class="o" style="left:${x}px;top:${y}px;width:${w}px;font-size:${size}px;line-height:${Math.round(size*1.3)}px;color:${color};white-space:nowrap;${ex}">${s}</div>`;
+const ico=(x,y,w,n,s,c,ex='')=>`<div class="o" style="left:${x}px;top:${y}px;width:${w}px;height:${s}px;text-align:${w?'center':'left'};${ex}"><i class="ti ti-${n}" style="font-size:${s}px;line-height:${s}px;color:${c}"></i></div>`;
+/* lv_arc：底軌＋指示段 */
+const arc=(cx,cy,d,bw,col,track,rot=-45,quarter=false)=>
+ box(cx-d/2,cy-d/2,d,d,`border-radius:50%;border:${bw}px solid ${track}`)+
+ box(cx-d/2,cy-d/2,d,d,`border-radius:50%;border:${bw}px solid transparent;border-top-color:${col};${quarter?'':`border-right-color:${col};`}transform:rotate(${rot}deg)`);
+
+/* =================== 方向 A：側軌 =================== */
+const A={id:'A',name:'側軌',en:'Rail',
+ t:{bg:'#0E1114',surf:'#1A1F25',surf2:'#14181D',line:'#2A323B',tx:'#E8ECEF',tx2:'#8C97A3',ink:'#0E1114',err:'#F0524F',errbg:'#2A1416',ok:'#4CC38A',offc:'#3A424B'},
+ c:{general:'#9AACBF',ppt:'#F08A3C',creo:'#3DBE7A',math:'#4FA3F7',mail:'#B48CF2',patent:'#E5C04B'}};
+A.render=function(s){
+ const t=A.t,off=s.k==='off',m=M[s.mode],ov=s.k==='long'||s.k==='longai';
+ const c=off?t.offc:A.c[s.mode];
+ let h=box(0,0,320,240,`background:${t.bg}`);
+ /* 左軌 = 模式色 + 旋鈕說明 */
+ h+=box(0,0,64,240,`background:${c}`);
+ h+=ico(0,12,64,off?'plug-connected-x':m.ic,24,t.ink);
+ const big=s.k==='switch';
+ h+=txt(0,big?40:42,64,big?24:18,t.ink,off?'離線':m.n,'text-align:center;font-weight:700');
+ h+=box(10,76,44,2,`background:${t.ink};opacity:.25`);
+ if(!off){
+  h+=arc(32,108,40,4,t.ink,'rgba(14,17,20,.22)',-45);
+  h+=ico(0,99,64,'rotate',18,t.ink);
+  const kl=ov?'捲動':m.knob,pl=ov?'關閉':m.press;
+  h+=txt(0,136,64,18,t.ink,W2(kl),'text-align:center;font-weight:700;white-space:normal');
+  h+=txt(0,188,64,14,t.ink,'按下','text-align:center;opacity:.65');
+  h+=txt(0,206,64,14,t.ink,pl,'text-align:center;font-weight:700');
+ }
+ const XS=[68,152,236],YS=[4,82];
+ if(off){
+  for(let i=0;i<6;i++)h+=box(XS[i%3],YS[i/3|0],80,74,`border:1px solid ${t.line};border-radius:8px`);
+  h+=box(68,160,248,76,`border:1px solid ${t.line};border-radius:8px`);
+  h+=box(68,4,248,232,`background:${t.surf2};border:1px solid ${t.line};border-radius:8px`);
+  h+=ico(68,48,248,'plug-connected-x',32,t.tx2);
+  h+=txt(68,92,248,18,t.tx,'電腦未連線','text-align:center;font-weight:700');
+  h+=txt(68,124,248,14,t.tx2,'請在電腦啟動 macropad','text-align:center');
+  h+=txt(68,144,248,14,t.tx2,'按鍵暫停 · 連上後自動恢復','text-align:center');
+  h+=box(108,182,168,1,`background:${t.line}`);
+  h+=txt(68,192,248,14,t.tx2,'已離線 3 分鐘','text-align:center');
+  return h;
+ }
+ if(!ov){
+  for(let i=0;i<6;i++){
+   const x=XS[i%3],y=YS[i/3|0],[lb,ic]=m.keys[i];
+   let bg=t.surf,bd='',icC=c,lbC=t.tx,op=1,icon=ic,spin=false;
+   if(s.k==='press'&&i===s.key){bg=c;icC=t.ink;lbC=t.ink}
+   if(s.k==='short'&&i===s.key){bd=`border:2px solid ${c};`}
+   if(s.k==='err'&&i===s.key){bd=`border:2px solid ${t.err};`;icC=t.err;icon='alert-triangle'}
+   if(s.k==='ai'){if(i===s.key){bd=`border:2px solid ${c};`;spin=true}else if(AIKEYS.includes(i))op=.35}
+   if(s.k==='switch'){bd=`border:2px solid ${c};`}
+   h+=box(x,y,80,74,`background:${bg};border-radius:8px;${bd}opacity:${op}`);
+   if(spin)h+=arc(x+40,y+22,22,3,c,t.line,30,true);
+   else h+=ico(x,y+10,80,icon,24,icC,`opacity:${op}`);
+   h+=txt(x,y+42,80,18,lbC,lb,`text-align:center;font-weight:700;opacity:${op}`);
+  }
+ }
+ /* 結果區 */
+ const R=(css,inner)=>box(68,160,248,76,`border-radius:8px;${css}`)+inner;
+ if(s.k==='idle')h+=R(`background:${t.surf2};border:1px solid ${t.line}`,
+   txt(80,170,160,14,t.tx2,'上次結果')+txt(200,170,104,14,t.tx2,'3 分鐘前','text-align:right')+
+   txt(80,194,230,18,t.tx2,'已存檔 part_A.prt'));
+ if(s.k==='press')h+=R(`background:${t.surf};border-left:4px solid ${c}`,
+   txt(82,170,200,14,c,'量測','font-weight:700')+txt(82,192,230,18,t.tx,'點選兩個圖元…','font-weight:700')+
+   txt(82,214,230,14,t.tx2,'在 Creo 視窗操作'));
+ if(s.k==='short')h+=R(`background:${t.surf};border-left:4px solid ${c}`,
+   txt(82,168,140,14,t.tx2,'150 psi =')+txt(200,168,104,14,c,'單位換算','text-align:right;font-weight:700')+
+   txt(82,190,230,24,t.tx,'1.034 MPa','font-weight:700')+txt(200,216,104,14,t.tx2,'剛剛','text-align:right'));
+ if(s.k==='ai')h+=R(`background:${t.surf};border-left:4px solid ${c}`,
+   arc(102,198,30,4,c,t.line,200,true)+
+   txt(128,176,180,18,t.tx,'AI 摘要中…','font-weight:700')+txt(128,202,180,14,t.tx2,'6 秒 · 通常 3–10 秒'));
+ if(s.k==='err')h+=R(`background:${t.errbg};border-left:4px solid ${t.err}`,
+   ico(82,170,0,'alert-triangle',18,t.err)+txt(106,168,200,18,t.tx,'再生失敗：2 個特徵','font-weight:700')+
+   txt(82,196,230,14,t.tx2,'#14 倒圓角 · #15 拔模')+txt(82,214,230,14,t.tx2,'已在 Creo 標示失敗特徵'));
+ if(s.k==='switch')h+=R(`background:${t.surf};border-left:4px solid ${c}`,
+   txt(82,170,200,14,t.tx2,'已切換 · 來自 Creo')+txt(82,192,230,18,t.tx,'PowerPoint','font-weight:700'));
+ /* 長結果覆蓋鍵區 */
+ if(s.k==='long'){
+  h+=box(68,4,248,232,`background:${t.surf};border:2px solid ${c};border-radius:8px`);
+  h+=txt(80,12,150,14,c,'公差疊加','font-weight:700')+txt(200,12,104,14,t.tx2,'4 個尺寸','text-align:right');
+  TOL.forEach((r,i)=>{const y=36+i*20;
+   h+=txt(80,y,30,14,t.tx2,r[0])+txt(110,y,100,14,t.tx,r[1],'text-align:right')+txt(220,y,84,14,t.tx,r[2],'text-align:right')});
+  h+=box(80,120,224,1,`background:${t.line}`);
+  [['公稱','0.50',t.tx],['最差','±0.35',t.tx],['RSS','±0.19',c]].forEach((v,i)=>{const x=80+i*76;
+   h+=txt(x,128,72,14,t.tx2,v[0])+txt(x,146,76,24,v[2],v[1],'font-weight:700')});
+  h+=box(80,192,224,1,`background:${t.line}`);
+  h+=txt(80,204,224,14,t.tx2,'任一鍵返回 · 旋鈕捲動');
+ }
+ if(s.k==='longai'){
+  h+=box(68,4,248,232,`background:${t.surf};border:2px solid ${c};border-radius:8px`);
+  h+=txt(80,12,224,14,c,'摘要 · 王經理〈樣品交期〉','font-weight:700');
+  SUM.forEach((l,i)=>{h+=box(82,46+i*34,6,6,`background:${c};border-radius:3px`)+txt(96,36+i*34,210,18,t.tx,l)});
+  h+=box(80,192,224,1,`background:${t.line}`);
+  h+=txt(80,204,120,14,t.tx2,'AI · 7.2 秒')+txt(184,204,120,14,t.tx2,'旋鈕捲動 1/2','text-align:right');
+ }
+ return h;
+};
+A.idleFor=k=>A.render({k:'idle',mode:k}).replace('已存檔 part_A.prt',M[k].last);
+A.notes={
+ idle:'左軌＝模式色＋旋鈕功能，正對實體旋鈕；右側 2×3 對應六鍵。結果區顯示上一次結果，已轉灰。',
+ press:'按下的格子整格填入模式色 150 ms；結果區同步說明下一步要做什麼。',
+ short:'來源格加模式色邊框，結果區用最大字級顯示答案，算式放上方小字。',
+ long:'覆蓋整個鍵區；左軌旋鈕自動改為「捲動／關閉」。RSS 用模式色標出。',
+ longai:'同一個覆蓋版面，內文用 18 px，每點一行。頁尾標示 AI 耗時與頁數。',
+ ai:'發起的那一格換成轉圈弧；其他 AI 鍵降到 35% 表示暫不可用；「標重要」「複製結果」照常可用。旋鈕按下＝取消。',
+ err:'錯誤格加紅框並換成警告圖示；結果區紅底，第一行說結論，第二行說是哪些特徵。',
+ off:'左軌轉灰、鍵格只剩外框，不顯示可能已經不準的鍵位。只用開機計時，不需要時鐘。',
+ switch:'切換瞬間：模式名放大到 24 px，六格以新模式色描邊 400 ms 後淡回；結果區寫明從哪裡切來。'
+};
+A.rationale='把畫面切成三個固定區：左邊一條「模式色軌」正對實體旋鈕，同時寫著旋鈕的功能；右上 2×3 鍵格；右下一條固定的結果區。顏色只用在左軌和鍵格圖示，深色底讓 18 px 白字成為主角。結果永遠出現在同一個位置，不會蓋住任何鍵；只有長結果暫時覆蓋鍵區，這時旋鈕變成捲動，左軌也會跟著改字。這是三個方向中最「儀器」的一個：像車上的空調面板，資訊分區固定，靠顏色和位置辨識，不靠閱讀。';
+A.spec={colors:[['底色 bg','#0E1114'],['鍵格 surface','#1A1F25'],['結果區 surface-2','#14181D'],['分隔線 line','#2A323B'],['主文字 text','#E8ECEF'],['次文字 text-2','#8C97A3'],['錯誤 error','#F0524F'],['錯誤底 error-bg','#2A1416'],['離線 offline','#3A424B']],
+ modes:[['一般','#9AACBF'],['PPT','#F08A3C'],['Creo','#3DBE7A'],['數學','#4FA3F7'],['看信','#B48CF2'],['專利','#E5C04B']],
+ fonts:['14 px 一般：次要說明、時間、表格','18 px 粗體：鍵名、旋鈕功能、結果標題','24 px 粗體：結果數值、切換時的模式名（只收數字、單位、±、模式名）','圖示（Tabler）：18 / 24 / 32 px'],
+ grid:['外邊距 4 px，格距 4 px','左軌 x 0–64，全高 240，滿版不留邊','鍵格 80×74，x = 68 / 152 / 236，y = 4 / 82','結果區 248×76，位置 (68, 160)','內距 10–12 px；結果區左側色條 4 px','長結果覆蓋層 248×232，位置 (68, 4)'],
+ radii:['鍵格、結果區、覆蓋層：8 px','左軌：0（貼邊）','項目圓點：3 px']};
+
+/* =================== 方向 B：色塊 =================== */
+const B={id:'B',name:'色塊',en:'Tiles',
+ t:{bg:'#000000',tx:'#FFFFFF',tx2:'#A0A0A0',card:'#F2F2F2',ctx:'#111111',ctx2:'#555555',line:'#333333',err:'#D92D20'},
+ c:{general:'#44546A',ppt:'#C4501E',creo:'#1E7F4F',math:'#1F63B8',mail:'#6B44B8',patent:'#8A6A0C'},
+ dim:{mail:'#2A1F45',patent:'#3A2D07',math:'#0E2A4D'}};
+B.render=function(s){
+ const t=B.t,off=s.k==='off',m=M[s.mode],ov=s.k==='long'||s.k==='longai';
+ const c=off?'#333333':B.c[s.mode];
+ let h=box(0,0,320,240,`background:${t.bg}`);
+ /* 左條：模式方塊＋旋鈕 */
+ h+=box(0,0,52,56,`background:${c}`);
+ h+=ico(0,7,52,off?'plug-connected-x':m.ic,24,t.tx);
+ h+=txt(0,34,52,14,t.tx,off?'離線':m.n,'text-align:center;font-weight:700');
+ if(!off){
+  const kl=ov?'捲動':m.knob,pl=ov?'關閉':m.press;
+  h+=ico(0,70,52,'rotate',18,t.tx2);
+  h+=txt(0,94,52,22,t.tx,W2(kl),'text-align:center;font-weight:700;white-space:normal;line-height:26px');
+  h+=box(14,160,24,1,`background:${t.line}`);
+  h+=txt(0,170,52,14,t.tx2,'按下','text-align:center');
+  h+=txt(0,190,52,14,t.tx,W2(pl),'text-align:center;font-weight:700;white-space:normal;line-height:18px');
+ }
+ const XS=[56,144,232],YS=[4,122];
+ const tile=(i,o={})=>{
+  const x=XS[i%3],y=YS[i/3|0],[lb,ic]=m.keys[i];
+  const bg=o.bg||c,fg=o.fg||t.tx;
+  let r=box(x,y,84,114,`background:${bg};border-radius:6px;${o.bd||''}`);
+  if(o.spin){r+=arc(x+60,y+26,28,4,t.tx,'rgba(255,255,255,.18)',40,true)+txt(x+10,y+16,40,14,t.tx,'6 秒')}
+  else r+=ico(x+10,y+10,0,o.icon||ic,18,fg,`opacity:${o.fg?1:.75}`);
+  r+=txt(x+10,y+114-10-(lb.length>=4?52:26),74,22,fg,W2(lb),'font-weight:700;white-space:normal;line-height:26px');
+  return r;
+ };
+ if(off){
+  for(let i=0;i<6;i++)h+=box(XS[i%3],YS[i/3|0],84,114,`border:2px solid ${t.line};border-radius:6px`);
+  h+=box(56,70,260,100,`background:${t.bg}`);
+  h+=ico(56,74,260,'plug-connected-x',32,t.tx2);
+  h+=txt(56,112,260,22,t.tx,'電腦未連線','text-align:center;font-weight:700');
+  h+=txt(56,144,260,14,t.tx2,'啟動 macropad 後自動恢復','text-align:center');
+  h+=txt(0,214,52,14,t.tx2,'3 分','text-align:center');
+  return h;
+ }
+ if(s.k==='switch'){
+  h+=box(56,4,260,232,`background:${c};border-radius:6px`);
+  h+=ico(56,58,260,m.ic,32,t.tx);
+  h+=txt(56,98,260,32,t.tx,'PPT','text-align:center;font-weight:700');
+  h+=txt(56,146,260,14,t.tx,'PowerPoint · 從 Creo 切換','text-align:center;opacity:.85');
+  return h;
+ }
+ if(ov){
+  h+=box(56,4,260,232,`background:${t.card};border-radius:6px`);
+  if(s.k==='long'){
+   h+=txt(68,12,150,14,t.ctx2,'公差疊加 · 公稱 0.50','font-weight:700');
+   TOL.forEach((r,i)=>{const y=34+i*20;
+    h+=txt(68,y,30,14,t.ctx2,r[0])+txt(96,y,100,14,t.ctx,r[1],'text-align:right')+txt(214,y,90,14,t.ctx,r[2],'text-align:right')});
+   h+=box(68,118,236,2,`background:${t.ctx}`);
+   h+=txt(68,128,110,14,t.ctx2,'最差')+txt(68,146,120,32,t.ctx,'±0.35','font-weight:700');
+   h+=txt(190,128,110,14,t.ctx2,'RSS')+txt(190,146,120,32,c,'±0.19','font-weight:700');
+   h+=txt(68,208,236,14,t.ctx2,'任一鍵返回');
+  }else{
+   h+=txt(68,12,236,14,t.ctx2,'摘要 · 王經理〈樣品交期〉','font-weight:700');
+   SUM.forEach((l,i)=>{h+=txt(68,36+i*36,236,22,t.ctx,l,'font-weight:700;font-size:'+(l.length>9?18:22)+'px')});
+   h+=txt(68,208,120,14,t.ctx2,'AI · 7.2 秒')+txt(184,208,120,14,t.ctx2,'1/2','text-align:right');
+  }
+  return h;
+ }
+ for(let i=0;i<6;i++){
+  let o={};
+  if(s.k==='press'&&i===s.key)o={bg:'#FFFFFF',fg:'#000000'};
+  if(s.k==='ai'){if(i===s.key)o={spin:true,bg:B.dim[s.mode]};else if(AIKEYS.includes(i))o={bg:B.dim[s.mode],fg:'rgba(255,255,255,.35)'}}
+  if(s.k==='err'&&i===s.key)o={bg:t.err,icon:'alert-triangle'};
+  if(s.k==='short'&&i===s.key)o={bd:'border-bottom:6px solid #FFFFFF;'};
+  if((s.k==='short'||s.k==='err')&&i>=3)continue;
+  h+=tile(i,o);
+ }
+ if(s.k==='short'){
+  h+=box(56,122,260,114,`background:${t.card};border-radius:6px`);
+  h+=txt(68,130,236,14,t.ctx2,'150 psi =');
+  h+=txt(68,152,240,32,t.ctx,'1.034 MPa','font-weight:700');
+  h+=txt(68,208,236,14,t.ctx2,'單位換算 · 4 秒後收合');
+ }
+ if(s.k==='err'){
+  h+=box(56,122,260,114,`background:${t.err};border-radius:6px`);
+  h+=ico(68,134,0,'alert-triangle',24,t.tx);
+  h+=txt(100,132,200,22,t.tx,'再生失敗','font-weight:700');
+  h+=txt(68,172,236,14,t.tx,'2 個特徵：#14 倒圓角、#15 拔模');
+  h+=txt(68,208,236,14,t.tx,'任一鍵返回','opacity:.8');
+ }
+ return h;
+};
+B.idleFor=k=>B.render({k:'idle',mode:k});
+B.notes={
+ idle:'六格整塊塗滿模式色，字放左下、2 字一行、22 px 粗體。沒有結果區：待機時畫面全給鍵位。',
+ press:'按下的格子變白底黑字 150 ms，是三個方向中最強烈的回饋。',
+ short:'結果卡從下排升起蓋住下排三鍵 4 秒；來源格底部加白條。數值用 32 px，60 cm 外也讀得到。',
+ long:'淺色卡片蓋住整個鍵區。左條旋鈕改「捲動／關閉」。最差與 RSS 兩欄 32 px。',
+ longai:'同一張卡片，短句用 22 px 粗體，較長的句子降到 18 px。',
+ ai:'等待資訊全部放在發起的那一格裡：轉圈加秒數。其他 AI 鍵變成暗色同色系。',
+ err:'錯誤卡整塊紅色，來源格也變紅；兩個紅色區塊相鄰，從遠處就看得出出錯了。',
+ off:'全黑，只剩六個外框與一句話。左條模式方塊轉灰，底部顯示離線分鐘數。',
+ switch:'切換瞬間，整個鍵區變成一大塊新模式色，顯示 32 px 模式名約 500 ms，再展開成六格。期間按鍵照常有效。'
+};
+B.rationale='走 Stream Deck 的路線：鍵就是色塊。六格整塊塗滿模式色，字放大到 22 px 粗體、固定 2 字一行，不靠圖示也讀得到；換模式時整面顏色一起換，從房間另一頭都看得出來。旋鈕擠到左邊 52 px 的黑色窄條。待機時沒有結果區，畫面全部給鍵位；結果用「卡片」的方式升起，短結果蓋住下排、長結果蓋住整區，數值用 32 px。代價是結果出現時會暫時看不到部分鍵名，而且大面積高飽和色塊在夜間比較刺眼。';
+B.spec={colors:[['底色 bg','#000000'],['主文字 text','#FFFFFF'],['次文字 text-2','#A0A0A0'],['結果卡 card','#F2F2F2'],['卡片文字 card-text','#111111'],['卡片次文字','#555555'],['外框 outline','#333333'],['錯誤 error','#D92D20'],['AI 暫停鍵（看信）','#2A1F45']],
+ modes:[['一般','#44546A'],['PPT','#C4501E'],['Creo','#1E7F4F'],['數學','#1F63B8'],['看信','#6B44B8'],['專利','#8A6A0C']],
+ fonts:['14 px：模式名、次要說明、表格','22 px 粗體：鍵名（2 字一行）、旋鈕功能、內文','32 px 粗體：結果數值、切換時的模式名（只收數字、單位、±、模式名）','圖示（Tabler）：18 / 24 / 32 px'],
+ grid:['外邊距 4 px，格距 4 px','左條 x 0–52；模式方塊 52×56','色塊 84×114，x = 56 / 144 / 232，y = 4 / 122','鍵名靠左下，內距 10 px，行高 26 px','短結果卡 260×114 (56, 122)；長結果卡 260×232 (56, 4)','白色模式字對所有模式色的對比都 ≥ 4.3:1'],
+ radii:['色塊、卡片：6 px','模式方塊：0','無描邊（離線時除外，2 px）']};
+
+/* =================== 方向 C：圖紙 =================== */
+const C={id:'C',name:'圖紙',en:'Drawing',
+ t:{paper:'#ECE8DD',ink:'#1C1B19',ink2:'#5F5A50',faint:'#B8B1A1',err:'#B3261E',offc:'#8A857A'},
+ c:{general:'#4A5866',ppt:'#B9471A',creo:'#1D7347',math:'#1F5FA8',mail:'#5E3FA6',patent:'#7C5E0A'}};
+C.render=function(s){
+ const t=C.t,off=s.k==='off',m=M[s.mode],ov=s.k==='long'||s.k==='longai';
+ const c=off?t.offc:C.c[s.mode];
+ let h=box(0,0,320,240,`background:${t.paper};border:2px solid ${t.ink}`);
+ const XS=[66,150,234],YS=[2,88];
+ /* 旋鈕欄 */
+ if(!off){
+  const kl=ov?'捲動':m.knob,pl=ov?'關閉':m.press;
+  h+=box(16,12,36,36,`border:2px solid ${c};border-radius:50%`)+box(37,19,7,7,`background:${c};border-radius:50%`);
+  h+=txt(2,58,64,18,t.ink,W2(kl),'text-align:center;font-weight:700;white-space:normal;line-height:22px');
+  h+=box(14,112,40,1,`background:${t.faint}`);
+  h+=txt(2,120,64,14,t.ink2,'按下','text-align:center');
+  h+=txt(2,138,64,14,t.ink,pl,'text-align:center;font-weight:700');
+ } else {
+  h+=box(16,12,36,36,`border:2px solid ${t.faint};border-radius:50%`);
+ }
+ /* 線框 */
+ h+=box(66,2,1,172,`background:${t.ink}`);
+ if(!ov){
+  h+=box(150,2,1,172,`background:${t.ink}`)+box(234,2,1,172,`background:${t.ink}`)+box(66,88,252,1,`background:${t.ink}`);
+ }
+ h+=box(2,173,316,2,`background:${t.ink}`)+box(66,174,1,64,`background:${t.ink}`);
+ /* 標題欄：模式格 */
+ h+=box(2,175,64,63,`background:${c}`);
+ h+=txt(2,186,64,18,'#FFFFFF',off?'—':m.n,'text-align:center;font-weight:700');
+ h+=ico(2,212,64,off?'plug-connected-x':m.ic,18,'#FFFFFF');
+ if(off){
+  h+=box(98,48,188,80,`border:2px solid ${t.err}`);
+  h+=txt(98,58,188,22,t.err,'未連線','text-align:center;font-weight:700');
+  h+=txt(98,92,188,14,t.err,'請啟動 macropad','text-align:center');
+  h+=txt(78,184,230,14,t.ink2,'狀態');
+  h+=txt(78,204,230,18,t.ink,'已離線 3 分鐘 · 按鍵暫停','font-weight:700');
+  return h;
+ }
+ if(!ov){
+  for(let i=0;i<6;i++){
+   const x=XS[i%3]+1,y=YS[i/3|0]+(i>=3?1:0),w=83,hh=85,[lb,ic]=m.keys[i];
+   let fg=t.ink,fg2=t.ink2,icon=ic;
+   if(s.k==='press'&&i===s.key){h+=box(x,y,w,hh,`background:${t.ink}`);fg=t.paper;fg2=t.paper}
+   if(s.k==='err'&&i===s.key){h+=box(x+2,y+2,w-4,hh-4,`border:2px solid ${t.err}`);fg2=t.err;icon='alert-triangle'}
+   if(s.k==='short'&&i===s.key){h+=box(x,y,10,10,`background:${c}`)}
+   if(s.k==='switch')h+=box(x,y,w,3,`background:${c}`);
+   if(s.k==='ai'){
+    if(i===s.key)h+=box(x,y+hh-5,w,5,`background:${t.ink}`);
+    else if(AIKEYS.includes(i)){fg=t.faint;fg2=t.faint}
+   }
+   h+=ico(x,y+14,w,icon,18,fg2);
+   h+=txt(x,y+42,w,18,fg,lb,'text-align:center;font-weight:700');
+  }
+ }
+ /* 標題欄：結果格 */
+ const RX=78;
+ if(s.k==='idle')h+=txt(RX,182,150,14,t.ink2,'上次結果')+txt(200,182,108,14,t.ink2,'3 分鐘前','text-align:right')+txt(RX,204,232,18,t.ink2,'已匯出 part_A_rev03.step');
+ if(s.k==='press')h+=txt(RX,182,230,14,t.ink2,'量測 · 在 Creo 點選兩個圖元')+txt(RX,204,232,18,t.ink,'等待選取…','font-weight:700');
+ if(s.k==='short')h+=txt(RX,182,230,14,t.ink2,'單位換算')+txt(RX,202,236,22,t.ink,'150 psi = 1.034 MPa','font-weight:700');
+ if(s.k==='ai'){
+  h+=txt(RX,180,230,18,t.ink,'AI 摘要中 · 6 秒','font-weight:700');
+  for(let j=0;j<10;j++)h+=box(RX+j*14,210,10,10,`background:${(j>=3&&j<=6)?t.ink:t.faint}`);
+  h+=txt(232,206,78,14,t.ink2,'按旋鈕取消','text-align:right');
+ }
+ if(s.k==='err'){
+  h+=box(67,175,251,63,`background:${t.err}`);
+  h+=txt(RX,182,232,18,'#FFFFFF','再生失敗：2 個特徵','font-weight:700');
+  h+=txt(RX,208,232,14,'#FFFFFF','#14 倒圓角 · #15 拔模');
+ }
+ if(s.k==='switch')h+=txt(RX,182,230,14,t.ink2,'模式變更 · 偵測到 PowerPoint')+txt(RX,202,232,22,t.ink,'Creo → PPT','font-weight:700');
+ /* 詳圖（長結果） */
+ if(ov){
+  h+=box(67,2,251,236,`background:${t.paper}`);
+  h+=box(67,26,251,2,`background:${t.ink}`);
+  if(s.k==='long'){
+   h+=txt(78,5,160,14,t.ink,'詳圖 · 公差疊加','font-weight:700')+txt(230,5,78,14,t.ink2,'4 尺寸','text-align:right');
+   h+=txt(78,32,40,14,t.ink2,'尺寸')+txt(128,32,80,14,t.ink2,'公稱','text-align:right')+txt(228,32,80,14,t.ink2,'公差','text-align:right');
+   h+=box(67,52,251,1,`background:${t.ink}`);
+   TOL.forEach((r,i)=>{const y=56+i*22;
+    h+=txt(78,y,40,14,t.ink,r[0],'font-weight:700')+txt(128,y,80,14,t.ink,r[1],'text-align:right')+txt(228,y,80,14,t.ink,r[2],'text-align:right');
+    h+=box(67,y+21,251,1,`background:${t.faint}`)});
+   h+=box(67,144,251,2,`background:${t.ink}`)+box(192,146,1,58,`background:${t.ink}`);
+   h+=txt(78,150,100,14,t.ink2,'最差')+txt(78,168,110,22,t.ink,'±0.35','font-weight:700');
+   h+=txt(204,150,100,14,t.ink2,'RSS')+txt(204,168,110,22,c,'±0.19','font-weight:700');
+   h+=box(67,204,251,1,`background:${t.ink}`);
+   h+=txt(78,212,120,14,t.ink2,'公稱 0.50')+txt(200,212,108,14,t.ink2,'任一鍵返回','text-align:right');
+  }else{
+   h+=txt(78,5,230,14,t.ink,'摘要 · 王經理〈樣品交期〉','font-weight:700');
+   SUM.forEach((l,i)=>{const y=36+i*40;
+    h+=box(78,y+2,20,20,`border:1px solid ${t.ink}`)+txt(78,y+3,20,14,t.ink,String(i+1),'text-align:center;font-weight:700')+txt(106,y,206,18,t.ink,l);
+    h+=box(67,y+32,251,1,`background:${t.faint}`)});
+   h+=box(67,204,251,1,`background:${t.ink}`);
+   h+=txt(78,212,120,14,t.ink2,'AI · 7.2 秒')+txt(200,212,108,14,t.ink2,'旋鈕捲動 1/2','text-align:right');
+  }
+ }
+ return h;
+};
+C.idleFor=k=>C.render({k:'idle',mode:k}).replace('已匯出 part_A_rev03.step',M[k].last);
+C.notes={
+ idle:'整個畫面是一張圖紙：外框、格線、下方標題欄。模式寫在標題欄左格的色塊裡，旋鈕畫成一個帶刻線的圓。',
+ press:'按下的格子整格塗黑、字反白，像蓋章。',
+ short:'結果寫在標題欄，22 px 一行寫完整算式；來源格左上角加一個模式色方塊標記。',
+ long:'右側整區換成「詳圖」：有格線的表格、數字右對齊、合計欄用粗線分開，最貼近工程師的閱讀習慣。',
+ longai:'同樣的詳圖版面，條列改成編號方框，每點之間用細線分隔。',
+ ai:'標題欄下方 10 個小方塊，其中 4 個黑塊循環移動（不知道要等多久，所以不做百分比）。發起格底部加黑條。',
+ err:'標題欄結果格整塊紅底；錯誤格內加紅色內框與警告圖示。',
+ off:'鍵格清空，中間一個紅框「章」：未連線。標題欄寫離線多久。',
+ switch:'標題欄像改版欄一樣寫「Creo → PPT」，每格頂端出現 3 px 模式色條 400 ms。'
+};
+C.rationale='借工程圖的語言：米白圖紙、黑色細格線、直角、下方一條「標題欄」。鍵位是一張 3×2 的表格，左邊旋鈕欄畫成一個帶刻線的圓；模式與結果都寫在標題欄，就像圖面上的圖號和版次。所有東西都由線構成，顏色只出現在標題欄的模式格和少數標記，因此數字和表格的可讀性最好，公差疊加這類結果最自然。亮底在 TN 面板斜看時比較不會反白，白天辦公室很好讀；代價是背光要開比較亮、夜間刺眼，而模式辨識比 A、B 弱，要看一眼標題欄才知道。';
+C.spec={colors:[['圖紙 paper','#ECE8DD'],['墨線 ink','#1C1B19'],['次文字 ink-2','#5F5A50'],['細線／停用 faint','#B8B1A1'],['錯誤 error','#B3261E'],['離線 offline','#8A857A']],
+ modes:[['一般','#4A5866'],['PPT','#B9471A'],['Creo','#1D7347'],['數學','#1F5FA8'],['看信','#5E3FA6'],['專利','#7C5E0A']],
+ fonts:['14 px：欄位名、說明、表格內容','18 px 粗體：鍵名、旋鈕功能、模式名','22 px 粗體：結果算式與數值（只收數字、單位、±、→）','圖示（Tabler）：18 px（只有一種）'],
+ grid:['外框 2 px，內容區 316×236','旋鈕欄 64×172 (2, 2)','鍵格 84×86，x = 66 / 150 / 234，y = 2 / 88，1 px 格線','標題欄高 64 (y 174–238)，上緣 2 px 粗線','模式格 64×63；結果格 251×63，內距 12 px','詳圖覆蓋 251×236，表頭 24 px，列高 22 px'],
+ radii:['全部 0 px（直角）','只有旋鈕圓與 AI 進度方塊例外：圓 50%、方塊 0']};
+
+/* ---------- 版面輸出 ---------- */
+const scr=html=>`<div class="bezel"><div class="shot"><div class="scr">${html}</div></div></div>`;
+function specHTML(d){
+ const sw=a=>a.map(([n,v])=>`<div class="sw"><span class="c" style="background:${v}"></span>${n}<code>${v}</code></div>`).join('');
+ const ul=a=>'<ul>'+a.map(x=>`<li>${x}</li>`).join('')+'</ul>';
+ return `<div class="spec">
+ <section><h4>色彩 token</h4>${sw(d.spec.colors)}</section>
+ <section><h4>模式色</h4>${sw(d.spec.modes)}</section>
+ <section><h4>字級（3 種）</h4>${ul(d.spec.fonts)}<h4 style="margin-top:14px">圓角</h4>${ul(d.spec.radii)}</section>
+ <section><h4>網格與邊距</h4>${ul(d.spec.grid)}</section></div>`;
+}
+let out='';
+[A,B,C].forEach(d=>{
+ out+=`<h2 id="${d.id}"><span class="tag">方向 ${d.id}</span>${d.name}（${d.en}）</h2>`;
+ out+=`<p class="rationale">${d.rationale}</p>`;
+ out+=`<h3>九個狀態（2×）</h3><div class="gallery">`;
+ STATES.forEach(s=>{out+=`<figure>${scr(d.render(s))}<figcaption><b>${s.t}</b>${d.notes[s.k]}</figcaption></figure>`});
+ out+=`</div><h3>模式識別（實際尺寸 1×，六個模式待機）</h3><div class="gallery z1">`;
+ Object.keys(M).forEach(k=>{out+=`<figure>${scr(d.idleFor(k))}<figcaption><b>${M[k].full}</b>旋鈕：${M[k].knob}・按下：${M[k].press}</figcaption></figure>`});
+ out+=`</div><h3>規格</h3>${specHTML(d)}`;
+});
+document.getElementById('dirs').innerHTML=out;
+</script>
+</body>
+</html>
