@@ -1,0 +1,87 @@
+# 智慧快捷鍵盤：按鍵設定
+#
+# 實體鍵盤每顆鍵送出下面的組合鍵（用 SIKAI 軟體設定），
+# 常駐程式依「目前前景的程式」決定要做什麼。
+# 1～6 是按鍵，7、8 是旋鈕左轉、右轉，9 是旋鈕按下。
+#
+# 這台電腦專用的設定（公司路徑、mapkey 等）寫在 local_config.toml，
+# 格式一樣，會蓋過這裡的同名設定，而且不會上傳到 GitHub。
+#
+# 動作種類（do）：
+#   keys    送出組合鍵       keys = "ctrl+shift+c"
+#   seq     依序送出多組鍵   seq = ["alt", "h", "g"]
+#   scroll  滑鼠滾輪         clicks = 1（負數往下）
+#   run     執行指令         cmd = ["notepad.exe"]
+#   toast   只顯示訊息       （還沒設定好的鍵先用這個）
+
+quit_hotkey = "ctrl+alt+shift+0"
+
+[hotkeys]
+1 = "ctrl+alt+shift+1"
+2 = "ctrl+alt+shift+2"
+3 = "ctrl+alt+shift+3"
+4 = "ctrl+alt+shift+4"
+5 = "ctrl+alt+shift+5"
+6 = "ctrl+alt+shift+6"
+7 = "ctrl+alt+shift+7"
+8 = "ctrl+alt+shift+8"
+9 = "ctrl+alt+shift+9"
+
+# ── 沒有特別設定的軟體都用這組 ──
+[modes.default]
+name = "一般"
+
+[modes.default.keys]
+1 = { label = "截圖", do = "keys", keys = "win+shift+s", toast = false }
+2 = { label = "檔案總管", do = "keys", keys = "win+e" }
+3 = { label = "顯示桌面", do = "keys", keys = "win+d" }
+4 = { label = "播放／暫停", do = "keys", keys = "playpause" }
+5 = { label = "剪貼簿紀錄", do = "keys", keys = "win+v", toast = false }
+6 = { label = "鎖定電腦", do = "run", cmd = ["rundll32.exe", "user32.dll,LockWorkStation"], toast = false }
+7 = { label = "音量 -", do = "keys", keys = "volumedown", toast = false }
+8 = { label = "音量 +", do = "keys", keys = "volumeup", toast = false }
+9 = { label = "靜音", do = "keys", keys = "volumemute" }
+
+# ── PowerPoint ──
+[modes.ppt]
+name = "PPT"
+apps = ["POWERPNT.EXE"]
+
+[modes.ppt.keys]
+1 = { label = "複製格式", do = "keys", keys = "ctrl+shift+c" }
+2 = { label = "貼上格式", do = "keys", keys = "ctrl+shift+v" }
+3 = { label = "群組", do = "keys", keys = "ctrl+g" }
+4 = { label = "取消群組", do = "keys", keys = "ctrl+shift+g" }
+5 = { label = "從這頁播放", do = "keys", keys = "shift+f5", toast = false }
+6 = { label = "複製物件", do = "keys", keys = "ctrl+d" }
+7 = { label = "上一頁", do = "keys", keys = "pageup", toast = false }
+8 = { label = "下一頁", do = "keys", keys = "pagedown", toast = false }
+# 待測：快速鍵提示的字母可能依 Office 語言不同，階段 2 會改用 PowerPoint 控制介面
+9 = { label = "水平置中", do = "seq", seq = ["alt", "h", "g", "a", "c"], delay = 0.15 }
+
+# ── Creo（只有公司電腦有）──
+# 1、2、4、5 要先在 config.pro 寫好 mapkey，再改成 do = "seq"
+[modes.creo]
+name = "Creo"
+apps = ["xtop.exe"]
+
+[modes.creo.keys]
+1 = { label = "視角", do = "toast", result = "待設定 mapkey" }
+2 = { label = "量測", do = "toast", result = "待設定 mapkey" }
+3 = { label = "再生", do = "keys", keys = "ctrl+g" }
+4 = { label = "基準切換", do = "toast", result = "待設定 mapkey" }
+5 = { label = "匯出 STEP", do = "toast", result = "待設定 mapkey" }
+6 = { label = "存檔", do = "keys", keys = "ctrl+s" }
+7 = { label = "縮小", do = "scroll", clicks = -1, toast = false }
+8 = { label = "放大", do = "scroll", clicks = 1, toast = false }
+9 = { label = "預設視角", do = "keys", keys = "ctrl+d" }
+
+# ── 記事本（在家測試用）──
+[modes.notepad]
+name = "記事本"
+apps = ["notepad.exe"]
+
+[modes.notepad.keys]
+1 = { label = "插入日期時間", do = "keys", keys = "f5" }
+2 = { label = "全選", do = "keys", keys = "ctrl+a" }
+3 = { label = "測試訊息", do = "toast", result = "記事本模式運作正常" }

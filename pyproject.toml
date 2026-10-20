@@ -1,0 +1,6 @@
+[project]
+name = "smart-macropad"
+version = "0.1.0"
+description = "依前景軟體切換功能的智慧快捷鍵盤常駐程式"
+requires-python = ">=3.11"
+dependencies = []

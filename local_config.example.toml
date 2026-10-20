@@ -1,0 +1,11 @@
+# 複製成 local_config.toml 再修改。這個檔案只放在這台電腦，不會上傳。
+# 寫在這裡的設定會蓋過 config.toml 的同名設定。
+
+# 例：在公司寫好 Creo mapkey 之後
+# [modes.creo.keys]
+# 1 = { label = "視角", do = "seq", seq = ["v", "v"] }
+# 5 = { label = "匯出 STEP", do = "seq", seq = ["e", "s"] }
+
+# 例：Creo 的程式名稱不一樣時
+# [modes.creo]
+# apps = ["xtop.exe", "parametric.exe"]
