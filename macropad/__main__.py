@@ -56,7 +56,8 @@ def main():
     def shutdown(*_):
         print("結束")
         listener.stop()
-        root.quit()
+        toast.show("智慧快捷鍵盤", "已關閉")
+        root.after(1200, root.quit)
 
     # tkinter 的 mainloop 收不到 Ctrl+C，改用 signal 處理
     signal.signal(signal.SIGINT, shutdown)
