@@ -1,0 +1,510 @@
+<title>資產負債判斷</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap">
+<style>
+/* 版面：上方三個指標 → AI 判斷 → 收入表 → 資產負債表（富爸爸式 T 字帳） */
+:root{
+  --bg:#f2f4f3;--surface:#ffffff;--fg:#17201c;--muted:#5b6964;--line:#d6ddd9;--soft:#e8edea;
+  --accent:#1f5f7a;--accent-fg:#ffffff;
+  --good:#1d7a4c;--good-bg:#e2f2e9;--bad:#b0372b;--bad-bg:#f8e6e3;--warn:#8a5d00;--warn-bg:#f8efd6;
+  --f-text:"Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;
+  --f-head:"Noto Serif TC","PMingLiU",serif;
+  --f-num:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121715;--surface:#1a211e;--fg:#e6ece9;--muted:#93a29c;--line:#2e3834;--soft:#222b27;
+  --accent:#6fb3d2;--accent-fg:#0d1a20;
+  --good:#5fc795;--good-bg:#183327;--bad:#ee8b7f;--bad-bg:#3a1e1a;--warn:#e2bb55;--warn-bg:#352b12;color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#121715;--surface:#1a211e;--fg:#e6ece9;--muted:#93a29c;--line:#2e3834;--soft:#222b27;
+  --accent:#6fb3d2;--accent-fg:#0d1a20;
+  --good:#5fc795;--good-bg:#183327;--bad:#ee8b7f;--bad-bg:#3a1e1a;--warn:#e2bb55;--warn-bg:#352b12;color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--fg);font:15px/1.65 var(--f-text)}
+.wrap{max-width:960px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:20px}
+h1,h2{font-family:var(--f-head);text-wrap:balance;margin:0}
+h1{font-size:26px}
+h2{font-size:18px}
+.lede{color:var(--muted);margin:2px 0 0;font-size:14px}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px}
+.panel-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.hint{font-size:13px;color:var(--muted)}
+.banner{font-size:13px;padding:8px 12px;border-radius:6px;background:var(--warn-bg);color:var(--warn)}
+
+/* 指標 */
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:680px){.kpis{grid-template-columns:1fr}}
+.kpi{padding:14px 16px;border-radius:8px;background:var(--surface);border:1px solid var(--line);min-width:0}
+.kpi .label{font-size:12px;color:var(--muted);letter-spacing:.06em}
+.kpi .value{font-family:var(--f-num);font-size:24px;font-weight:500;margin-top:2px}
+.kpi .foot{font-size:12px;color:var(--muted)}
+.bar{height:6px;background:var(--soft);border-radius:3px;margin-top:8px;overflow:hidden}
+.bar span{display:block;height:100%;background:var(--accent);border-radius:3px}
+.pos{color:var(--good)}.neg{color:var(--bad)}
+
+/* AI 判斷 */
+textarea,input[type=text],input[type=number]{width:100%;font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px 10px}
+textarea{min-height:76px;resize:vertical}
+textarea:focus,input:focus,button:focus-visible,select:focus{outline:2px solid var(--accent);outline-offset:1px}
+select{font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:8px 10px;width:100%}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center}
+button{font:inherit;font-size:14px;cursor:pointer;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:7px 14px}
+button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-fg);font-weight:500}
+button.ghost{background:transparent;border-color:transparent;color:var(--muted);padding:4px 8px}
+button:disabled{opacity:.55;cursor:default}
+.examples{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.examples button{font-size:12px;padding:3px 10px;border-radius:99px}
+.verdict{margin-top:16px;border-top:1px solid var(--line);padding-top:16px;display:grid;gap:12px}
+.verdict-top{display:flex;gap:12px;align-items:flex-start}
+.pill{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px;white-space:nowrap;letter-spacing:.04em}
+.k-asset{background:var(--good-bg);color:var(--good)}
+.k-liability{background:var(--bad-bg);color:var(--bad)}
+.k-expense{background:var(--warn-bg);color:var(--warn)}
+.verdict-top .pill{font-size:15px;padding:4px 14px}
+.reason{margin:0}
+.list{margin:0;padding-left:18px;font-size:13px;color:var(--muted)}
+.fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:680px){.fields{grid-template-columns:1fr 1fr}}
+.fields label{font-size:12px;color:var(--muted);display:grid;gap:3px}
+.fields .span2{grid-column:span 2}
+.impact{display:grid;grid-template-columns:auto 1fr 1fr;gap:4px 16px;font-size:14px;background:var(--soft);border-radius:6px;padding:10px 12px}
+.impact .h{font-size:12px;color:var(--muted)}
+.impact .num{text-align:right}
+
+/* 報表 */
+.sheet{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+@media (max-width:680px){.sheet{grid-template-columns:1fr}}
+.col{min-width:0}
+.col + .col{border-left:1px solid var(--line)}
+@media (max-width:680px){.col + .col{border-left:0;border-top:1px solid var(--line)}}
+.col-head{padding:8px 12px;background:var(--soft);font-size:13px;font-weight:700;letter-spacing:.06em;display:flex;justify-content:space-between}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 12px;border-top:1px solid var(--line);font-size:14px}
+.row:first-of-type{border-top:0}
+.row .name{min-width:0;overflow-wrap:anywhere}
+.row .sub{font-size:12px;color:var(--muted)}
+.row.click{cursor:pointer}
+.row.click:hover{background:var(--soft)}
+.row input[type=number]{width:120px;text-align:right;padding:4px 8px;font-family:var(--f-num)}
+.row.total{font-weight:700;background:var(--soft)}
+.empty{padding:14px 12px;color:var(--muted);font-size:13px}
+.note{font-size:12px;color:var(--muted);margin:10px 0 0}
+.types{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.type{border:1px solid var(--line);border-radius:6px;padding:12px 14px;min-width:0}
+.type h3{font-size:15px;margin:0 0 6px;font-family:var(--f-head)}
+.type dl{margin:0;display:grid;gap:4px;font-size:13px}
+.type dt{color:var(--muted);font-size:11px;letter-spacing:.06em}
+.type dd{margin:0 0 4px}
+.conv{border-top:1px solid var(--line);padding:12px 0;display:grid;gap:10px}
+.conv:first-child{border-top:0;padding-top:0}
+.conv-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.ideas{display:grid;gap:8px}
+.idea{background:var(--soft);border-radius:6px;padding:10px 12px;display:grid;gap:4px;font-size:14px}
+.idea .meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted)}
+.tag-demo{font-size:11px;padding:1px 6px;border-radius:4px;background:var(--warn-bg);color:var(--warn);margin-left:6px}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>資產負債判斷</h1>
+    <p class="lede">資產把錢放進口袋，負債把錢從口袋拿走。把要買的東西丟給 AI 判斷，再看它會怎麼改變你的報表。</p>
+  </header>
+
+  <div id="banner" class="banner" hidden></div>
+
+  <section class="kpis" aria-label="摘要">
+    <div class="kpi"><div class="label">每月淨現金流</div><div class="value" id="k-net">—</div><div class="foot" id="k-net-foot">總收入 − 總支出</div></div>
+    <div class="kpi"><div class="label">被動收入 ÷ 總支出</div><div class="value" id="k-free">—</div><div class="bar"><span id="k-free-bar" style="width:0"></span></div><div class="foot" id="k-free-foot">到 100% 就是不靠工資也活得下去</div></div>
+    <div class="kpi"><div class="label">淨值（資產 − 負債）</div><div class="value" id="k-worth">—</div><div class="foot" id="k-worth-foot">自用物品不算資產</div></div>
+  </section>
+
+  <section class="panel" aria-labelledby="ask-h">
+    <div class="panel-head"><h2 id="ask-h">想買什麼？</h2><span class="hint">寫越清楚越準：價格、怎麼付、拿來幹嘛</span></div>
+    <div class="examples" id="examples"></div>
+    <textarea id="ask" placeholder="例：想貸款 80 萬買一台 RAV4，頭期 20 萬，平常通勤，假日偶爾跑 Uber"></textarea>
+    <div class="actions">
+      <button class="primary" id="ask-btn">判斷</button>
+      <button id="stop-btn" hidden>停止</button>
+      <button class="ghost" id="manual-btn">不用 AI，自己填</button>
+      <span class="hint" id="ask-status"></span>
+    </div>
+    <div id="verdict" class="verdict" hidden></div>
+  </section>
+
+  <section class="panel" aria-labelledby="inc-h">
+    <div class="panel-head"><h2 id="inc-h">收入表</h2><span class="hint">每月</span></div>
+    <div class="sheet">
+      <div class="col">
+        <div class="col-head"><span>收入</span><span class="num" id="t-income"></span></div>
+        <div id="income-rows"></div>
+      </div>
+      <div class="col">
+        <div class="col-head"><span>支出</span><span class="num" id="t-expense"></span></div>
+        <div id="expense-rows"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="bs-h">
+    <div class="panel-head"><h2 id="bs-h">資產負債表</h2><span class="hint">點一列可以修改或刪除</span></div>
+    <div class="sheet">
+      <div class="col">
+        <div class="col-head"><span>資產</span><span class="num" id="t-asset"></span></div>
+        <div id="asset-rows"></div>
+      </div>
+      <div class="col">
+        <div class="col-head"><span>負債</span><span class="num" id="t-debt"></span></div>
+        <div id="debt-rows"></div>
+      </div>
+    </div>
+    <div id="spent" class="note"></div>
+    <p class="note">分類依《富爸爸，窮爸爸》的定義：看每月現金流方向，不看東西值不值錢。這裡只做分類和試算，不告訴你該不該買。</p>
+  </section>
+
+  <section class="panel" aria-labelledby="conv-h">
+    <div class="panel-head"><h2 id="conv-h">負債變資產</h2><span class="hint">讓已經有的東西開始帶進錢</span></div>
+    <div id="conv-rows"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="types-h">
+    <div class="panel-head"><h2 id="types-h">資產有哪幾種</h2><span class="hint">認識錢怎麼流，不是推薦清單</span></div>
+    <div class="types" id="types"></div>
+    <p class="note">任何一類都可能是負債：月付超過收入、或收入停了還得繼續付，它就在把錢拿走。買之前用上面的「想買什麼」算一次。</p>
+  </section>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const KIND = {asset:'資產', liability:'負債', expense:'消費'};
+const money = n => { n = Math.round(n||0); return (n<0?'−':'') + Math.abs(n).toLocaleString('zh-TW'); };
+const signed = n => (n>0?'+':'') + money(n);
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// 狀態
+let profile = {salary:0, living:0};
+let items = [];          // {id,name,kind,value,debt,monthlyIncome,monthlyCost,reason}
+let demo = false;
+let db = null, col = null, sample = null;
+let draft = null;        // 待確認的判斷結果
+let ctl = null;
+
+const DEMO = {
+  profile:{salary:52000, living:24000},
+  items:[
+    {id:'d1',name:'機車',kind:'liability',value:45000,debt:0,monthlyIncome:0,monthlyCost:1200,reason:'通勤用，只有油錢保養支出。'},
+    {id:'d2',name:'0050 定期定額',kind:'asset',value:180000,debt:0,monthlyIncome:600,monthlyCost:0,reason:'配息是現金流入。'},
+    {id:'d3',name:'信貸',kind:'liability',value:0,debt:120000,monthlyIncome:0,monthlyCost:5800,reason:'每月還款。'},
+  ],
+};
+
+// ---------- 計算 ----------
+function totals(p = profile, list = items){
+  const passive = list.reduce((s,i)=>s+(+i.monthlyIncome||0),0);
+  const itemCost = list.reduce((s,i)=>s+(+i.monthlyCost||0),0);
+  const income = (+p.salary||0) + passive;
+  const expense = (+p.living||0) + itemCost;
+  const assets = list.filter(i=>i.kind==='asset').reduce((s,i)=>s+(+i.value||0),0);
+  const debts = list.reduce((s,i)=>s+(+i.debt||0),0);
+  const ownUse = list.filter(i=>i.kind!=='asset').reduce((s,i)=>s+(+i.value||0),0);
+  return {passive, income, expense, net: income-expense, free: expense>0 ? passive/expense : 0, assets, debts, worth: assets-debts, ownUse};
+}
+
+// ---------- 畫面 ----------
+function render(){
+  const t = totals();
+  const net = $('k-net'); net.textContent = signed(t.net); net.className = 'value ' + (t.net<0?'neg':t.net>0?'pos':'');
+  $('k-net-foot').textContent = `收入 ${money(t.income)} − 支出 ${money(t.expense)}`;
+  $('k-free').textContent = t.expense>0 ? (t.free*100).toFixed(1)+'%' : '—';
+  $('k-free-bar').style.width = Math.min(100, t.free*100) + '%';
+  $('k-free-foot').textContent = `被動收入 ${money(t.passive)}／月，到 100% 就不靠工資也活得下去`;
+  const w = $('k-worth'); w.textContent = money(t.worth); w.className = 'value ' + (t.worth<0?'neg':'');
+  $('k-worth-foot').textContent = t.ownUse>0 ? `自用物品帳面 ${money(t.ownUse)} 沒算進去` : '自用物品不算資產';
+
+  // 收入表
+  const tag = demo ? '<span class="tag-demo">範例</span>' : '';
+  $('income-rows').innerHTML =
+    `<div class="row"><span class="name">工資收入${tag}</span><input type="number" id="salary" min="0" step="1000" value="${+profile.salary||0}" aria-label="每月工資收入"></div>` +
+    items.filter(i=>+i.monthlyIncome>0).map(i=>row(i, i.monthlyIncome, '被動收入')).join('');
+  $('expense-rows').innerHTML =
+    `<div class="row"><span class="name">生活支出${tag}<div class="sub">吃住交通等固定開銷</div></span><input type="number" id="living" min="0" step="1000" value="${+profile.living||0}" aria-label="每月生活支出"></div>` +
+    items.filter(i=>+i.monthlyCost>0).map(i=>row(i, i.monthlyCost, KIND[i.kind])).join('');
+  $('t-income').textContent = money(t.income);
+  $('t-expense').textContent = money(t.expense);
+
+  // 資產負債表
+  const assets = items.filter(i=>i.kind==='asset');
+  const debts = items.filter(i=>+i.debt>0);
+  $('asset-rows').innerHTML = assets.length ? assets.map(i=>row(i, i.value, i.monthlyIncome>0?`每月帶進 ${money(i.monthlyIncome)}`:'')).join('')
+    : '<div class="empty">還沒有資產。會帶來現金流的東西才放這裡：出租房、配息股票、能賺錢的設備。</div>';
+  $('debt-rows').innerHTML = debts.length ? debts.map(i=>row(i, i.debt, `每月付 ${money(i.monthlyCost)}`)).join('')
+    : '<div class="empty">沒有欠款。</div>';
+  $('t-asset').textContent = money(t.assets);
+  $('t-debt').textContent = money(t.debts);
+
+  const spent = items.filter(i=>i.kind!=='asset' && !(+i.debt>0) && !(+i.monthlyCost>0));
+  $('spent').innerHTML = spent.length ? '已花掉、沒有後續收支：' + spent.map(i=>`<button class="ghost" data-id="${esc(i.id)}">${esc(i.name)} ${money(i.value)}</button>`).join('') : '';
+
+  renderConvert();
+  $('salary').addEventListener('change', e => saveProfile({salary: +e.target.value||0}));
+  $('living').addEventListener('change', e => saveProfile({living: +e.target.value||0}));
+}
+
+function row(i, amount, sub){
+  return `<div class="row click" data-id="${esc(i.id)}" tabindex="0" role="button">
+    <span class="name">${esc(i.name)} <span class="pill k-${i.kind}">${KIND[i.kind]}</span>${sub?`<div class="sub">${esc(sub)}</div>`:''}</span>
+    <span class="num">${money(amount)}</span></div>`;
+}
+
+// ---------- AI 判斷 ----------
+const EXAMPLES = [
+  '貸款 1,200 萬買自住房，頭期 300 萬，房貸 30 年',
+  '買一間 600 萬的套房出租，月租 1.6 萬，貸款 8 成',
+  '花 4 萬買 iPhone',
+  '買 3 萬的相機，接婚攝案子一個月大概賺 1 萬',
+];
+$('examples').innerHTML = EXAMPLES.map(e=>`<button>${esc(e)}</button>`).join('');
+$('examples').addEventListener('click', e => { if (e.target.tagName==='BUTTON') { $('ask').value = e.target.textContent; $('ask').focus(); } });
+
+function prompt(text){
+  const t = totals();
+  const ctx = items.length || profile.salary
+    ? `使用者目前每月：工資 ${profile.salary}、生活支出 ${profile.living}、被動收入 ${t.passive}、其他固定支出 ${t.expense-profile.living}。已有：${items.map(i=>`${i.name}(${KIND[i.kind]})`).join('、')||'無'}。`
+    : '使用者還沒填報表。';
+  return `你是個人財務分類助手，用《富爸爸，窮爸爸》的定義判斷一筆購買：
+- asset（資產）：持有後每月淨現金流為正，會把錢放進口袋。
+- liability（負債）：持有後每月要持續付錢（貸款、保險、維修、稅、訂閱等）且帶進的錢不夠抵。自住房、自用車屬於負債。
+- expense（消費）：一次付清、之後沒有收支的東西。
+規則：
+- 金額單位為新台幣元，用台灣常見水準估算使用者沒給的數字，估的部分寫進 assumptions。
+- value 是買下後的現值；debt 是剩餘貸款本金（全額付清為 0）；monthlyIncome 是每月帶進的錢；monthlyCost 是每月要付的錢（含貸款月付、保險、維修、稅、管理費、油錢等平均到每月）。
+- 只做分類和試算，不要建議買或不買，不要評論投資好壞。
+- reason 用繁體中文 2 到 3 句，講清楚錢往哪個方向流。
+${ctx}
+
+使用者描述：${text}
+
+只回一個 JSON 物件，格式：
+{"name":"簡短品項名","kind":"asset|liability|expense","reason":"...","value":0,"debt":0,"monthlyIncome":0,"monthlyCost":0,"assumptions":["..."],"missing":["要更準還需要知道的事"]}`;
+}
+
+async function ask(){
+  const text = $('ask').value.trim();
+  if (!text) { $('ask').focus(); return; }
+  if (!sample) { openDraft({name:'', kind:'liability', reason:'', value:0, debt:0, monthlyIncome:0, monthlyCost:0}, true); return; }
+  ctl = new AbortController();
+  $('ask-btn').disabled = true; $('stop-btn').hidden = false;
+  $('ask-status').textContent = '判斷中，通常要 10 到 30 秒…';
+  try {
+    const r = await sample.json(prompt(text), {signal: ctl.signal});
+    if (!r || !KIND[r.kind]) throw {code:'invalid_json'};
+    openDraft({
+      name: String(r.name||text.slice(0,20)), kind: r.kind, reason: String(r.reason||''),
+      value: +r.value||0, debt: +r.debt||0, monthlyIncome: +r.monthlyIncome||0, monthlyCost: +r.monthlyCost||0,
+      assumptions: Array.isArray(r.assumptions)?r.assumptions.map(String):[],
+      missing: Array.isArray(r.missing)?r.missing.map(String):[],
+    });
+    $('ask-status').textContent = '';
+  } catch (e) {
+    const msg = {
+      cancelled:'', not_granted:'沒有允許這個頁面使用 Claude，可以改成自己填。',
+      sampling_disabled:'這個帳號不能用 Claude 判斷，可以改成自己填。',
+      rate_limited:'用量到上限了，晚點再試。', invalid_json:'AI 的回答格式不對，再按一次判斷。',
+      refused:'這段描述 AI 不處理，換個說法試試。', session_expired:'登入過期，重新登入 claude.ai 後再試。',
+    }[e.code];
+    $('ask-status').textContent = msg ?? '連線出問題，再按一次判斷。';
+    if (['not_granted','sampling_disabled','not_declared','capability_disabled','capability_removed'].includes(e.code)) { sample = null; $('ask-btn').textContent = '開始填寫'; }
+  } finally {
+    $('ask-btn').disabled = false; $('stop-btn').hidden = true; ctl = null;
+  }
+}
+$('ask-btn').addEventListener('click', ask);
+$('stop-btn').addEventListener('click', () => ctl?.abort());
+$('manual-btn').addEventListener('click', () => openDraft({name:$('ask').value.trim().slice(0,30), kind:'liability', reason:'', value:0, debt:0, monthlyIncome:0, monthlyCost:0}, true));
+
+// 判斷結果／編輯表單（同一個）
+function openDraft(d, manual=false){
+  draft = {...d};
+  const v = $('verdict'); v.hidden = false;
+  v.innerHTML = `
+    ${manual ? '' : `<div class="verdict-top"><span class="pill k-${d.kind}">${KIND[d.kind]}</span><p class="reason">${esc(d.reason)}</p></div>`}
+    ${d.assumptions?.length ? `<div><div class="hint">AI 估的數字</div><ul class="list">${d.assumptions.map(a=>`<li>${esc(a)}</li>`).join('')}</ul></div>` : ''}
+    ${d.missing?.length ? `<div><div class="hint">要更準還需要知道</div><ul class="list">${d.missing.map(a=>`<li>${esc(a)}</li>`).join('')}</ul></div>` : ''}
+    <div class="fields">
+      <label class="span2">品項<input type="text" id="f-name" value="${esc(d.name)}"></label>
+      <label>分類<select id="f-kind">${Object.entries(KIND).map(([k,n])=>`<option value="${k}" ${k===d.kind?'selected':''}>${n}</option>`).join('')}</select></label>
+      <label>現值<input type="number" id="f-value" min="0" step="1000" value="${d.value}"></label>
+      <label>剩餘欠款<input type="number" id="f-debt" min="0" step="1000" value="${d.debt}"></label>
+      <label>每月帶進<input type="number" id="f-in" min="0" step="100" value="${d.monthlyIncome}"></label>
+      <label>每月要付<input type="number" id="f-out" min="0" step="100" value="${d.monthlyCost}"></label>
+    </div>
+    <div class="impact" id="impact"></div>
+    <div class="actions">
+      <button class="primary" id="f-save">${d.id ? '儲存修改' : '加進報表'}</button>
+      ${d.id ? '<button id="f-del">刪除</button>' : ''}
+      <button class="ghost" id="f-cancel">取消</button>
+    </div>`;
+  const sync = () => {
+    draft.name = $('f-name').value.trim(); draft.kind = $('f-kind').value;
+    draft.value = +$('f-value').value||0; draft.debt = +$('f-debt').value||0;
+    draft.monthlyIncome = +$('f-in').value||0; draft.monthlyCost = +$('f-out').value||0;
+    showImpact();
+  };
+  v.querySelectorAll('input,select').forEach(el => el.addEventListener('input', sync));
+  $('f-save').addEventListener('click', () => { sync(); saveItem(draft); closeDraft(); });
+  $('f-del')?.addEventListener('click', e => {
+    if (e.target.dataset.sure) { deleteItem(draft.id); closeDraft(); }
+    else { e.target.dataset.sure = '1'; e.target.textContent = '再按一次確認刪除'; }
+  });
+  $('f-cancel').addEventListener('click', closeDraft);
+  showImpact();
+  v.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'nearest'});
+}
+function closeDraft(){ draft = null; $('verdict').hidden = true; $('verdict').innerHTML = ''; }
+
+function showImpact(){
+  const before = totals();
+  const after = totals(profile, [...items.filter(i=>i.id!==draft.id), draft]);
+  const pct = x => (x*100).toFixed(1)+'%';
+  $('impact').innerHTML = `
+    <span class="h"></span><span class="h num">現在</span><span class="h num">加進去之後</span>
+    <span>每月淨現金流</span><span class="num">${signed(before.net)}</span><span class="num ${after.net<before.net?'neg':after.net>before.net?'pos':''}">${signed(after.net)}</span>
+    <span>被動收入 ÷ 支出</span><span class="num">${pct(before.free)}</span><span class="num">${pct(after.free)}</span>
+    <span>淨值</span><span class="num">${money(before.worth)}</span><span class="num">${money(after.worth)}</span>`;
+}
+
+// 點報表的列 → 編輯
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-id]');
+  if (!el || el.closest('#verdict')) return;
+  const it = items.find(i=>i.id===el.dataset.id);
+  if (it) openDraft(it, true);
+});
+document.addEventListener('keydown', e => { if (e.key==='Enter' && e.target.matches('.row.click')) e.target.click(); });
+
+// ---------- 資產種類 ----------
+const TYPES = [
+  {name:'出租不動產', inflow:'租金', outflow:'房貸月付、房屋稅地價稅、管理費、修繕、空租期間', trap:'租金扣完全部成本才是正的；空租三個月就可能整年白做'},
+  {name:'配息股票／ETF', inflow:'現金股利（多為年配或季配）', outflow:'沒有月付，但有手續費、二代健保補充保費', trap:'股價下跌時本金縮水；借錢買的話利息就是月付'},
+  {name:'定存／債券', inflow:'利息', outflow:'幾乎沒有', trap:'利率低，扣掉通膨可能是負的；資金被綁住'},
+  {name:'副業或小生意', inflow:'營收扣掉成本', outflow:'進貨、平台抽成、工具訂閱、你的時間', trap:'你不做就沒收入的，比較像第二份工作，不算被動'},
+  {name:'智慧財產', inflow:'授權金、版稅、模板或課程販售', outflow:'平台抽成、申請與維護費（專利年費）', trap:'做一次能賣很多次才是資產；沒人買就只是成本'},
+  {name:'生財設備', inflow:'用它接案或出租的收入', outflow:'折舊、保養、保險', trap:'沒有穩定案源時，它就是自用的負債'},
+];
+$('types').innerHTML = TYPES.map(t => `<article class="type"><h3>${t.name}</h3><dl>
+  <dt>錢怎麼進來</dt><dd>${t.inflow}</dd><dt>要付什麼</dt><dd>${t.outflow}</dd><dt>常見陷阱</dt><dd>${t.trap}</dd></dl></article>`).join('');
+
+// ---------- 負債變資產 ----------
+const ideas = {};   // id → {loading, list, error}
+function renderConvert(){
+  const list = items.filter(i => i.kind !== 'asset');
+  $('conv-rows').innerHTML = list.length ? list.map(i => {
+    const st = ideas[i.id] || {};
+    const body = st.loading ? '<span class="hint">想用法中，通常要 10 到 30 秒…</span>'
+      : st.error ? `<span class="hint">${esc(st.error)}</span>`
+      : st.list ? `<div class="ideas">${st.list.map((x,k) => `<div class="idea">
+          <strong>${esc(x.idea)}</strong><span>${esc(x.detail)}</span>
+          <div class="meta"><span class="num">每月多 +${money(x.extraIncome)}${x.extraCost?`，多付 ${money(x.extraCost)}`:''}</span>
+          <button data-apply="${esc(i.id)}" data-k="${k}">套進報表試算</button></div></div>`).join('')}</div>` : '';
+    return `<div class="conv"><div class="conv-head">
+      <span>${esc(i.name)} <span class="pill k-${i.kind}">${KIND[i.kind]}</span> <span class="hint num">每月 ${signed((+i.monthlyIncome||0)-(+i.monthlyCost||0))}</span></span>
+      <button data-convert="${esc(i.id)}" ${st.loading?'disabled':''}>${st.list?'再想一次':'找用法'}</button></div>${body}</div>`;
+  }).join('') : '<div class="empty">報表裡沒有負債或消費品項。</div>';
+}
+
+async function findUses(id){
+  const it = items.find(i => i.id === id);
+  if (!it) return;
+  if (!sample) { ideas[id] = {error:'要在 claude.ai 上開並允許使用 Claude 才能找用法。'}; renderConvert(); return; }
+  const again = !!ideas[id]?.list;
+  ideas[id] = {loading:true}; renderConvert();
+  try {
+    const r = await sample.json(`你在幫人把手上「目前不帶來收入」的東西，想出能產生現金流的用法。台灣情境，金額用新台幣。
+物品：${it.name}（目前分類：${KIND[it.kind]}）
+現值 ${it.value}、剩餘欠款 ${it.debt}、每月帶進 ${it.monthlyIncome}、每月要付 ${it.monthlyCost}
+說明：${it.reason || '無'}
+規則：
+- 給 3 到 5 個實際可行、一般上班族做得到的用法，估每月能多帶進多少（extraIncome）和因此多付多少（extraCost），用保守的數字。
+- detail 寫怎麼開始，以及要注意的法規、合約或風險（例如社區規約、日租合法性、保險、稅），2 句以內。
+- 不要建議買賣股票、基金、加密貨幣等金融商品，也不要建議借錢。
+- 用不到收入的用法不要列。
+只回 JSON 陣列：[{"idea":"一句話做法","detail":"...","extraIncome":0,"extraCost":0}]`, again ? {cache:false} : {});
+    if (!Array.isArray(r) || !r.length) throw {code:'invalid_json'};
+    ideas[id] = {list: r.map(x => ({idea:String(x.idea||''), detail:String(x.detail||''), extraIncome:+x.extraIncome||0, extraCost:+x.extraCost||0}))};
+  } catch (e) {
+    ideas[id] = {error: {not_granted:'沒有允許這個頁面使用 Claude。', rate_limited:'用量到上限了，晚點再試。',
+      invalid_json:'AI 回答格式不對，再按一次。', refused:'AI 不處理這項。'}[e.code] || '連線出問題，再按一次。'};
+  }
+  renderConvert();
+}
+
+document.addEventListener('click', e => {
+  const c = e.target.closest('[data-convert]');
+  if (c) { findUses(c.dataset.convert); return; }
+  const a = e.target.closest('[data-apply]');
+  if (!a) return;
+  const it = items.find(i => i.id === a.dataset.apply);
+  const x = ideas[a.dataset.apply]?.list?.[+a.dataset.k];
+  if (!it || !x) return;
+  const inc = (+it.monthlyIncome||0) + x.extraIncome, cost = (+it.monthlyCost||0) + x.extraCost;
+  openDraft({...it, monthlyIncome:inc, monthlyCost:cost, kind: inc > cost ? 'asset' : it.kind, reason: x.idea}, true);
+});
+
+// ---------- 存取 ----------
+function leaveDemo(){
+  if (!demo) return;
+  demo = false; items = []; profile = {salary:0, living:0};
+}
+async function saveProfile(patch){
+  leaveDemo();
+  profile = {...profile, ...patch}; render();
+  if (col) try { await col.doc('profile').set({...profile}); } catch { banner('報表沒存成功，重新整理後再試。'); }
+}
+async function saveItem(d){
+  leaveDemo();
+  const rec = {type:'item', name:d.name||'未命名', kind:d.kind, value:d.value, debt:d.debt,
+    monthlyIncome:d.monthlyIncome, monthlyCost:d.monthlyCost, reason:d.reason||'', createdAt:d.createdAt||Date.now()};
+  const id = d.id && !d.id.startsWith('d') ? d.id : 'item_' + Date.now();
+  items = [...items.filter(i=>i.id!==d.id), {...rec, id}]; render();
+  if (col) try { await col.doc(id).set(rec); } catch { banner('這筆沒存成功，重新整理後再試。'); }
+}
+async function deleteItem(id){
+  items = items.filter(i=>i.id!==id); render();
+  if (col && !demo) try { await col.doc(id).delete(); } catch { banner('刪除沒成功，重新整理後再試。'); }
+}
+function banner(text){ const b = $('banner'); b.textContent = text; b.hidden = !text; }
+
+function loadDemo(){
+  demo = true; profile = {...DEMO.profile}; items = DEMO.items.map(i=>({...i})); render();
+}
+
+async function start(){
+  loadDemo();   // 讀到資料前先顯示範例
+  const claude = window.claude;
+  if (!claude?.use) { banner('要在 claude.ai 上開才能存資料和用 AI 判斷。現在顯示的是範例。'); return; }
+  const [dbNs, userNs, sampleFn] = await Promise.all([claude.use('db'), claude.use('user'), claude.use('sample')]);
+  sample = sampleFn;
+  if (!sample) $('ask-btn').textContent = '開始填寫';
+  if (!dbNs || !userNs) { banner('沒登入或無法存資料：可以試算，但重新整理就會清掉。現在顯示的是範例。'); return; }
+  db = dbNs;
+  const uid = await userNs.id();
+  col = db.collection('data/users/' + uid);
+  col.onSnapshot(snap => {
+    if (snap.empty) { if (!demo) render(); else banner('下面是範例數字。填入你的工資或加第一筆東西，範例就會清掉。'); return; }
+    banner('');
+    demo = false;
+    profile = {salary:0, living:0}; const list = [];
+    snap.docs.forEach(d => {
+      const v = d.data();
+      if (d.id === 'profile') profile = {salary:+v.salary||0, living:+v.living||0};
+      else if (v.type === 'item') list.push({...v, id:d.id});
+    });
+    items = list.sort((a,b)=>(a.createdAt||0)-(b.createdAt||0));
+    render();
+  }, () => banner('讀取報表失敗，重新整理再試。'));
+}
+start();
+</script>

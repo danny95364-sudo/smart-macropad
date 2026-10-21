@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>資產負債判斷</title>
+<style>
+:root{
+  --bg:#f6f5f2;--card:#fff;--ink:#1d1d1b;--mute:#6b6a66;--line:#e3e1dc;
+  --good:#1f7a4d;--good-bg:#e5f3ec;--bad:#b3261e;--bad-bg:#fbe9e7;--mid:#8a6d00;--mid-bg:#fbf3d6;
+  --accent:#2f5d8a;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#151514;--card:#1f1f1d;--ink:#ecebe7;--mute:#9b9a95;--line:#33322f;
+  --good:#5cc592;--good-bg:#1a3328;--bad:#f08a80;--bad-bg:#3a1f1c;--mid:#e0c25a;--mid-bg:#352d12;--accent:#7fb0e0;
+}}
+:root[data-theme="dark"]{
+  --bg:#151514;--card:#1f1f1d;--ink:#ecebe7;--mute:#9b9a95;--line:#33322f;
+  --good:#5cc592;--good-bg:#1a3328;--bad:#f08a80;--bad-bg:#3a1f1c;--mid:#e0c25a;--mid-bg:#352d12;--accent:#7fb0e0;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,"Microsoft JhengHei","PingFang TC",sans-serif}
+main{max-width:880px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:22px;margin:0 0 4px}
+.sub{color:var(--mute);margin:0 0 20px;font-size:14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:720px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card h2{font-size:15px;margin:0 0 12px}
+label{display:block;font-size:13px;color:var(--mute);margin:10px 0 4px}
+input[type=text],input[type=number]{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.presets{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+button{font:inherit;cursor:pointer;border-radius:6px;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:5px 10px;font-size:13px}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff;padding:8px 14px;font-size:14px;margin-top:14px}
+.check{display:flex;gap:8px;align-items:flex-start;margin-top:12px;font-size:13px;color:var(--mute)}
+.verdict{border-radius:8px;padding:14px;margin-bottom:12px}
+.verdict .tag{font-size:24px;font-weight:700}
+.verdict .why{font-size:13px;margin-top:2px}
+.v-good{background:var(--good-bg);color:var(--good)}
+.v-bad{background:var(--bad-bg);color:var(--bad)}
+.v-mid{background:var(--mid-bg);color:var(--mid)}
+dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:14px}
+dt{color:var(--mute)}dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+.note{font-size:12px;color:var(--mute);margin-top:12px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:7px 6px;border-bottom:1px solid var(--line);text-align:left}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.pill{font-size:12px;padding:1px 8px;border-radius:99px;white-space:nowrap}
+.total{display:flex;justify-content:space-between;font-weight:600;padding-top:10px}
+.empty{color:var(--mute);font-size:14px}
+.wide{margin-top:16px;overflow-x:auto}
+</style>
+</head>
+<body>
+<main>
+  <h1>資產負債判斷</h1>
+  <p class="sub">買東西前算一下：它每個月是把錢放進你口袋，還是從你口袋拿走。</p>
+
+  <div class="grid">
+    <section class="card">
+      <h2>要買的東西</h2>
+      <div class="presets" id="presets"></div>
+
+      <label for="name">品項</label>
+      <input type="text" id="name" placeholder="例：機車、出租套房、0050">
+
+      <div class="row">
+        <div><label for="price">買價（元）</label><input type="number" id="price" min="0" step="1000"></div>
+        <div><label for="residual">預計殘值／賣掉能拿回（元）</label><input type="number" id="residual" min="0" step="1000"></div>
+      </div>
+      <div class="row">
+        <div><label for="income">每月帶進來的錢</label><input type="number" id="income" min="0" step="100" placeholder="租金、股息、接案收入"></div>
+        <div><label for="cost">每月要付的錢</label><input type="number" id="cost" min="0" step="100" placeholder="貸款、保險、維修、稅、訂閱"></div>
+      </div>
+      <div class="row">
+        <div><label for="saving">每月幫你省下的錢</label><input type="number" id="saving" min="0" step="100" placeholder="例：不用再搭計程車"></div>
+        <div><label for="years">打算用幾年</label><input type="number" id="years" min="0.5" step="0.5" value="5"></div>
+      </div>
+      <label class="check"><input type="checkbox" id="countSaving"> 把「省下的錢」算進收入（嚴格定義下不算，省錢不是現金流入）</label>
+
+      <button class="primary" id="save">記下來</button>
+    </section>
+
+    <section class="card">
+      <h2>判定</h2>
+      <div id="result"><p class="empty">輸入買價或每月收支就會算。</p></div>
+    </section>
+  </div>
+
+  <section class="card wide">
+    <h2>已記錄</h2>
+    <div id="list"></div>
+  </section>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const fields = ['name','price','residual','income','cost','saving','years'];
+const fmt = n => (n < 0 ? '−' : '') + Math.round(Math.abs(n)).toLocaleString('zh-TW');
+const signed = n => (n > 0 ? '+' : '') + fmt(n);
+
+const PRESETS = {
+  '自住房（貸款）': {price:3000000, residual:3000000, income:0, cost:32000, saving:15000, years:20},
+  '出租套房': {price:2500000, residual:2500000, income:14000, cost:11000, saving:0, years:20},
+  '汽車': {price:800000, residual:250000, income:0, cost:6000, saving:2000, years:8},
+  '高股息 ETF': {price:300000, residual:300000, income:1250, cost:0, saving:0, years:10},
+  '手機': {price:36000, residual:8000, income:0, cost:0, saving:0, years:3},
+  '線上課程': {price:12000, residual:0, income:0, cost:0, saving:0, years:1},
+};
+
+function read(){
+  const v = k => Math.max(0, parseFloat($(k).value) || 0);
+  return {
+    name: $('name').value.trim(),
+    price: v('price'), residual: v('residual'), income: v('income'),
+    cost: v('cost'), saving: v('saving'), years: v('years') || 1,
+    countSaving: $('countSaving').checked,
+  };
+}
+
+function evaluate(d){
+  const inflow = d.income + (d.countSaving ? d.saving : 0);
+  const net = inflow - d.cost;                       // 每月現金流
+  const months = d.years * 12;
+  const depreciation = (d.price - d.residual) / months; // 買價攤到每個月
+  const realMonthly = net - depreciation;            // 含攤提後每月真實損益
+  const total = net * months + d.residual - d.price; // 持有期間總損益
+
+  let cls, tag, why;
+  if (net > 0) { cls='v-good'; tag='資產'; why=`每月淨流入 ${fmt(net)} 元`; }
+  else if (net < 0) { cls='v-bad'; tag='負債'; why=`每月淨流出 ${fmt(-net)} 元`; }
+  else if (d.income === 0 && d.cost === 0) { cls='v-mid'; tag='消費'; why='沒有後續收支，買了就是花掉'; }
+  else { cls='v-mid'; tag='打平'; why='每月收支剛好抵銷'; }
+
+  let caveat = '';
+  if (net > 0 && realMonthly < 0) caveat = '現金流是正的，但買價攤下來每月其實在虧。賺的租金／股息不夠補貶值。';
+  else if (net <= 0 && realMonthly > 0) caveat = '每月現金流不正，但殘值夠高，賣掉時才賺回來。獲利全押在殘值估得準不準。';
+  else if (!d.countSaving && d.saving > 0 && net + d.saving > 0) caveat = `如果把每月省下的 ${fmt(d.saving)} 元算進來，就會變成正現金流。這要看你是不是真的會把省下的錢存起來。`;
+
+  return {net, depreciation, realMonthly, total, cls, tag, why, caveat,
+          payback: net > 0 && d.price > 0 ? d.price / net : null};
+}
+
+function render(){
+  const d = read();
+  if (!d.price && !d.income && !d.cost && !d.saving) {
+    $('result').innerHTML = '<p class="empty">輸入買價或每月收支就會算。</p>';
+    return;
+  }
+  const r = evaluate(d);
+  const pb = r.payback == null ? '—' :
+    r.payback > 12 ? `${(r.payback/12).toFixed(1)} 年` : `${Math.ceil(r.payback)} 個月`;
+  $('result').innerHTML = `
+    <div class="verdict ${r.cls}"><div class="tag">${r.tag}</div><div class="why">${r.why}</div></div>
+    <dl>
+      <dt>每月現金流</dt><dd>${signed(r.net)}</dd>
+      <dt>買價攤到每月</dt><dd>${signed(-r.depreciation)}</dd>
+      <dt>含攤提每月實際</dt><dd>${signed(r.realMonthly)}</dd>
+      <dt>${d.years} 年總損益</dt><dd>${signed(r.total)}</dd>
+      <dt>回本時間</dt><dd>${pb}</dd>
+    </dl>
+    ${r.caveat ? `<p class="note">⚠ ${r.caveat}</p>` : ''}
+    <p class="note">依「每月現金流入或流出」判定，只是算術，不是投資建議。增值、通膨、利率變動都沒算進去。</p>`;
+}
+
+// 記錄存在本機瀏覽器
+const KEY = 'asset-liability-items';
+function load(){ try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch { return []; } }
+function store(items){ try { localStorage.setItem(KEY, JSON.stringify(items)); } catch {} }
+
+function renderList(){
+  const items = load();
+  if (!items.length) { $('list').innerHTML = '<p class="empty">還沒有記錄。</p>'; return; }
+  let sumNet = 0, sumReal = 0;
+  const rows = items.map((d, i) => {
+    const r = evaluate(d); sumNet += r.net; sumReal += r.realMonthly;
+    return `<tr><td>${escapeHtml(d.name || '未命名')}</td>
+      <td><span class="pill ${r.cls}">${r.tag}</span></td>
+      <td class="n">${signed(r.net)}</td><td class="n">${signed(r.realMonthly)}</td>
+      <td class="n"><button data-load="${i}">載入</button> <button data-del="${i}">刪</button></td></tr>`;
+  }).join('');
+  $('list').innerHTML = `<table>
+    <thead><tr><th>品項</th><th>判定</th><th class="n">每月現金流</th><th class="n">含攤提</th><th></th></tr></thead>
+    <tbody>${rows}</tbody></table>
+    <div class="total"><span>合計每月現金流</span><span>${signed(sumNet)}（含攤提 ${signed(sumReal)}）</span></div>`;
+}
+
+function escapeHtml(s){ return s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function fill(d){
+  fields.forEach(k => $(k).value = d[k] ?? '');
+  $('countSaving').checked = !!d.countSaving;
+  render();
+}
+
+$('presets').innerHTML = Object.keys(PRESETS).map(k => `<button data-preset="${k}">${k}</button>`).join('');
+$('presets').addEventListener('click', e => {
+  const k = e.target.dataset.preset;
+  if (k) fill({name:k, ...PRESETS[k], countSaving:false});
+});
+[...fields, 'countSaving'].forEach(k => $(k).addEventListener('input', render));
+$('save').addEventListener('click', () => {
+  const d = read();
+  if (!d.price && !d.income && !d.cost) return;
+  store([...load(), d]); renderList();
+});
+$('list').addEventListener('click', e => {
+  const items = load();
+  if (e.target.dataset.del != null) { items.splice(+e.target.dataset.del, 1); store(items); renderList(); }
+  if (e.target.dataset.load != null) fill(items[+e.target.dataset.load]);
+});
+
+render(); renderList();
+</script>
+</body>
+</html>
