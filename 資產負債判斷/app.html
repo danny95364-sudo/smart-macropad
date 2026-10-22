@@ -93,12 +93,70 @@ button:disabled{opacity:.55;cursor:default}
 .row.total{font-weight:700;background:var(--soft)}
 .empty{padding:14px 12px;color:var(--muted);font-size:13px}
 .note{font-size:12px;color:var(--muted);margin:10px 0 0}
-.types{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-.type{border:1px solid var(--line);border-radius:6px;padding:12px 14px;min-width:0}
-.type h3{font-size:15px;margin:0 0 6px;font-family:var(--f-head)}
-.type dl{margin:0;display:grid;gap:4px;font-size:13px}
-.type dt{color:var(--muted);font-size:11px;letter-spacing:.06em}
-.type dd{margin:0 0 4px}
+/* 四格：收入、支出各佔一整列，下面資產｜負債；左右兩條箭頭是現金流方向 */
+.fs{display:grid;grid-template-columns:34px minmax(0,1fr) minmax(0,1fr) 34px;grid-template-areas:"in i i ." "in e e out" "in a d out";border:0}
+.box{border:1px solid var(--line);margin:-1px 0 0 -1px;min-width:0}
+.b-income{grid-area:i}.b-expense{grid-area:e}.b-asset{grid-area:a}.b-debt{grid-area:d}
+.col-head small{font-weight:400;color:var(--muted);letter-spacing:0}
+.flow{position:relative;opacity:.25}
+.flow.on{opacity:1}
+.f-in{grid-area:in;--c:var(--good)}
+.f-out{grid-area:out;--c:var(--bad)}
+.flow::before{content:"";position:absolute;left:50%;width:2px;margin-left:-1px;background:var(--c)}
+.f-in::before{top:22px;bottom:22px}
+.f-out::before{top:22px;bottom:22px}
+.flow::after{content:"";position:absolute;left:50%;margin-left:-6px;border:6px solid transparent}
+.f-in::after{top:10px;border-bottom:8px solid var(--c);border-top:0}
+.f-out::after{bottom:10px;border-top:8px solid var(--c);border-bottom:0}
+.flow-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-90deg);white-space:nowrap;font-size:11px;color:var(--c);background:var(--surface);padding:0 4px}
+.pattern{margin:-4px 0 12px;font-size:14px}
+
+/* 手機 */
+@media (max-width:560px){
+  .wrap{padding-block:18px 40px;gap:14px}
+  h1{font-size:22px}
+  .panel{padding:14px 12px}
+  .kpis{gap:8px}
+  .kpi{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:0 10px;padding:10px 12px}
+  .kpi .value{font-size:19px;margin:0;grid-row:1;grid-column:2}
+  .kpi .label{grid-row:1;grid-column:1}
+  .kpi .bar,.kpi .foot{grid-column:1 / -1}
+  .fs{grid-template-columns:18px minmax(0,1fr) minmax(0,1fr) 18px}
+  .flow-label{display:none}
+  .row{padding:8px 8px;font-size:13px;flex-wrap:wrap}
+  .row input[type=number]{width:96px}
+  .b-asset .row,.b-debt .row{flex-direction:column;align-items:flex-start;gap:2px}
+  .col-head{padding:8px;font-size:12px}
+  .examples button{font-size:12px}
+  .impact{grid-template-columns:auto 1fr 1fr;gap:4px 8px;font-size:13px}
+}
+.pattern b{font-weight:700}
+/* 風險收益圖：分類色依 dataviz 驗證過的五色 */
+:root{--g1:#2a78d6;--g2:#eb6834;--g3:#1baf7a;--g4:#eda100;--g5:#e87ba4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--g1:#3987e5;--g2:#d95926;--g3:#199e70;--g4:#c98500;--g5:#d55181}}
+:root[data-theme="dark"]{--g1:#3987e5;--g2:#d95926;--g3:#199e70;--g4:#c98500;--g5:#d55181}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:var(--muted);margin-bottom:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.chart-scroll{min-width:0}
+#rr{width:100%;height:auto;display:block}
+#rr text{font-family:var(--f-text);fill:var(--fg)}
+#rr .axis{stroke:var(--muted);stroke-width:1}
+#rr .grid{stroke:var(--line);stroke-width:1}
+#rr .tick,#rr .corner{fill:var(--muted);font-size:11px}
+#rr .corner{font-size:12px}
+#rr .lbl{font-size:11.5px;pointer-events:none}
+#rr .pt{cursor:pointer}
+#rr .pt circle.dot{stroke:var(--surface);stroke-width:2}
+#rr .pt circle.hit{fill:transparent}
+#rr .pt.sel circle.dot{stroke:var(--fg)}
+.detail{margin-top:8px;font-size:14px;background:var(--soft);border-radius:6px;padding:10px 12px;min-height:44px}
+.detail .meta{color:var(--muted);font-size:13px}
+.tbl{margin-top:10px;font-size:13px}
+.tbl summary{cursor:pointer;color:var(--accent)}
+.tbl-scroll{overflow-x:auto;margin-top:8px}
+.tbl table{border-collapse:collapse;width:100%;min-width:560px}
+.tbl th,.tbl td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{color:var(--muted);font-weight:500}
 .conv{border-top:1px solid var(--line);padding:12px 0;display:grid;gap:10px}
 .conv:first-child{border-top:0;padding-top:0}
 .conv-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
@@ -135,31 +193,28 @@ button:disabled{opacity:.55;cursor:default}
     <div id="verdict" class="verdict" hidden></div>
   </section>
 
-  <section class="panel" aria-labelledby="inc-h">
-    <div class="panel-head"><h2 id="inc-h">收入表</h2><span class="hint">每月</span></div>
-    <div class="sheet">
-      <div class="col">
-        <div class="col-head"><span>收入</span><span class="num" id="t-income"></span></div>
+  <section class="panel" aria-labelledby="fs-h">
+    <div class="panel-head"><h2 id="fs-h">財務報表</h2><span class="hint">點一列可以修改或刪除</span></div>
+    <p class="pattern" id="pattern"></p>
+    <div class="fs">
+      <div class="box b-income">
+        <div class="col-head"><span>收入 <small>每月</small></span><span class="num" id="t-income"></span></div>
         <div id="income-rows"></div>
       </div>
-      <div class="col">
-        <div class="col-head"><span>支出</span><span class="num" id="t-expense"></span></div>
+      <div class="box b-expense">
+        <div class="col-head"><span>支出 <small>每月</small></span><span class="num" id="t-expense"></span></div>
         <div id="expense-rows"></div>
       </div>
-    </div>
-  </section>
-
-  <section class="panel" aria-labelledby="bs-h">
-    <div class="panel-head"><h2 id="bs-h">資產負債表</h2><span class="hint">點一列可以修改或刪除</span></div>
-    <div class="sheet">
-      <div class="col">
+      <div class="box b-asset">
         <div class="col-head"><span>資產</span><span class="num" id="t-asset"></span></div>
         <div id="asset-rows"></div>
       </div>
-      <div class="col">
+      <div class="box b-debt">
         <div class="col-head"><span>負債</span><span class="num" id="t-debt"></span></div>
         <div id="debt-rows"></div>
       </div>
+      <div class="flow f-in" id="flow-in"><span class="flow-label num" id="flow-in-label"></span></div>
+      <div class="flow f-out" id="flow-out"><span class="flow-label num" id="flow-out-label"></span></div>
     </div>
     <div id="spent" class="note"></div>
     <p class="note">分類依《富爸爸，窮爸爸》的定義：看每月現金流方向，不看東西值不值錢。這裡只做分類和試算，不告訴你該不該買。</p>
@@ -171,9 +226,15 @@ button:disabled{opacity:.55;cursor:default}
   </section>
 
   <section class="panel" aria-labelledby="types-h">
-    <div class="panel-head"><h2 id="types-h">資產有哪幾種</h2><span class="hint">認識錢怎麼流，不是推薦清單</span></div>
-    <div class="types" id="types"></div>
-    <p class="note">任何一類都可能是負債：月付超過收入、或收入停了還得繼續付，它就在把錢拿走。買之前用上面的「想買什麼」算一次。</p>
+    <div class="panel-head"><h2 id="types-h">資產有哪幾種</h2><span class="hint">位置是相對粗估，不是推薦清單</span></div>
+    <div class="legend" id="legend"></div>
+    <div class="chart-scroll"><svg id="rr" viewBox="0 0 640 430" role="img" aria-labelledby="types-h"></svg></div>
+    <div class="detail" id="detail" aria-live="polite">點或移到任一點看說明。</div>
+    <details class="tbl">
+      <summary>用表格看</summary>
+      <div class="tbl-scroll"><table id="rr-table"></table></div>
+    </details>
+    <p class="note">風險＝本金可能虧多少、收入穩不穩；收益＝每年帶進的現金相對投入多少，各家條件差很多。任何一類月付超過收入，就是負債。買之前用上面的「想買什麼」算一次。</p>
   </section>
 </div>
 
@@ -247,6 +308,20 @@ function render(){
 
   const spent = items.filter(i=>i.kind!=='asset' && !(+i.debt>0) && !(+i.monthlyCost>0));
   $('spent').innerHTML = spent.length ? '已花掉、沒有後續收支：' + spent.map(i=>`<button class="ghost" data-id="${esc(i.id)}">${esc(i.name)} ${money(i.value)}</button>`).join('') : '';
+
+  // 箭頭：資產 → 收入、支出 → 負債
+  const debtPay = items.filter(i=>+i.debt>0).reduce((s,i)=>s+(+i.monthlyCost||0),0);
+  $('flow-in').classList.toggle('on', t.passive>0);
+  $('flow-in-label').textContent = t.passive>0 ? `資產帶進 +${money(t.passive)}` : '資產還沒帶進錢';
+  $('flow-out').classList.toggle('on', debtPay>0);
+  $('flow-out-label').textContent = debtPay>0 ? `付給負債 ${money(debtPay)}` : '沒有負債月付';
+  $('pattern').innerHTML = t.expense>0 && t.passive>=t.expense
+    ? '現金流型態：<b class="pos">富人型</b>，資產帶進的錢已經付得起全部支出。'
+    : debtPay>t.passive
+    ? `現金流型態：<b class="neg">中產型</b>，工資有 ${money(debtPay)} 流去付負債，比資產帶進的多。`
+    : t.passive>0
+    ? `現金流型態：<b>往富人型走</b>，資產每月帶進 ${money(t.passive)}，還差 ${money(t.expense-t.passive)} 才蓋過支出。`
+    : '現金流型態：<b>窮人型</b>，收入只靠工資，進來就流去生活支出。';
 
   renderConvert();
   $('salary').addEventListener('change', e => saveProfile({salary: +e.target.value||0}));
@@ -386,16 +461,106 @@ document.addEventListener('click', e => {
 document.addEventListener('keydown', e => { if (e.key==='Enter' && e.target.matches('.row.click')) e.target.click(); });
 
 // ---------- 資產種類 ----------
+// r＝風險、v＝現金流收益潛力，都是 0–10 的相對粗估；a＝標籤位置
+const GROUPS = {fin:['金融','--g1'], re:['不動產','--g2'], biz:['生意','--g3'], ip:['智財與數位','--g4'], none:['不帶現金流','--g5']};
 const TYPES = [
-  {name:'出租不動產', inflow:'租金', outflow:'房貸月付、房屋稅地價稅、管理費、修繕、空租期間', trap:'租金扣完全部成本才是正的；空租三個月就可能整年白做'},
-  {name:'配息股票／ETF', inflow:'現金股利（多為年配或季配）', outflow:'沒有月付，但有手續費、二代健保補充保費', trap:'股價下跌時本金縮水；借錢買的話利息就是月付'},
-  {name:'定存／債券', inflow:'利息', outflow:'幾乎沒有', trap:'利率低，扣掉通膨可能是負的；資金被綁住'},
-  {name:'副業或小生意', inflow:'營收扣掉成本', outflow:'進貨、平台抽成、工具訂閱、你的時間', trap:'你不做就沒收入的，比較像第二份工作，不算被動'},
-  {name:'智慧財產', inflow:'授權金、版稅、模板或課程販售', outflow:'平台抽成、申請與維護費（專利年費）', trap:'做一次能賣很多次才是資產；沒人買就只是成本'},
-  {name:'生財設備', inflow:'用它接案或出租的收入', outflow:'折舊、保養、保險', trap:'沒有穩定案源時，它就是自用的負債'},
+  {n:'定存', g:'fin', r:1, v:1, a:'b', y:'年息約 1.5–2%', in:'利息', trap:'扣掉通膨可能是負的'},
+  {n:'公債', g:'fin', r:1.5, v:1.2, a:'r', y:'年息約 1.5–2%', in:'利息', trap:'中途賣出可能賠價差'},
+  {n:'債券 ETF', g:'fin', r:3, v:2.8, a:'l', y:'配息約 3–5%', in:'配息', trap:'利率上升時淨值會跌'},
+  {n:'高股息 ETF', g:'fin', r:5.5, v:4, a:'r', y:'殖利率約 4–7%', in:'股利', trap:'股價跌時本金縮水，配息也可能減'},
+  {n:'個股配息', g:'fin', r:7, v:4.5, a:'r', y:'殖利率差很大', in:'股利', trap:'單一公司出事就全沒了'},
+  {n:'借據', g:'fin', r:9, v:6, a:'r', y:'利率有法定上限', in:'利息', trap:'對方不還就整筆沒了'},
+  {n:'停車位出租', g:'re', r:3.8, v:2.2, a:'r', y:'租金報酬約 2–3%', in:'租金', trap:'本金大、流動性差'},
+  {n:'REITs', g:'re', r:4.5, v:3.2, a:'r', y:'配息約 2–5%', in:'租金分配', trap:'跟股市一起漲跌'},
+  {n:'套房出租', g:'re', r:5.5, v:2.3, a:'r', y:'台灣租金報酬多在 2–3%', in:'租金', trap:'房貸、稅、修繕、空租扣完常常不剩'},
+  {n:'包租轉租', g:'re', r:6.5, v:6.5, a:'l', y:'本金小，看租差', in:'租金價差', trap:'房東收回或租不出去，租金照付'},
+  {n:'販賣機／機台', g:'biz', r:6.5, v:5.3, a:'r', y:'看點位', in:'營收扣成本', trap:'點位不好就是一台會折舊的鐵箱'},
+  {n:'加盟／入股', g:'biz', r:7.5, v:6.8, a:'r', y:'看分紅', in:'分紅', trap:'不是你經營，資訊不透明'},
+  {n:'自己的生意', g:'biz', r:8.3, v:8, a:'r', y:'上限最高', in:'營收扣成本', trap:'要你在場才會賺的，是第二份工作'},
+  {n:'數位商品', g:'ip', r:3, v:5.2, a:'l', y:'本金小，看銷量', in:'模板、模型、圖庫販售', trap:'沒人買就只是花掉的時間'},
+  {n:'課程／電子書', g:'ip', r:4, v:6.2, a:'l', y:'本金小，看銷量', in:'銷售', trap:'要持續行銷才有人買'},
+  {n:'頻道／網站', g:'ip', r:5, v:5.4, a:'r', y:'看流量', in:'廣告、分潤', trap:'平台改演算法收入就掉'},
+  {n:'專利授權', g:'ip', r:5.6, v:7.3, a:'l', y:'看授權條件', in:'授權金、權利金', trap:'申請與年費要先付，沒人授權就是成本'},
+  {n:'黃金', g:'none', r:4, v:0, a:'t', y:'不配息', in:'賣掉才有現金', trap:'平常不帶進錢，照現金流標準不算資產'},
+  {n:'加密貨幣', g:'none', r:9.5, v:0, a:'t', y:'多數不配息', in:'賣掉才有現金', trap:'波動極大，平常不帶進錢'},
 ];
-$('types').innerHTML = TYPES.map(t => `<article class="type"><h3>${t.name}</h3><dl>
-  <dt>錢怎麼進來</dt><dd>${t.inflow}</dd><dt>要付什麼</dt><dd>${t.outflow}</dd><dt>常見陷阱</dt><dd>${t.trap}</dd></dl></article>`).join('');
+// 依容器寬度重畫：手機用直式比例，標籤逐一找不撞到別人的位置
+let X0, X1, Y0, Y1, W, H, sel = -1;
+const px = r => X0 + r/10*(X1-X0), py = v => Y0 - v/9*(Y0-Y1);
+const FS = 11.5;
+const textW = s => [...s].reduce((w,c) => w + (c.charCodeAt(0) > 255 ? FS : FS*0.6), 0);
+const overlap = (a,b) => a.x < b.x+b.w && b.x < a.x+a.w && a.y < b.y+b.h && b.y < a.y+a.h;
+function placeLabels(){
+  const boxes = TYPES.map(t => ({x:px(t.r)-7, y:py(t.v)-7, w:14, h:14}));
+  const cw1 = textW(CORNERS[0])*12/FS, cw2 = textW(CORNERS[1])*12/FS;
+  boxes.push({x:X0+8, y:Y1, w:cw1, h:16}, {x:X1-8-cw2, y:py(1.6)-13, w:cw2, h:16});
+  return TYPES.map(t => {
+    const x = px(t.r), y = py(t.v), w = textW(t.n), h = FS+2;
+    const cand = {
+      r:{x:x+9, y:y-h/2, anchor:'start'}, l:{x:x-9-w, y:y-h/2, anchor:'end'},
+      t:{x:x-w/2, y:y-10-h, anchor:'middle'}, b:{x:x-w/2, y:y+9, anchor:'middle'},
+      tr:{x:x+6, y:y-6-h, anchor:'start'}, br:{x:x+6, y:y+6, anchor:'start'},
+      tl:{x:x-6-w, y:y-6-h, anchor:'end'}, bl:{x:x-6-w, y:y+6, anchor:'end'},
+    };
+    const order = [t.a, 'r','l','t','b','tr','br','tl','bl'];
+    let pick = cand[t.a];
+    for (const k of order) {
+      const c = cand[k], box = {x:c.x, y:c.y, w, h};
+      if (box.x < 2 || box.x+w > W-2 || box.y < 2 || box.y+h > Y0) continue;
+      if (boxes.some(b => overlap(box, b))) continue;
+      pick = c; boxes.push(box); break;
+    }
+    const tx = pick.anchor==='start' ? pick.x : pick.anchor==='end' ? pick.x+w : pick.x+w/2;
+    return {x:tx, y:pick.y+h-3, anchor:pick.anchor};
+  });
+}
+function drawChart(){
+  const cw = $('rr').parentNode.clientWidth || 640;
+  W = Math.max(300, Math.min(640, cw));
+  const narrow = W < 520;
+  H = narrow ? Math.round(W*1.25) : 430;
+  X0 = narrow ? 34 : 54; X1 = W - 12; Y0 = H - 50; Y1 = 22;
+  $('rr').setAttribute('viewBox', `0 0 ${W} ${H}`);
+  const s = [];
+  // 格線與象限
+  [2.5,5,7.5].forEach(r => s.push(`<line class="grid" x1="${px(r)}" y1="${Y1}" x2="${px(r)}" y2="${Y0}"/>`));
+  [3,6].forEach(v => s.push(`<line class="grid" x1="${X0}" y1="${py(v)}" x2="${X1}" y2="${py(v)}"/>`));
+  s.push(`<text class="corner" x="${X0+8}" y="${Y1+14}">${CORNERS[0]}</text>`);
+  s.push(`<text class="corner" x="${X1-8}" y="${py(1.6)}" text-anchor="end">${CORNERS[1]}</text>`);
+  s.push(`<line class="axis" x1="${X0}" y1="${Y0}" x2="${X1}" y2="${Y0}"/><line class="axis" x1="${X0}" y1="${Y1}" x2="${X0}" y2="${Y0}"/>`);
+  [[1,'低'],[5,'中'],[9,'高']].forEach(([r,t]) => s.push(`<text class="tick" x="${px(r)}" y="${Y0+16}" text-anchor="middle">${t}</text>`));
+  [[1,'低'],[4.5,'中'],[8,'高']].forEach(([v,t]) => s.push(`<text class="tick" x="${X0-8}" y="${py(v)+4}" text-anchor="end">${t}</text>`));
+  s.push(`<text class="tick" x="${(X0+X1)/2}" y="${Y0+36}" text-anchor="middle">風險 →</text>`);
+  s.push(`<text class="tick" transform="translate(${narrow?10:16} ${(Y0+Y1)/2}) rotate(-90)" text-anchor="middle">現金流收益 →</text>`);
+  const labels = placeLabels();
+  TYPES.forEach((t,i) => {
+    const x = px(t.r), y = py(t.v), L = labels[i];
+    s.push(`<g class="pt${i===sel?' sel':''}" data-i="${i}" tabindex="0" role="button" aria-label="${t.n}">
+      <circle class="hit" cx="${x}" cy="${y}" r="16"/><circle class="dot" cx="${x}" cy="${y}" r="6" style="fill:var(${GROUPS[t.g][1]})"/>
+      <text class="lbl" x="${L.x}" y="${L.y}" text-anchor="${L.anchor}">${t.n}</text></g>`);
+  });
+  $('rr').innerHTML = s.join('');
+}
+const CORNERS = ['低風險高收益：很少見', '高風險低收益：最差'];
+(function setupChart(){
+  drawChart();
+  let lastW = $('rr').parentNode.clientWidth;
+  new ResizeObserver(() => {
+    const w = $('rr').parentNode.clientWidth;
+    if (Math.abs(w - lastW) > 16) { lastW = w; drawChart(); }
+  }).observe($('rr').parentNode);
+  $('legend').innerHTML = Object.values(GROUPS).map(([n,c]) => `<span><i style="background:var(${c})"></i>${n}</span>`).join('');
+  $('rr-table').innerHTML = '<thead><tr><th>種類</th><th>類別</th><th>風險</th><th>收益</th><th>常見水準</th><th>陷阱</th></tr></thead><tbody>' +
+    TYPES.map(t => `<tr><td>${t.n}</td><td>${GROUPS[t.g][0]}</td><td class="num">${t.r}</td><td class="num">${t.v}</td><td>${t.y}</td><td>${t.trap}</td></tr>`).join('') + '</tbody>';
+  const show = g => {
+    $('rr').querySelectorAll('.pt').forEach(p => p.classList.toggle('sel', p === g));
+    const t = TYPES[sel = +g.dataset.i];
+    $('detail').innerHTML = `<strong>${t.n}</strong> <span class="meta">${GROUPS[t.g][0]}・${t.y}</span><br>錢怎麼進來：${t.in}<br><span class="meta">陷阱：${t.trap}</span>`;
+  };
+  $('rr').addEventListener('pointerover', e => { const g = e.target.closest('.pt'); if (g) show(g); });
+  $('rr').addEventListener('click', e => { const g = e.target.closest('.pt'); if (g) show(g); });
+  $('rr').addEventListener('focusin', e => { const g = e.target.closest('.pt'); if (g) show(g); });
+})();
 
 // ---------- 負債變資產 ----------
 const ideas = {};   // id → {loading, list, error}
