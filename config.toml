@@ -16,6 +16,11 @@
 
 quit_hotkey = "ctrl+alt+shift+0"
 
+# 看板：sim = 電腦上的模擬視窗（自動開關）、serial = ESP32 CYD（還沒做）、off = 不用
+# 每個模式可以加 color（看板模式色）和 knob（旋鈕總稱，例如「音量」）
+display = "sim"
+display_port = 47321
+
 [hotkeys]
 1 = "ctrl+alt+shift+1"
 2 = "ctrl+alt+shift+2"
@@ -30,6 +35,8 @@ quit_hotkey = "ctrl+alt+shift+0"
 # ── 沒有特別設定的軟體都用這組 ──
 [modes.default]
 name = "一般"
+color = "#44546A"
+knob = "音量"
 
 [modes.default.keys]
 1 = { label = "截圖", do = "keys", keys = "win+shift+s", toast = false }
@@ -45,6 +52,8 @@ name = "一般"
 # ── PowerPoint ──
 [modes.ppt]
 name = "PPT"
+color = "#C4501E"
+knob = "換頁"
 apps = ["POWERPNT.EXE"]
 
 [modes.ppt.keys]
@@ -63,6 +72,8 @@ apps = ["POWERPNT.EXE"]
 # 1、2、4、5 要先在 config.pro 寫好 mapkey，再改成 do = "seq"
 [modes.creo]
 name = "Creo"
+color = "#1E7F4F"
+knob = "縮放"
 apps = ["xtop.exe"]
 
 [modes.creo.keys]
@@ -79,6 +90,7 @@ apps = ["xtop.exe"]
 # ── 記事本（在家測試用）──
 [modes.notepad]
 name = "記事本"
+color = "#1F63B8"
 apps = ["notepad.exe"]
 
 [modes.notepad.keys]

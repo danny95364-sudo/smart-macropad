@@ -33,7 +33,7 @@ ESP32 小螢幕當輸出看板。公司不行就當私人用。
 - 硬體：SIKAI 鍵盤（1189:8840）已用 ch57x-keyboard-tool 寫入 `keyboard-mapping.yaml`，9 個輸入實測正常（2026-10-27）；Windows 寫入需先裝 UsbDk 並指定 `--product-id 34880`；CYD 2.8 吋 Type-C 待到貨
 - 下一步：
   1. 公司電腦 `git clone https://github.com/danny95364-sudo/smart-macropad.git` → `python check_env.py --ai` → 雙擊 `啟動.bat` 實測
-  2. 使用者選定看板方向後：做「電腦上的看板模擬視窗」（同一套資料格式，之後改走 USB 送到 CYD）
+  2. [完成 2026-10-27] 看板選定方向 B 色塊；模擬視窗 `macropad/display_sim.py`，資料格式見 `macropad/display.py` 檔頭，CYD 到貨後實作 SerialDisplay
   3. 數學小工具（單位換算、公差、加總）
   4. PPT 改用 COM 控制（對齊、分布、存 PDF）
 - 注意：本機 Python 3.10，程式需 3.11+（`啟動.bat` 會優先用 uv 的 3.12）

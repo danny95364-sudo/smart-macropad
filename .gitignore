@@ -8,3 +8,6 @@ __pycache__/
 *.pyc
 .venv/
 .ruff_cache/
+
+# 看板模擬視窗的位置與縮放（每台電腦自己記）
+display_sim.json
