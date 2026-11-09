@@ -1,0 +1,912 @@
+# Source: New General Service List (NGSL) 1.2, Browne, Culligan & Phillips, newgeneralservicelist.com, CC BY-SA 4.0
+# Headwords and rank from NGSL 1.2 (NGSL_12_stats.csv, ranks 1901-2809, words already in tsl.csv removed). pos/zh/example/topic are original additions; this file is shared under CC BY-SA 4.0.
+id,word,pos,zh,example,topic,rank
+cope,cope,動,應付；處理,Our team can cope with the extra orders this week.,辦公,1901
+approximately,approximately,副,大約,The trip takes approximately two hours by train.,旅行,1902
+accommodation,accommodation,名,住宿,The company will pay for your accommodation.,旅行,1903
+highlight,highlight,動,強調；突顯,Please highlight the key numbers in the report.,辦公,1904
+reporter,reporter,名,記者,A reporter called to ask about our new product.,行銷,1905
+climate,climate,名,氣候；風氣,The business climate has improved this year.,日常,1906
+shirt,shirt,名,襯衫,He wore a white shirt to the interview.,日常,1907
+exception,exception,名,例外,All staff must attend with no exception.,人事,1908
+corporation,corporation,名,公司；企業,She works for a large corporation in Tokyo.,辦公,1909
+chip,chip,名,晶片；碎片,The new phone uses a faster chip.,製造,1910
+winner,winner,名,得獎者；贏家,The winner of the sales contest gets a bonus.,行銷,1911
+encounter,encounter,動,遇到；遭遇,We may encounter delays at customs.,旅行,1912
+brown,brown,形,棕色的,Please put the files in the brown box.,日常,1913
+breathe,breathe,動,呼吸,Take a moment to breathe before your speech.,日常,1914
+excuse,excuse,名,藉口；理由,There is no excuse for missing the deadline.,辦公,1915
+partly,partly,副,部分地,The delay was partly due to bad weather.,日常,1916
+tennis,tennis,名,網球,We play tennis after work on Fridays.,日常,1917
+urban,urban,形,城市的,The store targets young urban shoppers.,行銷,1918
+confuse,confuse,動,使困惑；混淆,The new form may confuse some customers.,辦公,1919
+southern,southern,形,南方的,We are opening a branch in the southern region.,辦公,1920
+output,output,名,產量；輸出,Factory output rose by ten percent.,製造,1921
+beauty,beauty,名,美；美容,She manages a chain of beauty salons.,日常,1922
+massive,massive,形,巨大的,The sale drew a massive crowd.,行銷,1923
+install,install,動,安裝,IT will install the software tomorrow.,辦公,1924
+calculate,calculate,動,計算,Please calculate the total cost of the trip.,財務,1925
+mouse,mouse,名,滑鼠；老鼠,My mouse stopped working this morning.,辦公,1926
+mathematics,mathematics,名,數學,He has a degree in mathematics.,人事,1927
+upper,upper,形,上面的；較高的,The meeting room is on the upper floor.,辦公,1928
+creation,creation,名,創造；建立,The plan led to the creation of fifty jobs.,人事,1929
+occupy,occupy,動,佔用；佔據,Our office occupies the third floor.,辦公,1930
+outline,outline,名,大綱；概要,Send me an outline of the proposal.,辦公,1931
+sufficient,sufficient,形,足夠的,We do not have sufficient stock for the order.,採購,1932
+update,update,名,最新消息；更新,Can you give me an update on the project?,辦公,1933
+luck,luck,名,運氣,Good luck with your presentation today.,日常,1934
+preserve,preserve,動,保存；維護,We must preserve good relations with suppliers.,採購,1935
+split,split,動,分攤；分開,Let's split the cost of the taxi.,日常,1936
+swing,swing,名,擺動；波動,Sales show a big swing from month to month.,財務,1937
+illness,illness,名,疾病,He missed work due to illness.,人事,1938
+journalist,journalist,名,記者,A journalist will interview our CEO.,行銷,1939
+sudden,sudden,形,突然的,There was a sudden drop in sales.,財務,1940
+advertisement,advertisement,名,廣告,We placed an advertisement in the paper.,行銷,1941
+consistent,consistent,形,一致的；穩定的,Our quality must be consistent.,製造,1942
+originally,originally,副,原本；起初,The meeting was originally set for Monday.,辦公,1943
+aside,aside,副,在旁邊；留下,Please set aside an hour for training.,辦公,1944
+comfort,comfort,名,舒適,The new chairs are designed for comfort.,日常,1945
+secondly,secondly,副,第二；其次,Secondly we need to cut costs.,辦公,1946
+severe,severe,形,嚴重的,The storm caused severe delays.,旅行,1947
+gene,gene,名,基因,The lab studies how each gene works.,日常,1948
+prospect,prospect,名,前景；潛在客戶,The sales team met three new prospects.,行銷,1949
+snow,snow,名,雪,Heavy snow closed the airport.,旅行,1950
+plot,plot,名,一塊地；情節,The company bought a plot of land.,財務,1951
+neck,neck,名,脖子,Sitting too long can hurt your neck.,日常,1952
+criteria,criteria,名,標準；準則,What criteria do you use to pick suppliers?,採購,1953
+primarily,primarily,副,主要地,Our clients are primarily small firms.,行銷,1954
+integrate,integrate,動,整合,We will integrate the two systems.,辦公,1955
+criticism,criticism,名,批評,The manager accepted the criticism calmly.,人事,1956
+convention,convention,名,大會；慣例,The sales convention is in Las Vegas.,行銷,1957
+bet,bet,動,打賭；敢說,I bet the client will call back today.,日常,1958
+retain,retain,動,保留；留住,We want to retain our best staff.,人事,1959
+sequence,sequence,名,順序,Please file the forms in sequence.,辦公,1960
+plain,plain,形,簡單的；樸素的,Write the letter in plain English.,辦公,1961
+volunteer,volunteer,名,志工,We need a volunteer to take notes.,人事,1962
+rural,rural,形,鄉村的,We deliver to rural areas twice a week.,採購,1963
+calm,calm,形,冷靜的,Stay calm and call the help desk.,日常,1964
+abandon,abandon,動,放棄,We had to abandon the plan.,辦公,1965
+examination,examination,名,檢查；考試,All staff need a medical examination.,人事,1966
+silence,silence,名,沉默；安靜,Please keep silence in the library.,日常,1967
+rapidly,rapidly,副,迅速地,Online sales are growing rapidly.,行銷,1968
+efficient,efficient,形,有效率的,The new machine is more efficient.,製造,1969
+revolution,revolution,名,革命；變革,Mobile phones caused a revolution in shopping.,行銷,1970
+delight,delight,名,欣喜,To our delight the client signed the deal.,行銷,1971
+spell,spell,動,拼寫,Could you spell your last name please?,辦公,1972
+premise,premise,名,前提；場所,No smoking is allowed on the premises.,辦公,1973
+lean,lean,動,倚靠,Please do not lean on the glass door.,日常,1974
+dramatic,dramatic,形,劇烈的,There was a dramatic rise in prices.,財務,1975
+differ,differ,動,不同,Prices differ from store to store.,採購,1976
+grateful,grateful,形,感激的,We are grateful for your support.,辦公,1977
+protein,protein,名,蛋白質,This snack is high in protein.,日常,1978
+bike,bike,名,腳踏車,I ride my bike to the office.,日常,1979
+distribute,distribute,動,分發；配銷,Please distribute the handouts.,辦公,1980
+intellectual,intellectual,形,智力的；知識的,We protect our intellectual property.,辦公,1981
+derive,derive,動,取得；源自,Most income is derived from sales.,財務,1982
+crucial,crucial,形,關鍵的,This meeting is crucial for the deal.,辦公,1983
+unemployment,unemployment,名,失業,Unemployment fell last quarter.,人事,1984
+wheel,wheel,名,輪子；方向盤,The cart has a broken wheel.,製造,1985
+crop,crop,名,農作物,Bad weather hurt the coffee crop.,採購,1986
+minority,minority,名,少數,Only a minority of staff work remotely.,人事,1987
+origin,origin,名,起源；產地,Check the country of origin on the label.,採購,1988
+interpretation,interpretation,名,解讀；口譯,We need an interpretation of the new rule.,辦公,1989
+gentleman,gentleman,名,紳士；先生,This gentleman is here to see you.,日常,1990
+drama,drama,名,戲劇,We watched a drama at the theater.,日常,1991
+landscape,landscape,名,風景；局勢,The market landscape is changing fast.,行銷,1992
+educate,educate,動,教育,We educate customers about safety.,行銷,1993
+toy,toy,名,玩具,The toy company had a great year.,行銷,1994
+fault,fault,名,過錯；故障,The error was not your fault.,辦公,1995
+exhibit,exhibit,名,展覽；展品,Visit our exhibit at the trade fair.,行銷,1996
+minor,minor,形,次要的；輕微的,We made a few minor changes.,辦公,1997
+hunt,hunt,動,尋找；打獵,She is hunting for a new job.,人事,1998
+storm,storm,名,暴風雨,The flight was canceled due to the storm.,旅行,1999
+thick,thick,形,厚的,The manual is very thick.,辦公,2000
+achievement,achievement,名,成就,The award recognizes her achievement.,人事,2001
+negotiate,negotiate,動,談判；協商,We need to negotiate a better price.,採購,2002
+dominate,dominate,動,主導；支配,Two brands dominate the market.,行銷,2003
+supplier,supplier,名,供應商,Our supplier raised prices again.,採購,2004
+prize,prize,名,獎品,The first prize is a trip to Paris.,行銷,2005
+typically,typically,副,通常,Orders typically arrive in three days.,採購,2006
+peer,peer,名,同儕；同事,Ask a peer to review your report.,人事,2007
+pension,pension,名,退休金,The company offers a good pension plan.,人事,2008
+wing,wing,名,翅膀；側翼,The new wing of the office opens soon.,辦公,2009
+acquisition,acquisition,名,收購,The acquisition will be completed in May.,財務,2010
+laughter,laughter,名,笑聲,The meeting ended with laughter.,日常,2011
+deeply,deeply,副,深深地,We are deeply sorry for the delay.,辦公,2012
+recognition,recognition,名,認可；表揚,She received recognition for her work.,人事,2013
+electricity,electricity,名,電力,The factory uses a lot of electricity.,製造,2014
+assistance,assistance,名,協助,Please call us if you need assistance.,辦公,2015
+roof,roof,名,屋頂,The roof of the warehouse is leaking.,製造,2016
+retirement,retirement,名,退休,His retirement party is on Friday.,人事,2017
+respectively,respectively,副,分別地,Sales and costs rose 5% and 3% respectively.,財務,2018
+variation,variation,名,變化；差異,There is little variation in quality.,製造,2019
+ultimately,ultimately,副,最終,Ultimately the board will decide.,辦公,2020
+proof,proof,名,證明；證據,Keep your receipt as proof of purchase.,採購,2021
+soil,soil,名,土壤,The farm has rich soil.,日常,2022
+smart,smart,形,聰明的；智慧型,She bought a new smart phone.,日常,2023
+layer,layer,名,層,Add a layer of tape to the box.,製造,2024
+upset,upset,形,不高興的,The customer was upset about the delay.,行銷,2025
+tooth,tooth,名,牙齒,My tooth hurts so I will see a dentist.,日常,2026
+representation,representation,名,代表；表現,Each team has representation at the meeting.,辦公,2027
+preparation,preparation,名,準備,Preparation is key to a good speech.,辦公,2028
+dispute,dispute,名,爭議；糾紛,The contract dispute was settled.,採購,2029
+agenda,agenda,名,議程,Please review the agenda before the meeting.,辦公,2030
+emphasis,emphasis,名,重點；強調,We put emphasis on customer service.,行銷,2031
+edition,edition,名,版本,The new edition of the catalog is out.,行銷,2032
+silver,silver,形,銀色的,She drives a silver car.,日常,2033
+entertainment,entertainment,名,娛樂,The hotel offers live entertainment.,旅行,2034
+honest,honest,形,誠實的,Please give me your honest opinion.,日常,2035
+undertake,undertake,動,承擔；進行,We will undertake a full review.,辦公,2036
+retail,retail,名,零售,She has ten years of experience in retail.,行銷,2037
+wire,wire,名,電線；電匯,Payment will be sent by wire.,財務,2038
+unlikely,unlikely,形,不太可能的,It is unlikely that prices will fall.,財務,2039
+gay,gay,形,同性戀的,The company supports gay and straight staff alike.,人事,2040
+publication,publication,名,出版；刊物,The report is ready for publication.,行銷,2041
+slight,slight,形,輕微的,There is a slight delay on the order.,採購,2042
+unknown,unknown,形,未知的,The cause of the error is still unknown.,辦公,2043
+framework,framework,名,架構,We agreed on a framework for the deal.,辦公,2044
+zone,zone,名,區域,This is a no parking zone.,日常,2045
+restrict,restrict,動,限制,We restrict access to the server room.,辦公,2046
+trace,trace,動,追蹤,We can trace your package online.,採購,2047
+inch,inch,名,英寸,The screen is 24 inches wide.,製造,2048
+equivalent,equivalent,名,等同物；相當於,Do you have an equivalent in stock?,採購,2049
+solid,solid,形,堅固的；可靠的,She has a solid track record.,人事,2050
+enterprise,enterprise,名,企業,We sell software to large enterprises.,行銷,2051
+elderly,elderly,形,年長的,We offer discounts to elderly customers.,行銷,2052
+owe,owe,動,欠,How much do we owe the supplier?,財務,2053
+governor,governor,名,州長；總裁,The governor visited our new plant.,日常,2054
+uniform,uniform,名,制服,Staff must wear a uniform at work.,人事,2055
+port,port,名,港口；連接埠,The ship arrived at the port today.,採購,2056
+pitch,pitch,名,推銷說詞,She gave a great sales pitch.,行銷,2057
+arrival,arrival,名,抵達,Please call me on arrival.,旅行,2058
+contemporary,contemporary,形,當代的,The lobby has a contemporary design.,日常,2059
+gate,gate,名,登機門；大門,Your flight leaves from gate 12.,旅行,2060
+ease,ease,名,容易；輕鬆,The app is known for its ease of use.,行銷,2061
+beer,beer,名,啤酒,Let's have a beer after work.,日常,2062
+specialist,specialist,名,專家,We hired a tax specialist.,人事,2063
+assure,assure,動,保證；使放心,I assure you the goods will arrive.,採購,2064
+profile,profile,名,簡介；檔案,Please update your staff profile.,人事,2065
+mood,mood,名,心情；氣氛,The boss is in a good mood today.,日常,2066
+episode,episode,名,一集；事件,Did you see the last episode?,日常,2067
+crack,crack,名,裂縫,There is a crack in the screen.,製造,2068
+numerous,numerous,形,許多的,We received numerous complaints.,行銷,2069
+submit,submit,動,提交,Please submit your report by Friday.,辦公,2070
+symptom,symptom,名,症狀,Stay home if you have any symptoms.,人事,2071
+virtually,virtually,副,幾乎；實際上,The office is virtually empty today.,辦公,2072
+era,era,名,時代,We live in the era of online shopping.,行銷,2073
+coverage,coverage,名,保險範圍；報導,Does the plan include dental coverage?,人事,2074
+tension,tension,名,緊張；張力,There is some tension between the teams.,人事,2075
+cable,cable,名,電纜；線,I need a longer power cable.,辦公,2076
+sensitive,sensitive,形,敏感的,This file contains sensitive data.,辦公,2077
+nervous,nervous,形,緊張的,I always get nervous before interviews.,人事,2078
+input,input,名,意見；投入,Thanks for your input on the plan.,辦公,2079
+isolate,isolate,動,隔離；找出,We need to isolate the cause of the fault.,製造,2080
+prisoner,prisoner,名,囚犯,The film is about a prisoner of war.,日常,2081
+eliminate,eliminate,動,消除；淘汰,We want to eliminate waste.,製造,2082
+tight,tight,形,緊的；緊湊的,We are on a tight schedule.,辦公,2083
+wet,wet,形,濕的,Be careful the floor is wet.,日常,2084
+secondary,secondary,形,次要的；中等的,Price is a secondary concern.,採購,2085
+welfare,welfare,名,福利,We care about the welfare of our staff.,人事,2086
+recruit,recruit,動,招募,We plan to recruit ten new engineers.,人事,2087
+exclude,exclude,動,排除,The price excludes shipping.,採購,2088
+string,string,名,繩子；一連串,We had a string of good months.,財務,2089
+cloud,cloud,名,雲端；雲,All files are saved to the cloud.,辦公,2090
+persuade,persuade,動,說服,She persuaded the client to sign.,行銷,2091
+inspire,inspire,動,激勵,Good leaders inspire their teams.,人事,2092
+grand,grand,形,盛大的,The grand opening is on Saturday.,行銷,2093
+hence,hence,副,因此,Costs rose; hence prices went up.,財務,2094
+crew,crew,名,全體人員；機組,The crew will serve drinks shortly.,旅行,2095
+phenomenon,phenomenon,名,現象,Online shopping is a global phenomenon.,行銷,2096
+pupil,pupil,名,學生,The school has 500 pupils.,日常,2097
+false,false,形,錯誤的；假的,The ad made false claims.,行銷,2098
+assist,assist,動,協助,Can I assist you with your bags?,旅行,2099
+restore,restore,動,恢復,Power was restored after an hour.,辦公,2100
+formula,formula,名,公式；配方,Use this formula to work out the tax.,財務,2101
+alter,alter,動,修改,We had to alter the design.,製造,2102
+perceive,perceive,動,察覺；認為,Customers perceive our brand as reliable.,行銷,2103
+routine,routine,名,例行公事,Checking email is part of my routine.,辦公,2104
+sink,sink,名,水槽,Please wash your cup in the sink.,日常,2105
+stare,stare,動,盯著看,Try not to stare at the screen all day.,日常,2106
+anymore,anymore,副,不再,We do not sell that model anymore.,採購,2107
+hero,hero,名,英雄,The firefighter was a real hero.,日常,2108
+supporter,supporter,名,支持者,He is a strong supporter of the plan.,辦公,2109
+convert,convert,動,轉換,Convert the file to PDF before sending.,辦公,2110
+steady,steady,形,穩定的,Sales show steady growth.,財務,2111
+meter,meter,名,公尺；計量表,The room is ten meters long.,製造,2112
+truck,truck,名,卡車,The truck will deliver the goods at noon.,採購,2113
+nose,nose,名,鼻子,I have a runny nose today.,日常,2114
+beside,beside,介,在旁邊,The printer is beside my desk.,辦公,2115
+sail,sail,動,航行,The ship will sail tomorrow morning.,旅行,2116
+disaster,disaster,名,災難,The launch was a total disaster.,行銷,2117
+pace,pace,名,步調；速度,Work at your own pace.,辦公,2118
+heavily,heavily,副,大量地；嚴重地,We rely heavily on one supplier.,採購,2119
+devote,devote,動,投入；致力,She devotes her time to training staff.,人事,2120
+terrorist,terrorist,名,恐怖分子,Airport security checks for terrorist threats.,旅行,2121
+justify,justify,動,證明合理,Can you justify the extra cost?,財務,2122
+vital,vital,形,極重要的,Good service is vital to our success.,行銷,2123
+fascinate,fascinate,動,使著迷,The new robot fascinated visitors.,日常,2124
+external,external,形,外部的,An external auditor will check our books.,財務,2125
+spare,spare,形,備用的；空閒的,Do you have a spare pen?,辦公,2126
+whenever,whenever,連,每當；無論何時,Call me whenever you need help.,日常,2127
+depression,depression,名,憂鬱；蕭條,The economy fell into depression.,財務,2128
+guilty,guilty,形,有罪的；內疚的,I feel guilty about leaving early.,日常,2129
+underlie,underlie,動,構成基礎,What problems underlie the low sales?,行銷,2130
+mom,mom,名,媽媽,My mom works at a bank.,日常,2131
+distinction,distinction,名,區別,There is a clear distinction between the two.,辦公,2132
+satisfaction,satisfaction,名,滿意,Customer satisfaction is our goal.,行銷,2133
+incorporate,incorporate,動,納入；合併,We will incorporate your ideas.,辦公,2134
+pour,pour,動,倒；灌注,Let me pour you some coffee.,日常,2135
+sweep,sweep,動,掃,Please sweep the floor before you leave.,日常,2136
+obligation,obligation,名,義務,There is no obligation to buy.,採購,2137
+sir,sir,名,先生,Can I help you sir?,日常,2138
+evaluate,evaluate,動,評估,We evaluate staff once a year.,人事,2139
+anger,anger,名,憤怒,The price rise caused anger among buyers.,行銷,2140
+pub,pub,名,酒吧,Let's meet at the pub after work.,日常,2141
+perception,perception,名,看法；認知,We want to change the public perception.,行銷,2142
+naturally,naturally,副,自然地；當然,Naturally we will refund your money.,財務,2143
+currency,currency,名,貨幣,What currency do they use in Japan?,旅行,2144
+database,database,名,資料庫,Add the new client to the database.,辦公,2145
+initially,initially,副,起初,Initially the project was small.,辦公,2146
+territory,territory,名,領域；銷售區,She covers the northern sales territory.,行銷,2147
+stream,stream,名,一連串；小溪,We get a steady stream of orders.,採購,2148
+rarely,rarely,副,很少,He rarely works on weekends.,人事,2149
+height,height,名,高度,What is the height of the shelf?,製造,2150
+apparent,apparent,形,明顯的,The problem became apparent quickly.,辦公,2151
+western,western,形,西方的,We export to western markets.,行銷,2152
+expansion,expansion,名,擴張,The expansion will create new jobs.,財務,2153
+constantly,constantly,副,不斷地,Prices are constantly changing.,財務,2154
+muscle,muscle,名,肌肉,Lifting boxes can hurt your back muscles.,日常,2155
+scare,scare,動,驚嚇,High prices may scare away customers.,行銷,2156
+badly,badly,副,嚴重地；很差,The parcel was badly damaged.,採購,2157
+everyday,everyday,形,日常的,We sell everyday items at low prices.,行銷,2158
+boundary,boundary,名,界線,Set clear boundaries between work and home.,人事,2159
+ratio,ratio,名,比率,The debt ratio is too high.,財務,2160
+essay,essay,名,文章；短文,Applicants must write a short essay.,人事,2161
+scream,scream,動,尖叫,The kids screamed with joy.,日常,2162
+withdraw,withdraw,動,提款；撤回,I need to withdraw some cash.,財務,2163
+pollution,pollution,名,污染,The plant must reduce air pollution.,製造,2164
+disorder,disorder,名,混亂；失調,The files were in complete disorder.,辦公,2165
+furniture,furniture,名,家具,We ordered new office furniture.,採購,2166
+symbol,symbol,名,符號；象徵,The logo is a symbol of quality.,行銷,2167
+apartment,apartment,名,公寓,She rents an apartment near the office.,日常,2168
+demonstration,demonstration,名,示範；示威,He gave a demonstration of the product.,行銷,2169
+analyst,analyst,名,分析師,The analyst expects profits to rise.,財務,2170
+platform,platform,名,平台；月台,The train leaves from platform 3.,旅行,2171
+steel,steel,名,鋼,The frame is made of steel.,製造,2172
+cake,cake,名,蛋糕,We bought a cake for her birthday.,日常,2173
+transform,transform,動,轉變,The new system transformed our work.,辦公,2174
+wound,wound,名,傷口,Clean the wound and call a doctor.,日常,2175
+restriction,restriction,名,限制,There are no restrictions on returns.,採購,2176
+foundation,foundation,名,基礎；基金會,Trust is the foundation of good business.,行銷,2177
+designer,designer,名,設計師,The designer sent three new logos.,行銷,2178
+strain,strain,名,壓力；負擔,The busy season puts a strain on staff.,人事,2179
+innovation,innovation,名,創新,Innovation keeps us ahead.,行銷,2180
+album,album,名,相簿；專輯,She shared a photo album of the trip.,日常,2181
+singer,singer,名,歌手,A famous singer will appear in the ad.,行銷,2182
+trail,trail,名,小徑；痕跡,Keep a paper trail of all payments.,財務,2183
+trap,trap,名,陷阱,Low prices can be a trap.,採購,2184
+loose,loose,形,鬆的,One of the screws is loose.,製造,2185
+extension,extension,名,分機；延期,Call me at extension 204.,辦公,2186
+wealth,wealth,名,財富,The firm manages wealth for clients.,財務,2187
+gradually,gradually,副,逐漸地,Sales gradually improved.,財務,2188
+tank,tank,名,油箱；槽,Please fill the tank before returning the car.,旅行,2189
+evil,evil,形,邪惡的,The movie is about an evil boss.,日常,2190
+remarkable,remarkable,形,非凡的,She made remarkable progress this year.,人事,2191
+tune,tune,名,曲調,He was humming a tune at his desk.,日常,2192
+grass,grass,名,草地,Please keep off the grass.,日常,2193
+invitation,invitation,名,邀請,Thank you for the invitation.,辦公,2194
+transition,transition,名,過渡；轉換,The transition to the new system went well.,辦公,2195
+frighten,frighten,動,使害怕,The loud alarm frightened everyone.,日常,2196
+bid,bid,名,出價；投標,We won the bid for the new contract.,採購,2197
+breed,breed,名,品種,What breed is your dog?,日常,2198
+extraordinary,extraordinary,形,非凡的；特別的,An extraordinary meeting was called.,辦公,2199
+brilliant,brilliant,形,傑出的；很棒的,That is a brilliant idea.,辦公,2200
+adviser,adviser,名,顧問,Our financial adviser suggested a new plan.,財務,2201
+stem,stem,動,源自,The problem stems from poor planning.,辦公,2202
+reverse,reverse,動,扭轉；撤銷,The bank agreed to reverse the charge.,財務,2203
+mode,mode,名,模式；方式,Put your phone in silent mode.,日常,2204
+mirror,mirror,名,鏡子,There is a mirror in the hotel lobby.,旅行,2205
+awful,awful,形,糟糕的,The traffic this morning was awful.,日常,2206
+pose,pose,動,造成；擺姿勢,The delay poses a risk to the project.,辦公,2207
+adjust,adjust,動,調整,You can adjust the height of the desk.,辦公,2208
+creative,creative,形,有創意的,We need a creative idea for the ad.,行銷,2209
+nowadays,nowadays,副,現今,Nowadays most people shop online.,行銷,2210
+poem,poem,名,詩,She read a poem at the event.,日常,2211
+agricultural,agricultural,形,農業的,We sell agricultural machines.,製造,2212
+competitor,competitor,名,競爭對手,Our competitor cut its prices.,行銷,2213
+alcohol,alcohol,名,酒精；酒,Alcohol is not allowed at work.,人事,2214
+festival,festival,名,節慶,The city holds a music festival in July.,旅行,2215
+vegetable,vegetable,名,蔬菜,The cafeteria serves fresh vegetables.,日常,2216
+van,van,名,廂型車,The van will pick up the boxes.,採購,2217
+confident,confident,形,有信心的,I am confident we will meet the target.,辦公,2218
+planet,planet,名,行星；地球,We use less plastic to protect the planet.,製造,2219
+curve,curve,名,曲線,The sales curve is going up.,財務,2220
+knee,knee,名,膝蓋,He hurt his knee playing soccer.,日常,2221
+overcome,overcome,動,克服,We will overcome these problems.,辦公,2222
+web,web,名,網路；網,Visit our web page for details.,行銷,2223
+depth,depth,名,深度,We discussed the plan in depth.,辦公,2224
+entrance,entrance,名,入口,Meet me at the main entrance.,辦公,2225
+log,log,動,登入；記錄,Log in with your staff number.,辦公,2226
+giant,giant,形,巨大的,A giant retailer opened a store nearby.,行銷,2227
+god,god,名,神,Thank god the files were saved.,日常,2228
+portion,portion,名,部分；一份,A portion of sales goes to charity.,財務,2229
+substance,substance,名,物質；實質,Store this substance in a cool place.,製造,2230
+extensive,extensive,形,廣泛的,She has extensive sales experience.,人事,2231
+interpret,interpret,動,解讀；口譯,How do you interpret these numbers?,財務,2232
+independence,independence,名,獨立,The job offers a lot of independence.,人事,2233
+sugar,sugar,名,糖,Would you like sugar in your coffee?,日常,2234
+inner,inner,形,內部的,Put the parts in the inner box.,製造,2235
+harm,harm,名,傷害,The delay did no harm to the project.,辦公,2236
+consult,consult,動,諮詢；查閱,Please consult the manual first.,辦公,2237
+pink,pink,形,粉紅色的,The pink form is for returns.,辦公,2238
+shadow,shadow,名,影子,She will shadow a senior staff member.,人事,2239
+strip,strip,名,條；狹長地帶,The shop is in a strip mall.,日常,2240
+smooth,smooth,形,順利的；平滑的,We wish you a smooth trip.,旅行,2241
+intervention,intervention,名,介入；干預,The project needs urgent intervention.,辦公,2242
+impress,impress,動,使印象深刻,Her report impressed the board.,人事,2243
+exam,exam,名,考試,He passed the TOEIC exam last month.,人事,2244
+vice,vice,形,副的,She is vice president of sales.,人事,2245
+radical,radical,形,徹底的；激進的,We need radical changes.,辦公,2246
+similarly,similarly,副,同樣地,Similarly costs rose in May.,財務,2247
+behave,behave,動,表現；守規矩,Staff must behave politely with guests.,人事,2248
+loud,loud,形,大聲的,The music is too loud.,日常,2249
+dimension,dimension,名,尺寸；面向,Please check the dimensions of the box.,採購,2250
+subsequent,subsequent,形,隨後的,Subsequent orders will get a discount.,採購,2251
+infection,infection,名,感染,Wash your hands to prevent infection.,日常,2252
+jacket,jacket,名,夾克；外套,Bring a jacket because it is cold.,旅行,2253
+efficiency,efficiency,名,效率,The new software improved efficiency.,製造,2254
+dirty,dirty,形,髒的,Put dirty dishes in the sink.,日常,2255
+statistic,statistic,名,統計數據,The statistics show strong growth.,財務,2256
+regularly,regularly,副,定期地,We regularly check the machines.,製造,2257
+resort,resort,名,度假村,The team trip is at a beach resort.,旅行,2258
+iron,iron,名,鐵；熨斗,The hotel room has an iron.,旅行,2259
+broadcast,broadcast,動,播出,The event will be broadcast live.,行銷,2260
+membership,membership,名,會員資格,Your membership expires next month.,行銷,2261
+bread,bread,名,麵包,The bakery sells fresh bread.,日常,2262
+blind,blind,名,百葉窗,Close the blinds before the slide show.,辦公,2263
+pure,pure,形,純的,This shirt is pure cotton.,採購,2264
+bloody,bloody,形,血腥的,The movie is too bloody for kids.,日常,2265
+ally,ally,名,盟友,The firm is a key ally in Asia.,行銷,2266
+quantity,quantity,名,數量,Please check the order quantity.,採購,2267
+bend,bend,動,彎曲,Bend your knees when you lift boxes.,製造,2268
+mature,mature,形,成熟的,The phone market is very mature.,行銷,2269
+briefly,briefly,副,簡短地,Let me briefly explain the plan.,辦公,2270
+alarm,alarm,名,警報；鬧鐘,The fire alarm will be tested today.,辦公,2271
+disturb,disturb,動,打擾,Please do not disturb.,旅行,2272
+sustain,sustain,動,維持,Can we sustain this growth?,財務,2273
+flood,flood,名,洪水,The flood closed the factory.,製造,2274
+poverty,poverty,名,貧窮,The charity fights poverty.,日常,2275
+crazy,crazy,形,瘋狂的,It has been a crazy week at work.,日常,2276
+cite,cite,動,引用；提及,He cited rising costs as the reason.,財務,2277
+newly,newly,副,新近,Meet our newly hired staff.,人事,2278
+parallel,parallel,形,平行的；同時的,We are running two parallel tests.,製造,2279
+gender,gender,名,性別,Pay should not depend on gender.,人事,2280
+sponsor,sponsor,名,贊助商,We are a sponsor of the event.,行銷,2281
+boot,boot,名,靴子,Wear safety boots in the factory.,製造,2282
+accurate,accurate,形,準確的,Make sure the figures are accurate.,財務,2283
+dealer,dealer,名,經銷商,Contact your local dealer for service.,行銷,2284
+button,button,名,按鈕,Press the green button to start.,製造,2285
+burden,burden,名,負擔,The new tax is a burden on small firms.,財務,2286
+desert,desert,名,沙漠,We toured the desert by jeep.,旅行,2287
+mate,mate,名,夥伴；同事,He is my work mate.,日常,2288
+occasionally,occasionally,副,偶爾,I occasionally work from home.,人事,2289
+shareholder,shareholder,名,股東,The shareholders meet in June.,財務,2290
+bowl,bowl,名,碗,I had a bowl of soup for lunch.,日常,2291
+discovery,discovery,名,發現,The discovery of the error saved money.,辦公,2292
+resistance,resistance,名,抵抗；阻力,Staff showed resistance to the change.,人事,2293
+bath,bath,名,浴缸；洗澡,The room has a private bath.,旅行,2294
+frequency,frequency,名,頻率,Reduce the frequency of meetings.,辦公,2295
+criticize,criticize,動,批評,Do not criticize staff in public.,人事,2296
+tap,tap,動,輕觸；輕敲,Tap your card on the reader.,財務,2297
+philosophy,philosophy,名,哲學；理念,Our philosophy is customer first.,行銷,2298
+lip,lip,名,嘴唇,The store sells lip balm.,日常,2299
+attribute,attribute,動,歸因於,We attribute our success to our staff.,人事,2300
+apologize,apologize,動,道歉,We apologize for the delay.,辦公,2301
+approval,approval,名,批准,The plan needs approval from the manager.,辦公,2302
+grab,grab,動,抓；順便拿,Let's grab lunch after the meeting.,日常,2303
+entitle,entitle,動,使有權,Staff are entitled to ten days of leave.,人事,2304
+lend,lend,動,借出,Can you lend me your charger?,日常,2305
+involvement,involvement,名,參與,Thanks for your involvement in the project.,辦公,2306
+exposure,exposure,名,曝光；接觸,The ad gave us great exposure.,行銷,2307
+conventional,conventional,形,傳統的,This is cheaper than conventional methods.,製造,2308
+digital,digital,形,數位的,We focus on digital marketing.,行銷,2309
+translate,translate,動,翻譯,Please translate this letter into English.,辦公,2310
+edit,edit,動,編輯,Please edit the draft before Friday.,辦公,2311
+formation,formation,名,形成；成立,The formation of a new team was announced.,人事,2312
+deposit,deposit,名,訂金；存款,A deposit of 20% is required.,財務,2313
+pleasant,pleasant,形,愉快的,Have a pleasant stay at our hotel.,旅行,2314
+overseas,overseas,副,在海外,She often travels overseas for work.,旅行,2315
+advocate,advocate,動,提倡,He advocates flexible working hours.,人事,2316
+establishment,establishment,名,機構；建立,The hotel is a fine establishment.,旅行,2317
+summary,summary,名,摘要,Send me a summary of the meeting.,辦公,2318
+rough,rough,形,粗略的,Can you give me a rough estimate?,財務,2319
+pen,pen,名,筆,May I borrow your pen?,辦公,2320
+recovery,recovery,名,復甦；康復,The market shows signs of recovery.,財務,2321
+seal,seal,動,封住,Please seal the box with tape.,採購,2322
+tube,tube,名,管子；地鐵,Take the tube to the airport.,旅行,2323
+tower,tower,名,塔；大樓,Our office is in the north tower.,辦公,2324
+characterize,characterize,動,描述特徵,The year was characterized by growth.,財務,2325
+specify,specify,動,指定；明確說明,Please specify the size you need.,採購,2326
+exact,exact,形,確切的,What is the exact price?,採購,2327
+spin,spin,動,旋轉,The wheel spins very fast.,製造,2328
+operator,operator,名,操作員；接線員,The machine operator is on break.,製造,2329
+infant,infant,名,嬰兒,Infants fly free on this airline.,旅行,2330
+dig,dig,動,挖,Workers will dig near the building.,製造,2331
+drag,drag,動,拖曳,Drag the file into the folder.,辦公,2332
+mount,mount,動,安裝；上升,Mount the screen on the wall.,製造,2333
+wrap,wrap,動,包裝,Could you wrap this as a gift?,採購,2334
+anticipate,anticipate,動,預期,We anticipate higher sales next year.,財務,2335
+dependent,dependent,形,依賴的,We are too dependent on one client.,行銷,2336
+specialize,specialize,動,專精,We specialize in office furniture.,行銷,2337
+angle,angle,名,角度,Look at the problem from a new angle.,辦公,2338
+chicken,chicken,名,雞肉,I will have the chicken salad.,日常,2339
+anxiety,anxiety,名,焦慮,Talk to HR if work causes anxiety.,人事,2340
+virus,virus,名,病毒,The computer has a virus.,辦公,2341
+precisely,precisely,副,精確地,The meeting starts at precisely nine.,辦公,2342
+rival,rival,名,對手,Our rival launched a new model.,行銷,2343
+offense,offense,名,冒犯；違法,No offense but the plan needs work.,日常,2344
+detect,detect,動,偵測,The sensor can detect smoke.,製造,2345
+teenager,teenager,名,青少年,The game is popular with teenagers.,行銷,2346
+admire,admire,動,欽佩,I admire her work ethic.,人事,2347
+moderate,moderate,形,適度的；中等的,We expect moderate growth.,財務,2348
+surgery,surgery,名,手術,He is off work after surgery.,人事,2349
+musician,musician,名,音樂家,A musician played in the lobby.,日常,2350
+significance,significance,名,重要性,Do you see the significance of this deal?,辦公,2351
+shower,shower,名,淋浴,The room has a shower but no bath.,旅行,2352
+illegal,illegal,形,違法的,Copying the software is illegal.,辦公,2353
+charity,charity,名,慈善機構,We give to a local charity each year.,日常,2354
+universal,universal,形,普遍的,The adapter has a universal plug.,旅行,2355
+cigarette,cigarette,名,香菸,Cigarettes are not allowed indoors.,日常,2356
+constitute,constitute,動,構成,Women constitute half of our staff.,人事,2357
+adequate,adequate,形,足夠的,Make sure you have adequate stock.,採購,2358
+consultant,consultant,名,顧問,We hired a consultant to cut costs.,辦公,2359
+historian,historian,名,歷史學家,A historian led the city tour.,旅行,2360
+cousin,cousin,名,表親；堂親,My cousin works in sales.,日常,2361
+visual,visual,形,視覺的,Use visual aids in your talk.,辦公,2362
+stupid,stupid,形,愚蠢的,Sorry I made a stupid mistake.,日常,2363
+keen,keen,形,熱衷的,She is keen to learn new skills.,人事,2364
+ethnic,ethnic,形,民族的,The area has many ethnic restaurants.,日常,2365
+twin,twin,形,雙人的；雙胞胎,I booked a twin room.,旅行,2366
+clinical,clinical,形,臨床的,The drug is in clinical trials.,製造,2367
+eastern,eastern,形,東方的,We have a plant in eastern China.,製造,2368
+forecast,forecast,名,預測；預報,The sales forecast looks good.,財務,2369
+segment,segment,名,區塊；部分,This market segment is growing.,行銷,2370
+custom,custom,名,習俗；訂製,We make custom furniture.,製造,2371
+adapt,adapt,動,適應；改編,We must adapt to new rules.,辦公,2372
+sand,sand,名,沙,The hotel is on a white sand beach.,旅行,2373
+cap,cap,名,上限；帽子,There is a cap on travel costs.,財務,2374
+prompt,prompt,形,迅速的,Thank you for your prompt reply.,辦公,2375
+charm,charm,名,魅力,The old hotel has a lot of charm.,旅行,2376
+react,react,動,反應,How did the client react?,行銷,2377
+lecture,lecture,名,講座,She gave a lecture on leadership.,人事,2378
+venture,venture,名,投資事業,The joint venture started in April.,財務,2379
+compound,compound,名,化合物；園區,The office is in a gated compound.,製造,2380
+rescue,rescue,動,救援,The deal rescued the company.,財務,2381
+mess,mess,名,混亂,Sorry about the mess on my desk.,辦公,2382
+preference,preference,名,偏好,Do you have a seating preference?,旅行,2383
+comprehensive,comprehensive,形,全面的,We offer a comprehensive insurance plan.,人事,2384
+incentive,incentive,名,獎勵；誘因,Staff get a cash incentive for sales.,人事,2385
+league,league,名,聯盟,Our company has a soccer league.,日常,2386
+dialog,dialog,名,對話；對話框,Click OK in the dialog box.,辦公,2387
+cream,cream,名,奶油；乳霜,Do you take cream in your coffee?,日常,2388
+rapid,rapid,形,快速的,We saw rapid growth in Asia.,財務,2389
+cancel,cancel,動,取消,I need to cancel my reservation.,旅行,2390
+regret,regret,動,遺憾；後悔,We regret to inform you of a delay.,辦公,2391
+dismiss,dismiss,動,解僱；不予考慮,He was dismissed for being late.,人事,2392
+margin,margin,名,利潤；邊緣,Our profit margin is ten percent.,財務,2393
+beneath,beneath,介,在下方,The cables run beneath the floor.,辦公,2394
+opponent,opponent,名,對手,He beat his opponent in the final.,日常,2395
+resist,resist,動,抵抗；忍住,I could not resist the sale price.,採購,2396
+capability,capability,名,能力,The plant has the capability to grow.,製造,2397
+absolute,absolute,形,絕對的,Safety is an absolute priority.,製造,2398
+correspond,correspond,動,符合；通信,The invoice does not correspond to the order.,採購,2399
+stroke,stroke,名,中風；一擊,He is recovering from a stroke.,日常,2400
+dare,dare,動,敢,I did not dare to ask for a raise.,人事,2401
+barrier,barrier,名,障礙,Language can be a barrier to trade.,行銷,2402
+rid,rid,動,擺脫；清除,We need to get rid of old stock.,採購,2403
+divorce,divorce,名,離婚,She took leave during her divorce.,日常,2404
+ruin,ruin,動,毀壞,The rain ruined our outdoor event.,日常,2405
+bury,bury,動,埋,The key point was buried in the report.,辦公,2406
+counsel,counsel,名,法律顧問；建議,Our legal counsel reviewed the contract.,辦公,2407
+tendency,tendency,名,傾向,Prices have a tendency to rise in winter.,財務,2408
+frequent,frequent,形,頻繁的,Join our frequent flyer program.,旅行,2409
+motor,motor,名,馬達,The motor in the fan is broken.,製造,2410
+survival,survival,名,生存,The loan is key to our survival.,財務,2411
+counter,counter,名,櫃台,Please pay at the counter.,日常,2412
+possess,possess,動,擁有,Applicants must possess a driving license.,人事,2413
+permission,permission,名,許可,You need permission to enter this area.,辦公,2414
+valley,valley,名,山谷,The hotel has a view of the valley.,旅行,2415
+float,float,動,漂浮；上市,The company plans to float on the market.,財務,2416
+mad,mad,形,生氣的；瘋的,The client was mad about the error.,行銷,2417
+greatly,greatly,副,大大地,Your help is greatly appreciated.,辦公,2418
+visible,visible,形,看得見的,Make the logo more visible.,行銷,2419
+electric,electric,形,電動的,The company cars are all electric.,日常,2420
+impressive,impressive,形,令人印象深刻,Her sales results are impressive.,人事,2421
+evolution,evolution,名,演變；進化,The evolution of our product took years.,製造,2422
+awareness,awareness,名,意識；認知,The ad raised brand awareness.,行銷,2423
+violent,violent,形,暴力的；猛烈的,A violent storm hit the coast.,日常,2424
+slave,slave,名,奴隸,I feel like a slave to my email.,日常,2425
+wealthy,wealthy,形,富有的,The bank serves wealthy clients.,財務,2426
+architecture,architecture,名,建築；架構,The city is known for its architecture.,旅行,2427
+acceptable,acceptable,形,可接受的,Is this price acceptable to you?,採購,2428
+journal,journal,名,期刊；日誌,The study was published in a journal.,辦公,2429
+coal,coal,名,煤,The plant no longer uses coal.,製造,2430
+measurement,measurement,名,測量；尺寸,Take careful measurements of the room.,製造,2431
+random,random,形,隨機的,We do random checks on products.,製造,2432
+successfully,successfully,副,成功地,The project was successfully completed.,辦公,2433
+depress,depress,動,使沮喪；壓低,Low demand depressed prices.,財務,2434
+illustration,illustration,名,插圖；例證,The manual has clear illustrations.,辦公,2435
+burst,burst,動,爆裂,A water pipe burst in the basement.,辦公,2436
+privilege,privilege,名,特權；榮幸,It is a privilege to work with you.,辦公,2437
+buyer,buyer,名,買家；採購員,The buyer asked for a lower price.,採購,2438
+mutual,mutual,形,共同的；互相的,The deal is for our mutual benefit.,採購,2439
+rail,rail,名,鐵路；欄杆,We ship the goods by rail.,採購,2440
+motivate,motivate,動,激勵,Bonuses motivate the sales team.,人事,2441
+laboratory,laboratory,名,實驗室,Samples are sent to the laboratory.,製造,2442
+mortgage,mortgage,名,房貸,They took out a mortgage on the house.,財務,2443
+promotion,promotion,名,升遷；促銷,She got a promotion to manager.,人事,2444
+passion,passion,名,熱情,He has a passion for design.,人事,2445
+champion,champion,名,冠軍；擁護者,She is a champion of new ideas.,人事,2446
+fulfill,fulfill,動,履行；完成,We fulfill orders within two days.,採購,2447
+dust,dust,名,灰塵,Keep the machine free of dust.,製造,2448
+dedicate,dedicate,動,奉獻；專用,This room is dedicated to training.,人事,2449
+roughly,roughly,副,大約,The repair will cost roughly $500.,財務,2450
+skirt,skirt,名,裙子,She wore a black skirt to work.,日常,2451
+province,province,名,省,We have stores in every province.,行銷,2452
+march,march,動,行進,The workers marched to city hall.,日常,2453
+evaluation,evaluation,名,評估,Your evaluation is due next week.,人事,2454
+compromise,compromise,名,妥協,We reached a compromise on price.,採購,2455
+accomplish,accomplish,動,完成；達成,We accomplished all our goals.,辦公,2456
+weakness,weakness,名,弱點,What is your greatest weakness?,人事,2457
+announcement,announcement,名,公告,The CEO made an important announcement.,辦公,2458
+salt,salt,名,鹽,Could you pass the salt?,日常,2459
+glance,glance,名,一瞥,Take a quick glance at the report.,辦公,2460
+opera,opera,名,歌劇,We went to the opera in Vienna.,旅行,2461
+contest,contest,名,比賽,Enter our photo contest to win a prize.,行銷,2462
+brush,brush,名,刷子,Clean the filter with a brush.,製造,2463
+embarrass,embarrass,動,使尷尬,I was embarrassed by the typo.,日常,2464
+gallery,gallery,名,美術館；藝廊,The hotel is near the art gallery.,旅行,2465
+genetic,genetic,形,基因的,The lab does genetic testing.,製造,2466
+aggressive,aggressive,形,積極的；激進的,We set aggressive sales targets.,行銷,2467
+chest,chest,名,胸部；箱子,He felt pain in his chest.,日常,2468
+format,format,名,格式,Please send the file in PDF format.,辦公,2469
+literary,literary,形,文學的,She works for a literary magazine.,日常,2470
+govern,govern,動,管理；支配,These rules govern all payments.,財務,2471
+embrace,embrace,動,欣然接受,Staff embraced the new system.,辦公,2472
+praise,praise,名,讚美,The team received praise from the client.,人事,2473
+silent,silent,形,安靜的,Keep your phone on silent.,日常,2474
+pump,pump,名,幫浦,The water pump needs repair.,製造,2475
+publisher,publisher,名,出版商,The publisher will print 5000 copies.,行銷,2476
+celebration,celebration,名,慶祝,There will be a celebration after the launch.,日常,2477
+golf,golf,名,高爾夫,He plays golf with clients.,日常,2478
+compensation,compensation,名,補償；薪酬,The job offers good compensation.,人事,2479
+classical,classical,形,古典的,Classical music plays in the lobby.,日常,2480
+weigh,weigh,動,秤重；權衡,How much does the package weigh?,採購,2481
+versus,versus,介,對比,Compare this year versus last year.,財務,2482
+deficit,deficit,名,赤字,The company has a budget deficit.,財務,2483
+modify,modify,動,修改,We can modify the design for you.,製造,2484
+flash,flash,名,閃光,Please do not use flash in the museum.,旅行,2485
+friendship,friendship,名,友誼,Their friendship began at work.,日常,2486
+profession,profession,名,職業,Teaching is a respected profession.,人事,2487
+literally,literally,副,真的；字面上,I literally worked all night.,日常,2488
+equation,equation,名,方程式；等式,Cost is only part of the equation.,財務,2489
+gesture,gesture,名,手勢；表示,The gift was a kind gesture.,日常,2490
+entertain,entertain,動,款待；娛樂,We entertain clients at the hotel.,行銷,2491
+fantastic,fantastic,形,極好的,You did a fantastic job.,日常,2492
+assign,assign,動,分派,I will assign the task to Tom.,辦公,2493
+inflation,inflation,名,通貨膨脹,Inflation pushed up our costs.,財務,2494
+historic,historic,形,歷史性的,The hotel is in the historic district.,旅行,2495
+injure,injure,動,使受傷,Two workers were injured in the accident.,製造,2496
+remote,remote,形,遠端的；偏遠的,Our IT team offers remote support.,人事,2497
+therapy,therapy,名,治療,The plan covers physical therapy.,人事,2498
+orange,orange,名,柳橙；橘色,I would like a glass of orange juice.,日常,2499
+twist,twist,名,轉折；扭轉,The deal took an unexpected twist.,辦公,2500
+personnel,personnel,名,人員；人事部,Only authorized personnel may enter.,人事,2501
+imagination,imagination,名,想像力,Use your imagination for the ad.,行銷,2502
+disagree,disagree,動,不同意,I disagree with the new policy.,辦公,2503
+throat,throat,名,喉嚨,I have a sore throat today.,日常,2504
+insight,insight,名,洞察；見解,The survey gave us useful insight.,行銷,2505
+tackle,tackle,動,處理；解決,We must tackle the backlog first.,辦公,2506
+forever,forever,副,永遠,The line seemed to take forever.,日常,2507
+exceed,exceed,動,超過,Sales exceeded our target.,財務,2508
+expenditure,expenditure,名,支出,We must reduce expenditure this year.,財務,2509
+joy,joy,名,喜悅,It is a joy to work with your team.,日常,2510
+pregnant,pregnant,形,懷孕的,She is pregnant and will take leave.,人事,2511
+reliable,reliable,形,可靠的,We need a reliable supplier.,採購,2512
+gear,gear,名,裝備；齒輪,Wear safety gear on the factory floor.,製造,2513
+click,click,動,點擊,Click the link to confirm.,辦公,2514
+poet,poet,名,詩人,A poet spoke at the event.,日常,2515
+fortune,fortune,名,財富；運氣,The ad campaign cost a fortune.,行銷,2516
+ceremony,ceremony,名,典禮,The award ceremony starts at seven.,人事,2517
+pile,pile,名,一疊；一堆,There is a pile of mail on your desk.,辦公,2518
+pig,pig,名,豬,The farm raises pigs.,日常,2519
+mixture,mixture,名,混合物,The paint is a mixture of two colors.,製造,2520
+automatically,automatically,副,自動地,The system backs up files automatically.,辦公,2521
+scholar,scholar,名,學者,A visiting scholar gave a talk.,日常,2522
+psychological,psychological,形,心理的,Price has a psychological effect on buyers.,行銷,2523
+dramatically,dramatically,副,大幅地,Costs rose dramatically.,財務,2524
+stake,stake,名,股份；利害,They bought a 30% stake in the firm.,財務,2525
+creature,creature,名,生物,The zoo has many strange creatures.,日常,2526
+partnership,partnership,名,合作關係,We formed a partnership with a bank.,行銷,2527
+participation,participation,名,參與,Thank you for your participation.,辦公,2528
+clause,clause,名,條款,Read the payment clause carefully.,採購,2529
+penalty,penalty,名,罰款；罰則,There is a penalty for late payment.,財務,2530
+chamber,chamber,名,商會；議院,She joined the chamber of commerce.,行銷,2531
+fancy,fancy,形,高級的；花俏的,We ate at a fancy restaurant.,日常,2532
+poetry,poetry,名,詩歌,She enjoys reading poetry.,日常,2533
+chat,chat,動,聊天,Let's chat about it over coffee.,日常,2534
+clothing,clothing,名,服裝,The store sells work clothing.,採購,2535
+evolve,evolve,動,演變,Our product has evolved over time.,製造,2536
+sake,sake,名,緣故,For the sake of safety wear a helmet.,製造,2537
+shelf,shelf,名,架子,Put the files on the top shelf.,辦公,2538
+boost,boost,動,提升,The ad boosted sales by 20%.,行銷,2539
+tail,tail,名,尾巴；尾端,The dog wagged its tail.,日常,2540
+possession,possession,名,擁有；財物,Keep your possessions with you.,旅行,2541
+abortion,abortion,名,墮胎,The article was about abortion laws.,日常,2542
+curious,curious,形,好奇的,I am curious about the new design.,日常,2543
+wooden,wooden,形,木製的,We ship goods in wooden crates.,採購,2544
+boom,boom,名,繁榮,The housing boom helped our sales.,財務,2545
+tale,tale,名,故事,He told a funny tale about his trip.,日常,2546
+democratic,democratic,形,民主的,We make decisions in a democratic way.,辦公,2547
+maintenance,maintenance,名,維修；保養,The elevator is under maintenance.,製造,2548
+consequently,consequently,副,因此,Demand fell; consequently prices dropped.,財務,2549
+pot,pot,名,壺；鍋,I made a fresh pot of coffee.,日常,2550
+cow,cow,名,母牛,The farm has two hundred cows.,日常,2551
+strengthen,strengthen,動,加強,We want to strengthen our brand.,行銷,2552
+whilst,whilst,連,當時；雖然,Please wait whilst I check.,辦公,2553
+constraint,constraint,名,限制,We have budget constraints this year.,財務,2554
+fold,fold,動,摺疊,Fold the letter and put it in the envelope.,辦公,2555
+bin,bin,名,垃圾桶；箱,Put the paper in the recycling bin.,辦公,2556
+undergo,undergo,動,經歷；接受,The office will undergo repairs.,辦公,2557
+potentially,potentially,副,可能地,This could potentially save money.,財務,2558
+scope,scope,名,範圍,What is the scope of the project?,辦公,2559
+pretend,pretend,動,假裝,Do not pretend you know the answer.,日常,2560
+diversity,diversity,名,多元性,We value diversity in our workplace.,人事,2561
+allege,allege,動,宣稱；指控,The client alleges we broke the contract.,採購,2562
+pride,pride,名,自豪,We take pride in our service.,行銷,2563
+intense,intense,形,激烈的,Competition is intense in this market.,行銷,2564
+inquiry,inquiry,名,詢問,Thank you for your inquiry.,行銷,2565
+resign,resign,動,辭職,He resigned to start his own business.,人事,2566
+craft,craft,名,手藝；工藝品,The shop sells local crafts.,旅行,2567
+strict,strict,形,嚴格的,We have strict safety rules.,製造,2568
+concrete,concrete,形,具體的,Can you give a concrete example?,辦公,2569
+shell,shell,名,外殼,The phone has a plastic shell.,製造,2570
+damn,damn,感,該死,Damn I left my keys at home.,日常,2571
+distinct,distinct,形,明顯不同的,The two products are quite distinct.,行銷,2572
+humor,humor,名,幽默,She has a great sense of humor.,日常,2573
+limitation,limitation,名,限制,Every system has its limitations.,辦公,2574
+indication,indication,名,跡象,There is no indication of a problem.,辦公,2575
+stability,stability,名,穩定,Investors want stability.,財務,2576
+wise,wise,形,明智的,It would be wise to book early.,旅行,2577
+neglect,neglect,動,忽視,Do not neglect regular maintenance.,製造,2578
+compose,compose,動,組成；撰寫,The team is composed of five people.,人事,2579
+jail,jail,名,監獄,He went to jail for fraud.,日常,2580
+shelter,shelter,名,避難所,The bus shelter is near the office.,日常,2581
+mere,mere,形,僅僅的,The fix took a mere ten minutes.,辦公,2582
+carbon,carbon,名,碳,We aim to cut carbon emissions.,製造,2583
+regulate,regulate,動,管制；調節,The state regulates food safety.,製造,2584
+cheese,cheese,名,起司,I ordered a cheese sandwich.,日常,2585
+trigger,trigger,動,引發,Smoke will trigger the alarm.,辦公,2586
+pipe,pipe,名,管子,A pipe is leaking in the kitchen.,製造,2587
+destruction,destruction,名,破壞,The storm caused great destruction.,日常,2588
+guitar,guitar,名,吉他,He plays guitar in a band.,日常,2589
+flag,flag,動,標記,Please flag any errors you find.,辦公,2590
+piano,piano,名,鋼琴,There is a piano in the hotel bar.,旅行,2591
+magic,magic,名,魔術；魔力,There is no magic fix for this.,日常,2592
+mystery,mystery,名,謎,Why sales fell is still a mystery.,行銷,2593
+ski,ski,動,滑雪,We plan to ski in Japan this winter.,旅行,2594
+whisper,whisper,動,低聲說,Please whisper in the library.,日常,2595
+rear,rear,名,後方,The exit is at the rear of the building.,辦公,2596
+menu,menu,名,菜單；選單,Can I see the menu please?,日常,2597
+species,species,名,物種,The park protects rare species.,日常,2598
+moon,moon,名,月亮,The moon was bright last night.,日常,2599
+presumably,presumably,副,大概；想必,He is presumably still at lunch.,日常,2600
+bless,bless,動,祝福,Bless you. Do you need a tissue?,日常,2601
+airline,airline,名,航空公司,Which airline are you flying with?,旅行,2602
+amendment,amendment,名,修正案,We made an amendment to the contract.,採購,2603
+grandmother,grandmother,名,祖母；外婆,My grandmother lives in the countryside.,日常,2604
+jury,jury,名,陪審團；評審團,The jury will pick the best design.,行銷,2605
+cooperation,cooperation,名,合作,Thank you for your cooperation.,辦公,2606
+civilian,civilian,名,平民,The airport is open to civilian flights.,旅行,2607
+composition,composition,名,組成；作品,The composition of the board changed.,人事,2608
+coin,coin,名,硬幣,The machine only takes coins.,日常,2609
+regardless,regardless,副,不管；無論,We will ship regardless of the weather.,採購,2610
+scan,scan,動,掃描,Please scan and email the receipt.,辦公,2611
+bunch,bunch,名,一束；一群,She brought a bunch of flowers.,日常,2612
+racial,racial,形,種族的,Racial discrimination is not allowed.,人事,2613
+greet,greet,動,問候；迎接,Please greet the guests at the door.,行銷,2614
+hopefully,hopefully,副,希望,Hopefully the parts arrive today.,採購,2615
+sanction,sanction,名,制裁；批准,Trade sanctions hurt our exports.,採購,2616
+trick,trick,名,訣竅；把戲,What is the trick to fixing this?,日常,2617
+paragraph,paragraph,名,段落,Please read the second paragraph.,辦公,2618
+maker,maker,名,製造商,She works for a car maker.,製造,2619
+chocolate,chocolate,名,巧克力,We gave the client a box of chocolates.,日常,2620
+stimulate,stimulate,動,刺激,Lower prices may stimulate demand.,行銷,2621
+belt,belt,名,皮帶；輸送帶,The conveyor belt stopped suddenly.,製造,2622
+potato,potato,名,馬鈴薯,The steak comes with a baked potato.,日常,2623
+narrative,narrative,名,敘述；故事,Our brand needs a clear narrative.,行銷,2624
+tissue,tissue,名,面紙；組織,There is a box of tissues on the desk.,日常,2625
+barely,barely,副,幾乎沒有,We barely made the deadline.,辦公,2626
+invent,invent,動,發明,Who invented this machine?,製造,2627
+tourism,tourism,名,觀光業,Tourism is the main industry here.,旅行,2628
+pro,pro,名,優點；專業人士,Let's list the pros and cons.,辦公,2629
+stair,stair,名,樓梯,Take the stairs to the second floor.,辦公,2630
+hesitate,hesitate,動,猶豫,Do not hesitate to contact us.,辦公,2631
+shine,shine,動,發光；照耀,The sun is shining today.,日常,2632
+motivation,motivation,名,動機；幹勁,Staff motivation is very high.,人事,2633
+romantic,romantic,形,浪漫的,The hotel offers a romantic dinner.,旅行,2634
+firmly,firmly,副,堅定地,We firmly believe in quality.,行銷,2635
+interior,interior,名,內部；室內,The interior of the office is modern.,辦公,2636
+stomach,stomach,名,胃,I have a stomach ache.,日常,2637
+nowhere,nowhere,副,無處,There was nowhere to park.,日常,2638
+pray,pray,動,祈禱,We pray for good weather on the day.,日常,2639
+championship,championship,名,錦標賽,Our team won the championship.,日常,2640
+servant,servant,名,僕人；公僕,He was a public servant for 20 years.,人事,2641
+immigrant,immigrant,名,移民,Many immigrants work in this city.,人事,2642
+excess,excess,名,過量,We have an excess of stock.,採購,2643
+complexity,complexity,名,複雜性,The complexity of the task surprised us.,辦公,2644
+liability,liability,名,負債；責任,The firm has large liabilities.,財務,2645
+surprisingly,surprisingly,副,出乎意料地,Surprisingly the test went well.,辦公,2646
+extract,extract,動,提取,Extract the data from the report.,辦公,2647
+implementation,implementation,名,實施,Implementation will begin in June.,辦公,2648
+bias,bias,名,偏見,Avoid bias when hiring.,人事,2649
+differently,differently,副,不同地,We need to think differently.,辦公,2650
+catalog,catalog,名,型錄,Please send me your new catalog.,採購,2651
+continuous,continuous,形,連續的,We aim for continuous improvement.,製造,2652
+golden,golden,形,金色的；絕佳的,This is a golden opportunity.,行銷,2653
+stamp,stamp,名,郵票；印章,I need a stamp for this letter.,辦公,2654
+guideline,guideline,名,指導方針,Follow the safety guidelines.,製造,2655
+envelope,envelope,名,信封,Put the check in the envelope.,辦公,2656
+knife,knife,名,刀,Use a knife to open the box.,日常,2657
+biological,biological,形,生物的,The lab tests biological samples.,製造,2658
+consume,consume,動,消耗；消費,The old machine consumes a lot of power.,製造,2659
+luxury,luxury,名,奢華；奢侈品,We stayed at a luxury hotel.,旅行,2660
+weekly,weekly,形,每週的,We hold a weekly team meeting.,辦公,2661
+wherever,wherever,連,無論哪裡,Sit wherever you like.,日常,2662
+bite,bite,名,一口,Let's grab a bite before the meeting.,日常,2663
+printer,printer,名,印表機,The printer is out of paper.,辦公,2664
+firstly,firstly,副,首先,Firstly let me thank you all.,辦公,2665
+anxious,anxious,形,焦慮的；渴望的,We are anxious to hear your decision.,辦公,2666
+adventure,adventure,名,冒險,The trip was a real adventure.,旅行,2667
+fence,fence,名,圍籬,A fence surrounds the factory.,製造,2668
+exhaust,exhaust,動,使疲憊；用盡,We have exhausted our budget.,財務,2669
+attraction,attraction,名,景點；吸引力,The tower is a popular attraction.,旅行,2670
+ocean,ocean,名,海洋,The hotel has an ocean view.,旅行,2671
+quietly,quietly,副,安靜地,Please talk quietly in the office.,辦公,2672
+castle,castle,名,城堡,We visited an old castle.,旅行,2673
+veteran,veteran,名,老手；退伍軍人,She is a veteran of the industry.,人事,2674
+reflection,reflection,名,反映；倒影,Sales are a reflection of hard work.,行銷,2675
+nerve,nerve,名,神經；勇氣,It took nerve to ask for a raise.,人事,2676
+determination,determination,名,決心,Her determination impressed us.,人事,2677
+altogether,altogether,副,總共；完全,That comes to $90 altogether.,財務,2678
+fiction,fiction,名,小說,She likes to read fiction.,日常,2679
+carpet,carpet,名,地毯,The office has new carpet.,辦公,2680
+cluster,cluster,名,群；聚落,There is a cluster of tech firms here.,行銷,2681
+confusion,confusion,名,混淆,Sorry for any confusion.,辦公,2682
+hurry,hurry,動,趕快,Please hurry or we will miss the train.,旅行,2683
+logic,logic,名,邏輯,I do not follow the logic of the plan.,辦公,2684
+controversial,controversial,形,有爭議的,The new policy is controversial.,人事,2685
+raw,raw,形,未加工的,Raw material costs went up.,製造,2686
+grammar,grammar,名,文法,Check the grammar before sending.,辦公,2687
+revise,revise,動,修訂,Please revise the budget.,財務,2688
+hint,hint,名,提示,Can you give me a hint?,日常,2689
+hook,hook,名,掛鉤,Hang your coat on the hook.,日常,2690
+bell,bell,名,鈴,Ring the bell for service.,旅行,2691
+liquid,liquid,名,液體,Liquids must be in small bottles.,旅行,2692
+panic,panic,動,恐慌,Do not panic if the alarm sounds.,辦公,2693
+uncle,uncle,名,叔叔；舅舅,My uncle runs a small shop.,日常,2694
+rice,rice,名,米飯,We export rice to Japan.,採購,2695
+slope,slope,名,斜坡,The ski slope is near the hotel.,旅行,2696
+happiness,happiness,名,幸福,Staff happiness matters to us.,人事,2697
+genuine,genuine,形,真正的,This is genuine leather.,採購,2698
+vessel,vessel,名,船隻；容器,The vessel arrives at port on Monday.,採購,2699
+verb,verb,名,動詞,Use a strong verb in your headline.,行銷,2700
+reckon,reckon,動,認為；估計,I reckon the job will take a week.,辦公,2701
+silly,silly,形,愚蠢的,It was a silly mistake.,日常,2702
+transportation,transportation,名,交通；運輸,The hotel provides free transportation.,旅行,2703
+harbor,harbor,名,港口,The ship is waiting in the harbor.,採購,2704
+comedy,comedy,名,喜劇,We watched a comedy on the plane.,日常,2705
+chase,chase,動,催促；追趕,Please chase the client for payment.,財務,2706
+storage,storage,名,儲存；倉儲,We need more storage space.,採購,2707
+universe,universe,名,宇宙,The film is about the universe.,日常,2708
+horrible,horrible,形,糟透的,The weather was horrible all week.,日常,2709
+sheep,sheep,名,綿羊,The farm has many sheep.,日常,2710
+lover,lover,名,愛好者；情人,This cafe is for coffee lovers.,行銷,2711
+rat,rat,名,老鼠,We called pest control about a rat.,日常,2712
+portrait,portrait,名,肖像；直式,There is a portrait of the founder.,辦公,2713
+innocent,innocent,形,無辜的,He was found innocent.,日常,2714
+substitute,substitute,名,替代品,Is there a substitute for this part?,採購,2715
+supplement,supplement,名,補充；附加費,There is a supplement for single rooms.,旅行,2716
+adjustment,adjustment,名,調整,We made a small adjustment to the price.,財務,2717
+reasonably,reasonably,副,合理地；相當,The hotel is reasonably priced.,旅行,2718
+filter,filter,名,過濾器,Change the air filter every month.,製造,2719
+flexible,flexible,形,有彈性的,We offer flexible working hours.,人事,2720
+abstract,abstract,名,摘要,Please send an abstract of your paper.,辦公,2721
+tent,tent,名,帳篷,Lunch will be served in a tent.,日常,2722
+precise,precise,形,精確的,We need precise measurements.,製造,2723
+distant,distant,形,遙遠的,The office is in a distant suburb.,日常,2724
+stranger,stranger,名,陌生人,Do not share passwords with strangers.,辦公,2725
+shade,shade,名,陰涼處；色調,We sat in the shade.,日常,2726
+grain,grain,名,穀物,The company trades grain.,採購,2727
+situate,situate,動,位於,The hotel is situated near the station.,旅行,2728
+summarize,summarize,動,總結,Please summarize the main points.,辦公,2729
+leap,leap,名,躍進,This is a big leap in technology.,製造,2730
+snap,snap,動,突然斷裂,The cable snapped under the weight.,製造,2731
+probability,probability,名,可能性,The probability of rain is high.,日常,2732
+leather,leather,名,皮革,The seats are made of leather.,採購,2733
+uncertainty,uncertainty,名,不確定性,There is a lot of market uncertainty.,財務,2734
+swear,swear,動,發誓；咒罵,Please do not swear at work.,人事,2735
+refugee,refugee,名,難民,The charity helps refugees.,日常,2736
+shore,shore,名,岸,The hotel is right on the shore.,旅行,2737
+monthly,monthly,形,每月的,Please send your monthly report.,辦公,2738
+comprise,comprise,動,包含；組成,The team comprises six engineers.,人事,2739
+stir,stir,動,攪拌；引起,The ad stirred a lot of interest.,行銷,2740
+excitement,excitement,名,興奮,There is great excitement about the launch.,行銷,2741
+sigh,sigh,動,嘆氣,He sighed when he saw the bill.,日常,2742
+pregnancy,pregnancy,名,懷孕,She is on leave due to pregnancy.,人事,2743
+experimental,experimental,形,實驗性的,This feature is still experimental.,製造,2744
+institutional,institutional,形,機構的,We sell to institutional investors.,財務,2745
+slice,slice,名,一片,Would you like a slice of pizza?,日常,2746
+wander,wander,動,閒逛,We wandered around the old town.,旅行,2747
+empire,empire,名,帝國,He built a media empire.,行銷,2748
+subsequently,subsequently,副,隨後,He subsequently joined our sales team.,人事,2749
+gentle,gentle,形,溫和的,Please be gentle with the machine.,製造,2750
+attendance,attendance,名,出席,Attendance at the meeting is required.,人事,2751
+ownership,ownership,名,所有權,The ownership of the firm changed.,財務,2752
+qualification,qualification,名,資格,What qualifications do you have?,人事,2753
+suspend,suspend,動,暫停,The service is suspended until Monday.,辦公,2754
+functional,functional,形,實用的；可運作,The office design is simple and functional.,辦公,2755
+voluntary,voluntary,形,自願的,The training is voluntary.,人事,2756
+pale,pale,形,蒼白的；淺色,You look pale. Are you OK?,日常,2757
+stain,stain,名,污漬,There is a coffee stain on my shirt.,日常,2758
+athlete,athlete,名,運動員,A famous athlete is in our new ad.,行銷,2759
+organic,organic,形,有機的,We sell organic vegetables.,行銷,2760
+tongue,tongue,名,舌頭；語言,English is not my mother tongue.,日常,2761
+server,server,名,伺服器；服務生,The server is down for repairs.,辦公,2762
+structural,structural,形,結構的,The bridge has structural damage.,製造,2763
+website,website,名,網站,Visit our website for more details.,行銷,2764
+fool,fool,名,傻瓜,Only a fool would turn down this offer.,採購,2765
+alongside,alongside,介,與…一起,She works alongside the design team.,辦公,2766
+unite,unite,動,團結,The goal united the whole team.,人事,2767
+gently,gently,副,輕輕地,Close the lid gently.,日常,2768
+compute,compute,動,計算,The system computes the total.,財務,2769
+wipe,wipe,動,擦拭,Please wipe the table after lunch.,日常,2770
+weird,weird,形,奇怪的,The printer makes a weird noise.,辦公,2771
+gaze,gaze,動,凝視,She gazed out the window.,日常,2772
+fade,fade,動,褪色；逐漸消失,The colors faded in the sun.,製造,2773
+cough,cough,動,咳嗽,He has been coughing all day.,日常,2774
+hypothesis,hypothesis,名,假設,Let's test this hypothesis.,辦公,2775
+royal,royal,形,皇家的,We stayed at the Royal Hotel.,旅行,2776
+theoretical,theoretical,形,理論上的,The risk is only theoretical.,辦公,2777
+curtain,curtain,名,窗簾,Please close the curtains.,日常,2778
+mayor,mayor,名,市長,The mayor opened our new store.,行銷,2779
+darkness,darkness,名,黑暗,The office was in darkness after the power cut.,辦公,2780
+aunt,aunt,名,阿姨；姑姑,My aunt is visiting next week.,日常,2781
+tournament,tournament,名,錦標賽,We joined a golf tournament.,日常,2782
+registration,registration,名,登記；報名,Registration closes on Friday.,辦公,2783
+fragment,fragment,名,碎片,There were glass fragments on the floor.,製造,2784
+listener,listener,名,聽眾,The radio show has many listeners.,行銷,2785
+immigration,immigration,名,入境審查；移民,We waited an hour at immigration.,旅行,2786
+tender,tender,名,投標,We submitted a tender for the project.,採購,2787
+density,density,名,密度,Check the density of the material.,製造,2788
+ugly,ugly,形,醜的,The old logo is a bit ugly.,行銷,2789
+module,module,名,模組；單元,Complete the first training module.,人事,2790
+faithfully,faithfully,副,忠實地；謹上,Yours faithfully John Smith,辦公,2791
+autumn,autumn,名,秋天,The new model comes out in autumn.,行銷,2792
+cheek,cheek,名,臉頰,He kissed her on the cheek.,日常,2793
+attachment,attachment,名,附件,Please see the attachment for details.,辦公,2794
+holder,holder,名,持有人,The card holder must sign here.,財務,2795
+solar,solar,形,太陽能的,The factory uses solar power.,製造,2796
+grin,grin,動,露齒而笑,He grinned when he heard the news.,日常,2797
+rose,rose,名,玫瑰,She received a dozen roses.,日常,2798
+noun,noun,名,名詞,This word is a noun.,日常,2799
+fortunate,fortunate,形,幸運的,We are fortunate to have you on the team.,人事,2800
+alright,alright,形,還好的；沒問題,Is it alright if I leave early?,日常,2801
+lazy,lazy,形,懶惰的,He is not lazy. He is just tired.,日常,2802
+hello,hello,感,你好,Hello. How can I help you?,日常,2803
+hunger,hunger,名,飢餓,The charity fights hunger.,日常,2804
+insure,insure,動,投保,Please insure the package.,採購,2805
+ashamed,ashamed,形,感到羞愧的,I am ashamed of my mistake.,日常,2806
+found,found,動,創立,The company was founded in 1990.,辦公,2807
+blog,blog,名,部落格,Read our blog for tips.,行銷,2808
+thirst,thirst,名,口渴；渴望,Drink water to ease your thirst.,日常,2809

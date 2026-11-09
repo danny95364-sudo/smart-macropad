@@ -16,10 +16,22 @@
 
 quit_hotkey = "ctrl+alt+shift+0"
 
-# 看板：sim = 電腦上的模擬視窗（自動開關）、serial = ESP32 CYD（還沒做）、off = 不用
+# 看板：sim = 電腦上的模擬視窗（自動開關）、serial = ESP32 CYD（USB 序列埠）、off = 不用
 # 每個模式可以加 color（看板模式色）和 knob（旋鈕總稱，例如「音量」）
-display = "sim"
+display = "serial"
 display_port = 47321
+# serial 用的序列埠，例如 "COM4"；空字串 = 自動找 CH340 / CP210x
+display_serial_port = ""
+# 看板上的鍵位 1↔6、2↔5、3↔4 對調（對齊實體鍵盤擺放方向）
+display_flip_keys = true
+
+# ── 背單字（CYD 多益單字卡，design/cyd-vocab-plan.md）──
+# enabled = true：CYD 給背單字用、看板不顯示；鍵 1 不會、2 會、旋鈕 左轉上一張、
+# 右轉下一張、按下翻面；3～6 照原本的動作。背單字.bat 會強制開啟（--vocab）。
+# 進度（progress.json、reviews.csv）不上傳；data_dir 找不到時改存 vocab/。
+[vocab]
+enabled = true  # 開機自動背單字（啟動.bat 放在 Windows 啟動資料夾）
+data_dir = "%OneDrive%/背單字進度"  # 家裡與公司用 OneDrive 同步進度；不要兩台同時開
 
 [hotkeys]
 1 = "ctrl+alt+shift+1"

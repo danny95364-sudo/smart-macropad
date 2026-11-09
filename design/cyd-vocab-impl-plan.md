@@ -14,18 +14,18 @@
 
 B 與 C 互不相依，可平行。A 的字表格式先定（下方），B 用假資料開發。
 
-## 段 A：字表 ☐
+## 段 A：字表 ◐（字表 1250 字、0 缺字；待使用者抽查 vocab/sample50.md）
 - 來源：TSL 1.2（CC BY-SA 4.0），檔頭註明出處與授權。
 - 先確認 TSL 是否每個 headword 只出現一次：是 → `id` = 單字（小寫）；否 → `id` = 單字|詞性。
 - 欄位（UTF-8、逗號分隔、有標頭）：`id,word,pos,zh,example,topic,rank`
   - `zh` ≤ 12 字；`example` ≤ 70 字元（螢幕 1.5 行，FreeSans 只有 ASCII，不可有彎引號、破折號等非 ASCII）。
   - `topic`：辦公、財務、人事、旅行、採購、製造、行銷、日常（固定 8 類）。
   - `rank`：TSL 頻率序。
-- 在家用 Claude 分批產生（每批 100 字），人工抽查 50 字。
+- 用 Claude Code 分批產生（每批 100 字；家裡或公司皆可，產生後 commit 到 GitHub），人工抽查 50 字。
 - `tools/check_glyphs.py`：把 `zh`、`pos` 所有字元比對韌體字型 efontTW_14／24 是否有字形（從 LovyanGFX 字型表取 code point 清單）；example 非 ASCII 也報錯。**完成標準：0 缺字。**
 
-## 段 B：排程 `macropad/vocab.py` ☐
-- 依賴：`fsrs`（py-fsrs）。公司不能連網 → 段 E 處理。若授權/大小允許，也可 vendor 到 `macropad/_vendor/fsrs`。
+## 段 B：排程 `macropad/vocab.py` ☑（13 測試全過；解讀細節見 vocab.py docstring）
+- 依賴：`fsrs`（py-fsrs），用 `uv add fsrs`（公司可連網安裝，2026-11-08 確認）。
 - 時鐘可注入（`now()` 函式參數），換日 04:00。
 - 資料：
   - `vocab/progress.json`：`{"version":1,"day_no":D,"day_key":"YYYY-MM-DD","today":{...計數...},"cards":{id:{"state":"learning|review","fsrs":{...},"grad":0|1,"grad_day":"..."}}}`；未出現的字不存。
@@ -49,7 +49,7 @@ B 與 C 互不相依，可平行。A 的字表格式先定（下方），B 用�
   10. 字表更新：找不到 id 的進度保留並記警告。
 - 測試 `tests/test_vocab.py`：每條規則一個測試 + 30 天模擬（隨機作答率 70%、跳過 2 天週末）檢查：不崩潰、新字不會連續多天 0、每日複習 ≤ 30、存檔可重載。
 
-## 段 C：序列埠協定 + 韌體 ☐
+## 段 C：序列埠協定 + 韌體 ◐（已燒錄、截圖全對；觸控 tap/hold 待實機按）
 序列埠 115200，UTF-8，一行一則，欄位用 Tab 分隔（不用 JSON，免裝 ArduinoJson）。韌體收行緩衝放大到 512 bytes。
 
 PC → 板子：
@@ -68,7 +68,7 @@ PC → 板子：
 - 拿掉寫死的 8 張卡；沒收到 `card` 前顯示「等待電腦連線」。
 - 驗收：用一支小腳本 `tools/cyd_send.py` 送假卡片，`tools/cyd_shot.py` 截圖確認學習卡正反面、due 卡、暫停、toast、最長 zh/example；狀態列「D12·新3」「答8·剩5」不重疊。
 
-## 段 D：整合常駐程式 ☐
+## 段 D：整合常駐程式 ◐（33 測試全過、板上冒煙測試通過；待家裡實測一天）
 - `config.toml` 加 `[vocab] enabled = true`；啟用時 CYD 由 vocab 使用，看板 display 不啟動（同一個 COM 埠只能一方用）。
 - 熱鍵：沿用 `HotkeyListener` 的 9 組；鍵 1、2、旋鈕（7 左、8 右、9 按）轉給 vocab，3～6 照原 actions。任何一組註冊失敗 → 啟動時報錯並結束（不是只印警告）。
 - 注意 `display_flip_keys`：game_bridge 送 7−實體鍵號，整合後在 PC 端統一換算成實體鍵號再分派。
@@ -80,9 +80,9 @@ PC → 板子：
 - 驗收：家裡實測一天，檢查 reviews.csv 筆數、換日備份、鎖定再解鎖能續播、拔插 USB 能恢復。
 
 ## 段 E：公司環境 ☐
-- 離線安裝：在家 `uv sync` 後把整個專案資料夾（含 `.venv`）帶去；或 vendor fsrs。公司不跑 `uv add`。
+- 公司：`git pull` + `uv sync`（可連網）。
 - 確認 CYD 插上不需裝驅動（CH340）；需要 → 停，問 IT。
-- 公司不燒韌體、不呼叫 AI。
+- 公司不燒韌體（不裝 PlatformIO）；Claude Code 可用於開發，背單字程式本身不呼叫 AI。
 
 ## 分工（依 CLAUDE.md）
 - A 的字表產生：general-purpose（需要判斷）；缺字檢查腳本：grunt。

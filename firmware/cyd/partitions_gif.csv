@@ -1,0 +1,7 @@
+# cyd_gif: no OTA, app 1MB, rest to LittleFS (label must be "spiffs", LittleFS.begin() default)
+# ASCII only: PlatformIO checkprogsize reads this file with the system codepage
+# Name,   Type, SubType, Offset,   Size
+nvs,      data, nvs,     0x9000,   0x5000
+factory,  app,  factory, 0x10000,  0x100000
+spiffs,   data, spiffs,  0x110000, 0x2E0000
+coredump, data, coredump,0x3F0000, 0x10000

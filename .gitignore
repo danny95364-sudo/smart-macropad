@@ -11,3 +11,20 @@ __pycache__/
 
 # 看板模擬視窗的位置與縮放（每台電腦自己記）
 display_sim.json
+tools/*
+!tools/cyd_shot.py
+!tools/cyd_send.py
+!tools/check_glyphs.py
+!tools/build_words.py
+# GIF 素材來源不明或使用者自備，不上傳（看 design/cyd-gif-plan.md）
+firmware/cyd/data/*.gif
+# 單台電腦的 Claude 交接檔，跨電腦交接寫在 PLAN.md
+HANDOFF.md
+
+# 背單字的個人進度（vocab/tsl.csv、README 要上傳）
+vocab/progress.json
+vocab/progress.json.*.tmp
+vocab/reviews.csv
+vocab/flags.csv
+vocab/backup/
+vocab_old_local/

@@ -4,7 +4,10 @@ cd /d "%~dp0"
 set "PYW=pythonw"
 where uv >nul 2>nul
 if %errorlevel%==0 (
+    rem Project venv has pyserial (needed for display = "serial")
+    uv sync --quiet --python 3.12 >nul 2>nul
     for /f "delims=" %%i in ('uv python find 3.12 2^>nul') do set "PY=%%i"
 )
 if defined PY set "PYW=%PY:python.exe=pythonw.exe%"
+if exist ".venv\Scripts\pythonw.exe" set "PYW=.venv\Scripts\pythonw.exe"
 start "" "%PYW%" -m macropad

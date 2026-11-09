@@ -3,4 +3,16 @@ name = "smart-macropad"
 version = "0.1.0"
 description = "依前景軟體切換功能的智慧快捷鍵盤常駐程式"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "fsrs>=6.3.2",
+    "pyserial>=3.5",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
